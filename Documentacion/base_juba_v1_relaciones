@@ -1,0 +1,146 @@
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Versión del servidor:         10.1.32-MariaDB - mariadb.org binary distribution
+-- SO del servidor:              Win32
+-- HeidiSQL Versión:             9.5.0.5196
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+-- Volcando estructura de base de datos para base_ca01
+CREATE DATABASE IF NOT EXISTS `base_ca01` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci */;
+USE `base_ca01`;
+
+-- Volcando estructura para tabla base_ca01.comedor_auto
+CREATE TABLE IF NOT EXISTS `comedor_auto` (
+  `id_ca` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `descripcion` varchar(100) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `capacidad_total` varchar(100) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `nivel_bateria` float DEFAULT '100',
+  `nivel_alimento` float DEFAULT '0',
+  `nivel_o` float DEFAULT '0',
+  `temperatura` float DEFAULT '0',
+  `tipo_alimento` varchar(100) COLLATE utf8_spanish_ci DEFAULT '0',
+  `distancia_recorrida` float DEFAULT '0',
+  `numero_activaciones` int(100) DEFAULT '0',
+  `estado` varchar(50) COLLATE utf8_spanish_ci DEFAULT '0',
+  `id_piscina` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_ca`),
+  KEY `r_piscina_ca` (`id_piscina`),
+  CONSTRAINT `r_piscina_ca` FOREIGN KEY (`id_piscina`) REFERENCES `piscina` (`id_piscina`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- Volcando datos para la tabla base_ca01.comedor_auto: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `comedor_auto` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comedor_auto` ENABLE KEYS */;
+
+-- Volcando estructura para tabla base_ca01.empresa
+CREATE TABLE IF NOT EXISTS `empresa` (
+  `id_empresa` int(10) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `ruc` varchar(12) COLLATE utf8_spanish_ci NOT NULL DEFAULT '099999999001',
+  `direccion_oficina` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `direccion_planta` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `telefono` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
+  `correo` varchar(25) COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`id_empresa`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- Volcando datos para la tabla base_ca01.empresa: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `empresa` DISABLE KEYS */;
+/*!40000 ALTER TABLE `empresa` ENABLE KEYS */;
+
+-- Volcando estructura para tabla base_ca01.evento
+CREATE TABLE IF NOT EXISTS `evento` (
+  `id_evento` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(25) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `descripcion` varchar(100) COLLATE utf8_spanish_ci DEFAULT '0',
+  `tipo` varchar(15) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `prioridad` varchar(6) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `nivel_bateria` float NOT NULL DEFAULT '0',
+  `nivel_alimento` float NOT NULL DEFAULT '0',
+  `nivel_o` float NOT NULL DEFAULT '0',
+  `temperatura` float NOT NULL DEFAULT '0',
+  `id_ca` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_evento`),
+  KEY `r_evento_ca` (`id_ca`),
+  CONSTRAINT `r_evento_ca` FOREIGN KEY (`id_ca`) REFERENCES `comedor_auto` (`id_ca`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- Volcando datos para la tabla base_ca01.evento: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `evento` DISABLE KEYS */;
+/*!40000 ALTER TABLE `evento` ENABLE KEYS */;
+
+-- Volcando estructura para tabla base_ca01.piscina
+CREATE TABLE IF NOT EXISTS `piscina` (
+  `id_piscina` int(10) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `descripcion` varchar(100) COLLATE utf8_spanish_ci DEFAULT '0',
+  `ubicacion` varchar(50) COLLATE utf8_spanish_ci DEFAULT '0',
+  `longitud_ancho` float NOT NULL DEFAULT '0',
+  `longitud_largo` float NOT NULL DEFAULT '0',
+  `area` float NOT NULL DEFAULT '0',
+  `tipo` varchar(10) COLLATE utf8_spanish_ci DEFAULT '0',
+  `forma` varchar(10) COLLATE utf8_spanish_ci DEFAULT '0',
+  `poblacion_actual` int(100) DEFAULT '0',
+  `id_empresa` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_piscina`),
+  KEY `r_empresa_piscina` (`id_empresa`),
+  CONSTRAINT `r_empresa_piscina` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id_empresa`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- Volcando datos para la tabla base_ca01.piscina: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `piscina` DISABLE KEYS */;
+/*!40000 ALTER TABLE `piscina` ENABLE KEYS */;
+
+-- Volcando estructura para tabla base_ca01.producto
+CREATE TABLE IF NOT EXISTS `producto` (
+  `id_producto` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `nombre_cientifico` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `masa_total` float NOT NULL,
+  `masa_actual` float NOT NULL,
+  `masa_minima` float NOT NULL DEFAULT '0',
+  `fecha_expiracion` timestamp NULL DEFAULT NULL,
+  `id_ca` int(10) NOT NULL,
+  PRIMARY KEY (`id_producto`),
+  KEY `r_producto_ca` (`id_ca`),
+  CONSTRAINT `r_producto_ca` FOREIGN KEY (`id_ca`) REFERENCES `comedor_auto` (`id_ca`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- Volcando datos para la tabla base_ca01.producto: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `producto` DISABLE KEYS */;
+/*!40000 ALTER TABLE `producto` ENABLE KEYS */;
+
+-- Volcando estructura para tabla base_ca01.usuario
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `id_usuario` int(10) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `apellido` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `cedula` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
+  `edad` int(10) NOT NULL DEFAULT '18',
+  `telefono` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `celular` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
+  `direccion` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `tipo` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
+  `cargo` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
+  `fecha_inicio` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `id_empresa` int(10) NOT NULL,
+  PRIMARY KEY (`id_usuario`),
+  KEY `relacion_usuario_empresa` (`id_empresa`),
+  CONSTRAINT `relacion_usuario_empresa` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id_empresa`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- Volcando datos para la tabla base_ca01.usuario: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
