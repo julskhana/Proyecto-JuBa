@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 27-07-2018 a las 01:50:53
+-- Tiempo de generación: 27-07-2018 a las 03:42:50
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 5.6.36
 
@@ -70,6 +70,13 @@ CREATE TABLE `empresa` (
   `telefono` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
   `correo` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `empresa`
+--
+
+INSERT INTO `empresa` (`id_empresa`, `nombre`, `ruc`, `direccion`, `direccion_planta`, `telefono`, `correo`) VALUES
+(1, 'Marbeth', '0990227322001', 'Huancavilca 2128 y Tulcan', 'Chupaderos chicos frente Isla Puna', '2291171', 'marbeth@on.net.ec');
 
 -- --------------------------------------------------------
 
@@ -195,6 +202,8 @@ CREATE TABLE `producto` (
 
 CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL,
+  `cuenta` varchar(15) COLLATE utf8_spanish_ci NOT NULL,
+  `clave` varchar(32) COLLATE utf8_spanish_ci NOT NULL,
   `nombres` varchar(50) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
   `apellidos` varchar(50) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
   `cedula` varchar(10) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
@@ -316,7 +325,7 @@ ALTER TABLE `comedor_auto`
 -- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `id_empresa` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_empresa` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `evento`
