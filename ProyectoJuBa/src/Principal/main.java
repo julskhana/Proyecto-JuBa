@@ -5,6 +5,7 @@
  */
 package Principal;
 
+import Formularios.frmAutenticacion;
 import Formularios.frmPrincipal;
 
 /**
@@ -20,8 +21,13 @@ public class main {
         // TODO code application logic here
         System.out.println("Sistema De Alimentacion Automatica JUBA\nProyecto Materia Integradora - LICRED - 2018 - ESPOL\n");
         
-        frmPrincipal p = new frmPrincipal();
-        p.setVisible(true);
+        //inicio sin autenticacion
+        //frmPrincipal p = new frmPrincipal();
+        //p.setVisible(true);
+        
+        //inicio con autenticacion
+        frmAutenticacion a = new frmAutenticacion();
+        a.setVisible(true);
     }
     
 }

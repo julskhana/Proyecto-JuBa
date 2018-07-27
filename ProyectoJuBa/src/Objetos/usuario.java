@@ -29,11 +29,12 @@ public class usuario implements Serializable{
     private String tipo;
     private String cargo;
     private Date fecha_inicio;
+    private String estado;
     private int id_empresa;
     
     //constructor
 
-    public usuario(int id, String cuenta, String clave, String nombres, String apellidos, String cedula, int edad, String direccion, String telefono, String celular, String correo, String tipo, String cargo, Date fecha_inicio ,int id_empresa) {
+    public usuario(int id, String cuenta, String clave, String nombres, String apellidos, String cedula, int edad, String direccion, String telefono, String celular, String correo, String tipo, String cargo, Date fecha_inicio,String estado ,int id_empresa) {
         this.id_usuario = id;
         this.cuenta=cuenta;
         this.clave=clave;
@@ -48,11 +49,12 @@ public class usuario implements Serializable{
         this.tipo = tipo;
         this.cargo = cargo;
         this.fecha_inicio=fecha_inicio; //AAAA-MM-DD
+        this.estado=estado;
         this.id_empresa = id_empresa;
     }
 
     //constructor para ingresar en base de datos
-    public usuario( String cuenta, String clave,String nombres, String apellidos, String cedula, int edad, String direccion, String telefono, String celular, String correo, String tipo, String cargo, Date fecha_inicio,int id_empresa) {
+    public usuario( String cuenta, String clave,String nombres, String apellidos, String cedula, int edad, String direccion, String telefono, String celular, String correo, String tipo, String cargo, Date fecha_inicio,String estado,int id_empresa) {
         this.cuenta=cuenta;
         this.clave=clave;
         this.nombres = nombres;
@@ -66,6 +68,7 @@ public class usuario implements Serializable{
         this.tipo = tipo;
         this.cargo = cargo;
         this.fecha_inicio=fecha_inicio;
+        this.estado=estado;
         this.id_empresa = id_empresa;
     }
     
@@ -130,6 +133,10 @@ public class usuario implements Serializable{
         this.fecha_inicio = fecha_inicio;
     }
 
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
     public void setId_empresa(int id_empresa) {
         this.id_empresa = id_empresa;
     }
@@ -190,6 +197,10 @@ public class usuario implements Serializable{
 
     public Date getFecha_inicio() {
         return fecha_inicio;
+    }
+
+    public String getEstado() {
+        return estado;
     }
     
     public int getId_empresa() {

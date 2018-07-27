@@ -99,7 +99,7 @@ public class ConexionBD {
     public boolean ingresarUsuario(usuario u){
         try{
             PreparedStatement st=null;
-            st = con.prepareStatement("INSERT INTO usuario (cuenta,clave,nombres,apellidos,cedula,edad,direccion,telefono,celular,correo,tipo,cargo,fecha_inicio,id_empresa) VALUES(?,md5(?),?,?,?,?,?,?,?,?,?,?,?,?);");
+            st = con.prepareStatement("INSERT INTO usuario (cuenta,clave,nombres,apellidos,cedula,edad,direccion,telefono,celular,correo,tipo,cargo,fecha_inicio,estado,id_empresa) VALUES(?,md5(?),?,?,?,?,?,?,?,?,?,?,?,?,?);");
             st.setString(1,u.getCuenta());
             st.setString(2,u.getClave());
             st.setString(3,u.getNombres());
@@ -113,7 +113,8 @@ public class ConexionBD {
             st.setString(11,u.getTipo());
             st.setString(12,u.getCargo());
             st.setDate(13,u.getFecha_inicio()); //AAAA-MM-DD
-            st.setInt(14,u.getId_empresa());
+            st.setString(14,u.getEstado());
+            st.setInt(15,u.getId_empresa());
             
             st.executeUpdate();
             st.close();
@@ -126,6 +127,32 @@ public class ConexionBD {
         }
     }
     
+    public boolean esUsuarioValido(usuario u){        
+        boolean resultado = false;
+        ResultSet rs = null;
+        PreparedStatement st = null;
+        try{
+            st = con.prepareStatement("SELECT * FROM usuario WHERE cuenta = ? AND clave = md5(?) AND estado = ?");            
+            st.setString(1,u.getCuenta());         
+            st.setString(2,u.getClave());
+            st.setString(3,"A");
+            rs = st.executeQuery();            
+            if(rs.next()){
+                u.setTipo(rs.getString("tipo"));
+                resultado = true;
+                System.out.println("usuario valido y activo...");
+            }else{
+                System.out.println("usuario despedido...");
+            }
+            rs.close();
+            st.close();
+        }
+        catch(SQLException e){
+            System.out.println("Error al consultar usuario. "+ e);
+            resultado = false;
+        }           
+     return resultado; 
+    }
     
     /**
     //FUNCIONES DE PROYECTO RESTAURANTE
