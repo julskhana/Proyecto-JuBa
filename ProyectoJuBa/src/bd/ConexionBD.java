@@ -22,7 +22,7 @@ public class ConexionBD {
        private static final String HOST = "127.0.0.1";
        private static final String PORT = "3306";
        //base de datos
-       private static final String DATABASE = "base_juba_v1";  //cortejamiento: utf8_spanish_ci
+       private static final String DATABASE = "base_juba";  //cortejamiento: utf8_spanish_ci
        private static final String USER = "root";
        private static final String PASSWORD = "";
 
