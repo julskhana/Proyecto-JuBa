@@ -1,5 +1,5 @@
 # Proyecto-JuBa
-Proyecto Titulacion LicRed Espol 2018
+Proyecto Titulación LicRed Espol 2018
 
 # Integrantes
 	Julian Bajaña
@@ -9,6 +9,6 @@ Proyecto Titulacion LicRed Espol 2018
 Materia Integradora 2018
 
 # TEMA
-Sistema de Alimentacion Automatica para Camarones
+Sistema de Alimentación Automática para Camaroneras
 
 Empresa: Marbeth S.A.
