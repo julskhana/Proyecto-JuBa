@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 28-07-2018 a las 05:31:03
+-- Tiempo de generación: 30-07-2018 a las 19:13:06
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 5.6.36
 
@@ -48,7 +48,7 @@ CREATE TABLE `alimentador_auto` (
 
 CREATE TABLE `alimento` (
   `id_alimento` int(10) NOT NULL,
-  `nombre` varchar(20) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `nombre` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `descripcion` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `tipo` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL,
   `masa_total` float NOT NULL,
@@ -219,6 +219,14 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `cuenta`, `clave`, `nombres`, `apellidos`, `cedula`, `edad`, `direccion`, `telefono`, `celular`, `correo`, `tipo`, `cargo`, `fecha_inicio`, `id_empresa`) VALUES
+(3, 'jbajana', '202cb962ac59075b964b07152d234b70', 'Julian', 'Bajaña', '0999999940', 26, 'Mirador del Norte', '2041400', '0982947028', 'jbajana@espol.edu.ec', 'administrador', 'tecnico', '2018-07-30', 1),
+(4, 'jjunqui', '202cb962ac59075b964b07152d234b70', 'Jerson', 'Junqui', '0999999240', 26, 'Guayaquil', '0422222', '0999999992', 'jjunqui@espol.edu.ec', 'administrador', 'tecnico', '2018-07-30', 1);
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -373,7 +381,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
