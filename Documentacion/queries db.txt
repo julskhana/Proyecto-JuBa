@@ -3,4 +3,6 @@ INSERT into empresa (nombre,ruc,direccion,direccion_planta,telefono,correo) VALU
 
 INSERT INTO usuario (cuenta,clave,nombres,apellidos,cedula,edad,direccion,telefono,celular,correo,tipo,cargo,fecha_inicio,id_empresa) VALUES(?,md5(?),?,?,?,?,?,?,?,?,?,?,?,?);
 
-INSERT INTO usuario (cuenta,clave,nombres,apellidos,cedula,edad,direccion,telefono,celular,correo,tipo,cargo,fecha_inicio,id_empresa) VALUES("jbajana",md5("123"),"Julian","Bajaña","0999999940",26,"Mirador del Norte","2041400","0982947028","jbajana@espol.edu.ec","administrador","tecnico","",1);
+INSERT INTO usuario (cuenta,clave,nombres,apellidos,cedula,edad,direccion,telefono,celular,correo,tipo,cargo,fecha_inicio,id_empresa) VALUES("jbajana",md5("123"),"Julian","Bajaña","0999999940",26,"Mirador del Norte","2041400","0982947028","jbajana@espol.edu.ec","administrador","tecnico","2018-07-30",1);
+
+INSERT INTO usuario (cuenta,clave,nombres,apellidos,cedula,edad,direccion,telefono,celular,correo,tipo,cargo,fecha_inicio,id_empresa) VALUES("jjunqui",md5("123"),"Jerson","Junqui","0999999240",26,"Guayaquil","0422222","0999999992","jjunqui@espol.edu.ec","administrador","tecnico","2018-07-30",1);
