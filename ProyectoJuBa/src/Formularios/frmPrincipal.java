@@ -29,14 +29,24 @@ public class frmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         jMenuBar1 = new javax.swing.JMenuBar();
         mArchivo = new javax.swing.JMenu();
         miCuenta = new javax.swing.JMenuItem();
         miSalir = new javax.swing.JMenuItem();
         mMantenimiento = new javax.swing.JMenu();
         mProcesos = new javax.swing.JMenu();
+        mTablero = new javax.swing.JMenu();
         mAyuda = new javax.swing.JMenu();
         miAcercaDe = new javax.swing.JMenuItem();
+
+        jMenu1.setText("File");
+        jMenuBar2.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar2.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema JuBa 2018 - MI LicRed");
@@ -61,6 +71,9 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         mProcesos.setText("Procesos");
         jMenuBar1.add(mProcesos);
+
+        mTablero.setText("Tablero");
+        jMenuBar1.add(mTablero);
 
         mAyuda.setText("Ayuda");
 
@@ -112,11 +125,15 @@ public class frmPrincipal extends javax.swing.JFrame {
      */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenu mArchivo;
     private javax.swing.JMenu mAyuda;
     private javax.swing.JMenu mMantenimiento;
     private javax.swing.JMenu mProcesos;
+    private javax.swing.JMenu mTablero;
     private javax.swing.JMenuItem miAcercaDe;
     private javax.swing.JMenuItem miCuenta;
     private javax.swing.JMenuItem miSalir;

@@ -136,31 +136,31 @@ public class frmAutenticacion extends javax.swing.JFrame {
         String usuario = tfUsuario.getText();
         String clave = String.valueOf(pfClave.getPassword());
         
-        /*
+        
         ConexionBD c = new ConexionBD();
         try {
             c.conectar();
             usuario u = new usuario(usuario, clave);
-            if(c.esUsuarioValido(u)){
+            if(c.esUsuarioValido(u)&&c.esEmpresaValida(empresa)){
                 //olvidar clave  de usuario activo en sistema
                 u.setClave(null);
                 JOptionPane.showMessageDialog(null,"Bienvenido "+usuario+".","Autenticación",JOptionPane.INFORMATION_MESSAGE);
                 System.out.println("Usuario correcto");
                 //cargando datos del usuario autenticado
-                u = c.obtenerDatosUsuario(usuario);            
-                frmPrincipal ingreso = new frmPrincipal(u);
+                //u = c.obtenerDatosUsuario(usuario);            
+                frmPrincipal ingreso = new frmPrincipal();
                 ingreso.setVisible(true);
                 this.dispose();
             }else{
-                JOptionPane.showMessageDialog(null,"Usuario o Clave Incorrectos","Autenticación",JOptionPane.ERROR_MESSAGE);                        
-                System.out.println("Usuario o clave incorrecto");
+                JOptionPane.showMessageDialog(null,"Empresa/Usuario o Clave Incorrectos","Autenticación",JOptionPane.ERROR_MESSAGE);                        
+                System.out.println("Empresa/Usuario o clave incorrecto");
                 limpiar();
             }
             c.desconectar();
         }catch (Exception e){
             System.out.println(e);
         }
-        */
+        
     }//GEN-LAST:event_btIngresarActionPerformed
 
     private void btLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimpiarActionPerformed

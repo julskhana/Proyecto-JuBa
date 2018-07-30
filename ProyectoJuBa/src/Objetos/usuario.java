@@ -76,6 +76,14 @@ public class usuario implements Serializable{
     public usuario() {
     }
     
+    //constructor para consultar a base de datos - Autenticacion
+
+    public usuario(String cuenta, String clave) {
+        this.cuenta = cuenta;
+        this.clave = clave;
+    }
+    
+    
     //set
     public void setId(int id) {
         this.id_usuario = id;

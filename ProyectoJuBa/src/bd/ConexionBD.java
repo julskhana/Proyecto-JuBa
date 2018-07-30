@@ -132,15 +132,17 @@ public class ConexionBD {
         ResultSet rs = null;
         PreparedStatement st = null;
         try{
-            st = con.prepareStatement("SELECT * FROM usuario WHERE cuenta = ? AND clave = md5(?) AND estado = ?");            
+            //st = con.prepareStatement("SELECT * FROM usuario WHERE cuenta = ? AND clave = md5(?) AND tipo = ?");            
+            st = con.prepareStatement("SELECT * FROM usuario WHERE cuenta = ? AND clave = md5(?);");            
             st.setString(1,u.getCuenta());         
             st.setString(2,u.getClave());
-            st.setString(3,"A");
+            //st.setString(3,"A");
             rs = st.executeQuery();            
             if(rs.next()){
                 u.setTipo(rs.getString("tipo"));
                 resultado = true;
                 System.out.println("usuario valido y activo...");
+                System.out.println(u.getCuenta()+" - "+u.getTipo());
             }else{
                 System.out.println("usuario despedido...");
             }
@@ -149,6 +151,32 @@ public class ConexionBD {
         }
         catch(SQLException e){
             System.out.println("Error al consultar usuario. "+ e);
+            resultado = false;
+        }           
+     return resultado; 
+    }
+    
+    public boolean esEmpresaValida(String emp){        
+        boolean resultado = false;
+        ResultSet rs = null;
+        PreparedStatement st = null;
+        try{
+            st = con.prepareStatement("SELECT nombre FROM empresa WHERE nombre = ?;");            
+            //st.setString(1,emp.getNombre());         
+            st.setString(1,emp);
+            rs = st.executeQuery();            
+            if(rs.next()){
+                //emp.setNombre(rs.getString("nombre"));
+                resultado = true;
+                System.out.println("Empresa valida:"+emp);
+            }else{
+                System.out.println("Empresa invalida...");
+            }
+            rs.close();
+            st.close();
+        }
+        catch(SQLException e){
+            System.out.println("Error al consultar empresa. "+ e);
             resultado = false;
         }           
      return resultado; 
