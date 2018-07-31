@@ -1,1 +1,21 @@
-Julian Bajana
+Especificaciones PCs Desarrollo:
+
+PC 1 - Julian Bajaña
+  Dell Inspiron 14R 3437
+  OS: openSUSE 15.0
+  Kernel: x86_64 Linux 4.12.14-lp150.12.7-default
+  Shell: zsh 5.5
+  GNOME Shell 3.26.1
+  CPU: Intel Core i5-4200U @ 4x 2.6GHz
+  GPU: intel
+  RAM: 4098MiB / 7875MiB
+  JDK: java-1.8.0-openjdk-1.8.0
+  IDE: Netbeans 8.2
+  Servidor: Localhost via UNIX socket
+  Tipo de servidor: MariaDB
+  Versión del servidor: 10.1.32-MariaDB - Source distribution
+  Versión del protocolo: 10
+  Usuario: root@localhost
+  Conjunto de caracteres del servidor: UTF-8 Unicode (utf8)
+
+PC 2 - Junqui Jerson
