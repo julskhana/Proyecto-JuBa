@@ -60,9 +60,13 @@ public class frmSeleccionarEmpresa extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         tfcuenta_usuario = new javax.swing.JTextField();
+        cbSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Selección de Empresa");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        getContentPane().add(cbEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 64, 162, 32));
 
         btSeleccionar.setText("Seleccionar");
         btSeleccionar.addActionListener(new java.awt.event.ActionListener() {
@@ -70,44 +74,24 @@ public class frmSeleccionarEmpresa extends javax.swing.JFrame {
                 btSeleccionarActionPerformed(evt);
             }
         });
+        getContentPane().add(btSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 114, -1, -1));
 
         jLabel1.setText("Empresa/s:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 73, -1, -1));
 
         jLabel2.setText("Usuario:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 41, -1, -1));
 
         tfcuenta_usuario.setEditable(false);
+        getContentPane().add(tfcuenta_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 38, 162, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btSeleccionar)
-                    .addComponent(cbEmpresa, 0, 162, Short.MAX_VALUE)
-                    .addComponent(tfcuenta_usuario))
-                .addContainerGap(43, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfcuenta_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addComponent(btSeleccionar)
-                .addGap(17, 17, 17))
-        );
+        cbSalir.setText("salir");
+        cbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(267, 0, 60, 32));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -127,6 +111,15 @@ public class frmSeleccionarEmpresa extends javax.swing.JFrame {
             System.out.println(ex);
         }        
     }//GEN-LAST:event_btSeleccionarActionPerformed
+
+    private void cbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSalirActionPerformed
+        int opcion = JOptionPane.showConfirmDialog(this,"¿DESEA SALIR?","ATENCION",JOptionPane.YES_NO_OPTION);
+        if(opcion==0){
+            frmAutenticacion frm = new frmAutenticacion();
+            frm.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_cbSalirActionPerformed
     
     
     /**
@@ -136,6 +129,7 @@ public class frmSeleccionarEmpresa extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btSeleccionar;
     private javax.swing.JComboBox<String> cbEmpresa;
+    private javax.swing.JButton cbSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField tfcuenta_usuario;
