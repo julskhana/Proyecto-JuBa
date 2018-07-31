@@ -2,8 +2,8 @@
 -- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 30-07-2018 a las 19:33:11
+-- Servidor: localhost
+-- Tiempo de generación: 31-07-2018 a las 20:39:38
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 5.6.36
 
@@ -71,6 +71,15 @@ CREATE TABLE `empresa` (
   `correo` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
   `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `empresa`
+--
+
+INSERT INTO `empresa` (`id_empresa`, `nombre`, `ruc`, `direccion`, `direccion_planta`, `telefono`, `correo`, `id_usuario`) VALUES
+(1, 'Marbeth', '0990227322001', 'Huancavilca 2128 y Tulcan', 'Chupaderos chicos frente Isla Puna', '2291171', 'marbeth@on.net.ec', 2),
+(2, 'Pezcasol', '0922222222001', 'Guayaquil', 'Chupaderos chicos frente Isla Puna', '2291171', 'marbeth@on.net.ec', 1),
+(3, 'Camaron', '0990333333001', 'Guayaquil', 'Salinas', '2291171', 'empresa@camaron.com.', 1);
 
 -- --------------------------------------------------------
 
@@ -208,8 +217,18 @@ CREATE TABLE `usuario` (
   `correo` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
   `tipo` varchar(20) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
   `cargo` varchar(20) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `estado` char(1) COLLATE utf8_spanish_ci NOT NULL DEFAULT 'A',
   `fecha_inicio` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `cuenta`, `clave`, `nombres`, `apellidos`, `cedula`, `edad`, `direccion`, `telefono`, `celular`, `correo`, `tipo`, `cargo`, `estado`, `fecha_inicio`) VALUES
+(1, 'jbajana', '202cb962ac59075b964b07152d234b70', 'Julian', 'Bajaña', '0999999940', 26, 'Mirador del Norte', '2041400', '0982947028', 'jbajana@espol.edu.ec', 'administrador', 'tecnico', 'A', '2018-07-30'),
+(2, 'jjunqui', '202cb962ac59075b964b07152d234b70', 'Jerson', 'Junqui', '0999999240', 26, 'Guayaquil', '0422222', '0999999992', 'jjunqui@espol.edu.ec', 'administrador', 'tecnico', 'A', '2018-07-30'),
+(3, 'prueba', '202cb962ac59075b964b07152d234b70', 'prueba', 'dbeaver', '0999999340', 26, 'Guayaquil', '0433333', '0999999993', 'prueba@espol.edu.ec', 'administrador', 'tecnico', 'I', '2018-07-30');
 
 --
 -- Índices para tablas volcadas
@@ -318,7 +337,7 @@ ALTER TABLE `alimento`
 -- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `id_empresa` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_empresa` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `evento`
@@ -366,7 +385,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
