@@ -20,9 +20,10 @@ public class empresa implements Serializable{
     private String direccion_planta;
     private String telefono;
     private String correo;
+    private int id_usuario;
     
     //constructor
-    public empresa(int id_empresa, String nombre, String ruc, String direccion, String direccion_planta, String telefono, String correo) {
+    public empresa(int id_empresa, String nombre, String ruc, String direccion, String direccion_planta, String telefono, String correo, int id_usuario) {
         this.id_empresa = id_empresa;
         this.nombre = nombre;
         this.ruc = ruc;
@@ -30,17 +31,26 @@ public class empresa implements Serializable{
         this.direccion_planta = direccion_planta;
         this.telefono = telefono;
         this.correo = correo;
+        this.id_usuario=id_usuario;
+    }
+    
+    //constructor para cargar empresas despues de autenticacion
+
+    public empresa(int id_empresa, String nombre, int id_usuario) {
+        this.id_empresa = id_empresa;
+        this.nombre = nombre;
+        this.id_usuario = id_usuario;
     }
     
     //constructor para ingresar en base de datos
-
-    public empresa(String nombre, String ruc, String direccion, String direccion_planta, String telefono, String correo) {
+    public empresa(String nombre, String ruc, String direccion, String direccion_planta, String telefono, String correo, int id_usuario) {
         this.nombre = nombre;
         this.ruc = ruc;
         this.direccion = direccion;
         this.direccion_planta = direccion_planta;
         this.telefono = telefono;
         this.correo = correo;
+        this.id_usuario=id_usuario;
     }
     
     //constructor vacio
@@ -75,6 +85,10 @@ public class empresa implements Serializable{
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
+    }
     
     //get
 
@@ -104,6 +118,10 @@ public class empresa implements Serializable{
 
     public String getCorreo() {
         return correo;
+    }
+
+    public int getId_usuario() {
+        return id_usuario;
     }
     
 }

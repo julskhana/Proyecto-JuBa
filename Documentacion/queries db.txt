@@ -1,8 +1,13 @@
 
-INSERT into empresa (nombre,ruc,direccion,direccion_planta,telefono,correo) VALUES("Marbeth","0990227322001","Huancavilca 2128 y Tulcan","Chupaderos chicos frente Isla Puna","2291171","marbeth@on.net.ec");
+INSERT into empresa (nombre,ruc,direccion,direccion_planta,telefono,correo,id_usuario) VALUES("Marbeth","0990227322001","Huancavilca 2128 y Tulca","Chupaderos chicos frente Isla Puna","2291171","marbeth@on.net.ec",2);
+INSERT into empresa (nombre,ruc,direccion,direccion_planta,telefono,correo,id_usuario) VALUES("Pezcasol","0990227322001","Guayaquil","Chupaderos chicos frente Isla Puna","2291171","marbeth@on.net.ec",1);
+
+INSERT into empresa (nombre,ruc,direccion,direccion_planta,telefono,correo,id_usuario) VALUES("Camaron","0990333333001","Guayaquil","Salinas","2291171","empresa@camaron.com.ec",1);
 
 INSERT INTO usuario (cuenta,clave,nombres,apellidos,cedula,edad,direccion,telefono,celular,correo,tipo,cargo,fecha_inicio,id_empresa) VALUES(?,md5(?),?,?,?,?,?,?,?,?,?,?,?,?);
 
-INSERT INTO usuario (cuenta,clave,nombres,apellidos,cedula,edad,direccion,telefono,celular,correo,tipo,cargo,fecha_inicio,id_empresa) VALUES("jbajana",md5("123"),"Julian","Bajaña","0999999940",26,"Mirador del Norte","2041400","0982947028","jbajana@espol.edu.ec","administrador","tecnico","2018-07-30",1);
+INSERT INTO usuario (cuenta,clave,nombres,apellidos,cedula,edad,direccion,telefono,celular,correo,tipo,cargo,fecha_inicio) VALUES("jbajana",md5("123"),"Julian","Bajaña","0999999940",26,"Mirador del Norte","2041400","0982947028","jbajana@espol.edu.ec","administrador","tecnico","2018-07-30");
 
-INSERT INTO usuario (cuenta,clave,nombres,apellidos,cedula,edad,direccion,telefono,celular,correo,tipo,cargo,fecha_inicio,id_empresa) VALUES("jjunqui",md5("123"),"Jerson","Junqui","0999999240",26,"Guayaquil","0422222","0999999992","jjunqui@espol.edu.ec","administrador","tecnico","2018-07-30",1);
+INSERT INTO usuario (cuenta,clave,nombres,apellidos,cedula,edad,direccion,telefono,celular,correo,tipo,cargo,fecha_inicio) VALUES("jjunqui",md5("123"),"Jerson","Junqui","0999999240",26,"Guayaquil","0422222","0999999992","jjunqui@espol.edu.ec","administrador","tecnico","2018-07-30");
+
+INSERT INTO usuario (cuenta,clave,nombres,apellidos,cedula,edad,direccion,telefono,celular,correo,tipo,cargo,estado,fecha_inicio) VALUES("prueba",md5("123"),"prueba","dbeaver","0999999340",26,"Guayaquil","0433333","0999999993","prueba@espol.edu.ec","administrador","tecnico","I","2018-07-30");

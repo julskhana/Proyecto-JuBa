@@ -5,6 +5,7 @@
  */
 package Formularios;
 
+import Objetos.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,9 +16,18 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form frmPrincipal
+     * @param empresa
      */
-    public frmPrincipal() {
+    public frmPrincipal(empresa empresa, usuario u) {
         initComponents();
+        lbUsuario.setText(u.getNombres()+" "+u.getApellidos());
+        
+        tfnombre.setText(empresa.getNombre());
+        tfruc.setText(empresa.getRuc());
+        tfdireccion.setText(empresa.getDireccion());
+        tfdireccionplanta.setText(empresa.getDireccion_planta());
+        tftelefono.setText(empresa.getTelefono());
+        tfcorreo.setText(empresa.getCorreo());
     }
 
     /**
@@ -32,6 +42,19 @@ public class frmPrincipal extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        tfnombre = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        tfruc = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        tfdireccion = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        tfdireccionplanta = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        tftelefono = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        tfcorreo = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        lbUsuario = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mArchivo = new javax.swing.JMenu();
         miCuenta = new javax.swing.JMenuItem();
@@ -50,6 +73,40 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema JuBa 2018 - MI LicRed");
+
+        tfnombre.setEditable(false);
+
+        jLabel1.setText("Empresa:");
+
+        tfruc.setEditable(false);
+
+        jLabel2.setText("RUC:");
+
+        tfdireccion.setEditable(false);
+
+        jLabel3.setText("Dirección:");
+
+        tfdireccionplanta.setEditable(false);
+
+        jLabel4.setText("Dirección Planta:");
+
+        tftelefono.setEditable(false);
+        tftelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tftelefonoActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Teléfono:");
+
+        tfcorreo.setEditable(false);
+        tfcorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfcorreoActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Correo:");
 
         mArchivo.setText("Archivo");
 
@@ -93,11 +150,67 @@ public class frmPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 608, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfruc, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfdireccionplanta, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tftelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfcorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 295, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tfnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1))
+                    .addComponent(lbUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfruc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfdireccionplanta, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tftelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfcorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         pack();
@@ -120,15 +233,30 @@ public class frmPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_miSalirActionPerformed
 
+    private void tftelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tftelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tftelefonoActionPerformed
+
+    private void tfcorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfcorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfcorreoActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JLabel lbUsuario;
     private javax.swing.JMenu mArchivo;
     private javax.swing.JMenu mAyuda;
     private javax.swing.JMenu mMantenimiento;
@@ -137,5 +265,11 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem miAcercaDe;
     private javax.swing.JMenuItem miCuenta;
     private javax.swing.JMenuItem miSalir;
+    private javax.swing.JTextField tfcorreo;
+    private javax.swing.JTextField tfdireccion;
+    private javax.swing.JTextField tfdireccionplanta;
+    private javax.swing.JTextField tfnombre;
+    private javax.swing.JTextField tfruc;
+    private javax.swing.JTextField tftelefono;
     // End of variables declaration//GEN-END:variables
 }

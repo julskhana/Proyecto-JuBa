@@ -99,7 +99,7 @@ public class ConexionBD {
     public boolean ingresarUsuario(usuario u){
         try{
             PreparedStatement st=null;
-            st = con.prepareStatement("INSERT INTO usuario (cuenta,clave,nombres,apellidos,cedula,edad,direccion,telefono,celular,correo,tipo,cargo,fecha_inicio,estado,id_empresa) VALUES(?,md5(?),?,?,?,?,?,?,?,?,?,?,?,?,?);");
+            st = con.prepareStatement("INSERT INTO usuario (cuenta,clave,nombres,apellidos,cedula,edad,direccion,telefono,celular,correo,tipo,cargo,fecha_inicio,estado) VALUES(?,md5(?),?,?,?,?,?,?,?,?,?,?,?,?);");
             st.setString(1,u.getCuenta());
             st.setString(2,u.getClave());
             st.setString(3,u.getNombres());
@@ -112,9 +112,9 @@ public class ConexionBD {
             st.setString(10,u.getCorreo());
             st.setString(11,u.getTipo());
             st.setString(12,u.getCargo());
-            st.setDate(13,u.getFecha_inicio()); //AAAA-MM-DD
-            st.setString(14,u.getEstado());
-            st.setInt(15,u.getId_empresa());
+            st.setString(13,u.getEstado());
+            st.setDate(14,u.getFecha_inicio()); //AAAA-MM-DD
+            //st.setInt(15,u.getId_empresa());
             
             st.executeUpdate();
             st.close();
@@ -132,14 +132,14 @@ public class ConexionBD {
         ResultSet rs = null;
         PreparedStatement st = null;
         try{
-            //st = con.prepareStatement("SELECT * FROM usuario WHERE cuenta = ? AND clave = md5(?) AND tipo = ?");            
-            st = con.prepareStatement("SELECT * FROM usuario WHERE cuenta = ? AND clave = md5(?);");            
+            st = con.prepareStatement("SELECT * FROM usuario WHERE cuenta = ? AND clave = md5(?) AND estado = ?");
+            //st = con.prepareStatement("SELECT * FROM usuario WHERE cuenta = ? AND clave = md5(?);");            
             st.setString(1,u.getCuenta());         
             st.setString(2,u.getClave());
-            //st.setString(3,"A");
+            st.setString(3,"A");
             rs = st.executeQuery();            
             if(rs.next()){
-                u.setTipo(rs.getString("tipo"));
+                u.setTipo(rs.getString("estado"));
                 resultado = true;
                 System.out.println("usuario valido y activo...");
                 System.out.println(u.getCuenta()+" - "+u.getTipo());
@@ -181,6 +181,91 @@ public class ConexionBD {
         }           
      return resultado; 
     }
+    
+    //consultas
+    //funcion para obtener obejtos usuarios desde cuenta
+    public usuario obtenerDatosUsuario(String cuenta){
+        usuario u = new usuario();
+        ResultSet rs = null;                       
+        PreparedStatement st = null;
+        try{
+            st = con.prepareStatement("SELECT * FROM usuario WHERE cuenta = ?;");            
+            st.setString(1,cuenta);         
+            rs = st.executeQuery();            
+            if(rs.next()){
+                u.setId(rs.getInt("id_usuario"));
+                u.setCuenta(cuenta);
+                u.setNombres(rs.getString("nombres"));
+                u.setApellidos(rs.getString("apellidos"));
+                u.setCedula(rs.getString("cedula"));
+                u.setEdad(rs.getInt("edad"));
+                u.setDireccion(rs.getString("direccion"));
+                u.setTelefono(rs.getString("telefono"));
+                u.setCelular(rs.getString("celular"));
+                u.setCorreo(rs.getString("correo"));
+                u.setTipo(rs.getString("tipo"));
+                u.setCargo(rs.getString("cargo"));
+                u.setEstado(rs.getString("estado"));
+                u.setFecha_inicio(rs.getDate("fecha_inicio"));
+                
+                System.out.println("Datos de usuario obtenidos...");
+            }
+            rs.close();
+            st.close();
+        }catch(SQLException e){
+            System.out.println(e);
+        }           
+        return u; 
+    }
+    
+    //consulta de seleccion de empresa despues de autenticacion
+    public ArrayList<empresa> cargarEmpresas(int id_usuario){        
+        ArrayList<empresa> registroE = new ArrayList<empresa>();
+        try{
+            Statement st = this.con.createStatement();
+            ResultSet rs = null;
+            rs = st.executeQuery("SELECT * FROM empresa where id_usuario = "+id_usuario+";");
+            while (rs.next()){
+                int id = rs.getInt("id_empresa");
+                String nombre = rs.getString("nombre");
+                empresa emp = new empresa(id, nombre,id_usuario);
+                registroE.add(emp);
+            }
+            System.out.println("empresas consultadas.");
+        }catch (Exception e){
+            System.out.println("error en consulta de empresas."+e);
+        }
+        return registroE;
+    }
+
+    //obtener datos empresa
+    public empresa obtenerDatosEmpresa(String nombre){
+        empresa emp = new empresa();
+        ResultSet rs = null;                       
+        PreparedStatement st = null;
+        try{
+            st = con.prepareStatement("SELECT * FROM empresa WHERE nombre = ?;");            
+            st.setString(1,nombre);         
+            rs = st.executeQuery();            
+            if(rs.next()){
+                emp.setId_empresa(rs.getInt("id_empresa"));
+                emp.setNombre(nombre);
+                emp.setRuc(rs.getString("ruc"));
+                emp.setDireccion(rs.getString("direccion"));
+                emp.setDireccion_planta(rs.getString("direccion_planta"));
+                emp.setTelefono(rs.getString("telefono"));
+                emp.setCorreo(rs.getString("correo"));
+                System.out.println("Datos de empresa obtenidos...");
+            }
+            rs.close();
+            st.close();
+        }catch(SQLException e){
+            System.out.println(e);
+        }           
+        return emp; 
+    }
+    
+    
     
     /**
     //FUNCIONES DE PROYECTO RESTAURANTE

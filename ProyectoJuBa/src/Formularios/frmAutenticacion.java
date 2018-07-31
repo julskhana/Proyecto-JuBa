@@ -42,20 +42,16 @@ public class frmAutenticacion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btIngresar = new javax.swing.JButton();
         icono_candado = new javax.swing.JLabel();
-        tfEmpresa = new javax.swing.JTextField();
         tfUsuario = new javax.swing.JTextField();
         pfClave = new javax.swing.JPasswordField();
         btLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Autenticación - JUBA");
-
-        jLabel1.setText("Empresa:");
 
         jLabel2.setText("Usuario:");
 
@@ -80,9 +76,8 @@ public class frmAutenticacion extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(icono_candado, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(58, 58, 58)
@@ -94,22 +89,17 @@ public class frmAutenticacion extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfEmpresa)
-                            .addComponent(tfUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                            .addComponent(pfClave)))
+                            .addComponent(tfUsuario)
+                            .addComponent(pfClave, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(btLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(tfEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(icono_candado, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -120,40 +110,38 @@ public class frmAutenticacion extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(pfClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btIngresar)
                     .addComponent(btLimpiar))
-                .addGap(17, 17, 17))
+                .addGap(23, 23, 23))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIngresarActionPerformed
-        // TODO add your handling code here:
-        String empresa = tfEmpresa.getText();
-        String usuario = tfUsuario.getText();
+        // TODO add your handling code here:        
+        String cuenta = tfUsuario.getText();
         String clave = String.valueOf(pfClave.getPassword());
-        
         
         ConexionBD c = new ConexionBD();
         try {
             c.conectar();
-            usuario u = new usuario(usuario, clave);
-            if(c.esUsuarioValido(u)&&c.esEmpresaValida(empresa)){
+            usuario u = new usuario(cuenta, clave);
+            if(c.esUsuarioValido(u)){
                 //olvidar clave  de usuario activo en sistema
-                u.setClave(null);
-                JOptionPane.showMessageDialog(null,"Bienvenido "+usuario+".","Autenticación",JOptionPane.INFORMATION_MESSAGE);
+                u = c.obtenerDatosUsuario(tfUsuario.getText());
+                JOptionPane.showMessageDialog(null,"Bienvenido "+u.getNombres()+" "+u.getApellidos()+".","Autenticación",JOptionPane.INFORMATION_MESSAGE);
                 System.out.println("Usuario correcto");
                 //cargando datos del usuario autenticado
-                //u = c.obtenerDatosUsuario(usuario);            
-                frmPrincipal ingreso = new frmPrincipal();
-                ingreso.setVisible(true);
+                frmSeleccionarEmpresa se = new frmSeleccionarEmpresa(u);
+                se.setVisible(true);
                 this.dispose();
+                u.setClave(null);
             }else{
-                JOptionPane.showMessageDialog(null,"Empresa/Usuario o Clave Incorrectos","Autenticación",JOptionPane.ERROR_MESSAGE);                        
-                System.out.println("Empresa/Usuario o clave incorrecto");
+                JOptionPane.showMessageDialog(null,"Usuario o Clave Incorrectos","Autenticación",JOptionPane.ERROR_MESSAGE);                        
+                System.out.println("Usuario o clave incorrecto");
                 limpiar();
             }
             c.desconectar();
@@ -173,7 +161,6 @@ public class frmAutenticacion extends javax.swing.JFrame {
      */
     
     private void limpiar(){
-        tfEmpresa.setText("");
         tfUsuario.setText("");
         pfClave.setText("");
     }
@@ -182,11 +169,9 @@ public class frmAutenticacion extends javax.swing.JFrame {
     private javax.swing.JButton btIngresar;
     private javax.swing.JButton btLimpiar;
     private javax.swing.JLabel icono_candado;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField pfClave;
-    private javax.swing.JTextField tfEmpresa;
     private javax.swing.JTextField tfUsuario;
     // End of variables declaration//GEN-END:variables
 }
