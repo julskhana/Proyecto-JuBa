@@ -122,7 +122,7 @@ public class frmSeleccionarEmpresa extends javax.swing.JFrame {
             c.desconectar();
             frmPrincipal p = new frmPrincipal(e, u);
             p.setVisible(true);
-            this.dispose();
+            //this.dispose();
         }catch(Exception ex){
             System.out.println(ex);
         }        
