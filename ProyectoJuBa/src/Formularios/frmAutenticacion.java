@@ -135,7 +135,7 @@ public class frmAutenticacion extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Bienvenido "+u.getNombres()+" "+u.getApellidos()+".","Autenticación",JOptionPane.INFORMATION_MESSAGE);
                 System.out.println("Usuario correcto");
                 //cargando datos del usuario autenticado
-                frmSeleccionarEmpresa se = new frmSeleccionarEmpresa(u);
+                frmSeleccionarEmpresas se = new frmSeleccionarEmpresas(u);
                 se.setVisible(true);
                 this.dispose();
                 u.setClave(null);

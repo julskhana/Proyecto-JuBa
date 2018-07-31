@@ -71,7 +71,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         jMenu2.setText("Edit");
         jMenuBar2.add(jMenu2);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sistema JuBa 2018 - MI LicRed");
 
         tfnombre.setEditable(false);
@@ -227,8 +227,8 @@ public class frmPrincipal extends javax.swing.JFrame {
         int opt1= JOptionPane.showConfirmDialog(this,"¿Esta Seguro de que desea Salir?","Cerrar Sesion",JOptionPane.YES_NO_OPTION);
         if(opt1==0){
             this.dispose();
-            frmAutenticacion fau = new frmAutenticacion();
-            fau.setVisible(true);           
+            //frmAutenticacion fau = new frmAutenticacion();
+            //fau.setVisible(true);           
             //System.exit(0);
         }
     }//GEN-LAST:event_miSalirActionPerformed
