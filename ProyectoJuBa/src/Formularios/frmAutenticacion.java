@@ -49,11 +49,12 @@ public class frmAutenticacion extends javax.swing.JFrame {
         icono_candado = new javax.swing.JLabel();
         tfUsuario = new javax.swing.JTextField();
         pfClave = new javax.swing.JPasswordField();
+        btsalir = new javax.swing.JButton();
         btLimpiar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        foto_fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Autenticación - JUBA");
@@ -84,6 +85,16 @@ public class frmAutenticacion extends javax.swing.JFrame {
         getContentPane().add(tfUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 190, 190, 30));
         getContentPane().add(pfClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 250, 190, 30));
 
+        btsalir.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btsalir.setForeground(new java.awt.Color(255, 0, 0));
+        btsalir.setText("Salir");
+        btsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btsalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 10, 150, 40));
+
         btLimpiar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btLimpiar.setForeground(new java.awt.Color(255, 0, 0));
         btLimpiar.setText("Limpiar");
@@ -101,8 +112,9 @@ public class frmAutenticacion extends javax.swing.JFrame {
         jLabel4.setText("AUTENTICACIÓN");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 120, 270, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/autenticacion.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 690));
+        foto_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/autenticacion.png"))); // NOI18N
+        foto_fondo.setMaximumSize(new java.awt.Dimension(1000, 480));
+        getContentPane().add(foto_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 690));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -143,6 +155,14 @@ public class frmAutenticacion extends javax.swing.JFrame {
         limpiar();
     }//GEN-LAST:event_btLimpiarActionPerformed
 
+    private void btsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsalirActionPerformed
+        // TODO add your handling code here:
+        int opcion = JOptionPane.showConfirmDialog(this,"¿Desea salir del Programa?","Atención",JOptionPane.YES_NO_OPTION);
+        if(opcion==0){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btsalirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -155,8 +175,9 @@ public class frmAutenticacion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btIngresar;
     private javax.swing.JButton btLimpiar;
+    private javax.swing.JButton btsalir;
+    private javax.swing.JLabel foto_fondo;
     private javax.swing.JLabel icono_candado;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

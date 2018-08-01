@@ -63,12 +63,7 @@
     <Component class="javax.swing.JComboBox" name="cbempresas">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Marbeth"/>
-            <StringItem index="1" value="Pescasol"/>
-            <StringItem index="2" value="Pescarasa"/>
-            <StringItem index="3" value="SeaMar"/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>

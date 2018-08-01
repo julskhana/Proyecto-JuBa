@@ -20,9 +20,12 @@ public class frmSeleccionarEmpresas extends javax.swing.JFrame {
         System.out.println("Datos usuario: "+u.getCuenta());
         
         tfusuario.setText(u.getCuenta());
-        
-        //cargar empresas del usuario
-        //cargando datos de cliente a editar
+        /*
+        cargar empresas del usuario
+        cargando datos de cliente a editar
+        otras empresas:
+        Marbeth, Pescasol, Pescarasa, SeaMar
+        */
         ConexionBD c = new ConexionBD();
         try{
             c.conectar();
@@ -70,7 +73,6 @@ public class frmSeleccionarEmpresas extends javax.swing.JFrame {
         jLabel2.setText("Empresa/s:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
 
-        cbempresas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Marbeth", "Pescasol", "Pescarasa", "SeaMar" }));
         cbempresas.setToolTipText("");
         getContentPane().add(cbempresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 190, 30));
 
@@ -130,8 +132,8 @@ public class frmSeleccionarEmpresas extends javax.swing.JFrame {
         // TODO add your handling code here:
         int opcion = JOptionPane.showConfirmDialog(this,"¿Desea Salir?","ATENCION",JOptionPane.YES_NO_OPTION);
         if(opcion==0){
-            frmAutenticacion frm = new frmAutenticacion();
-            frm.setVisible(true);
+            frmAutenticacion aut = new frmAutenticacion();
+            aut.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_cbSalirActionPerformed
