@@ -55,6 +55,30 @@ public class frmPrincipal extends javax.swing.JFrame {
         tfcorreo = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         lbUsuario = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        seis = new javax.swing.JLabel();
+        PanelMensaje = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mArchivo = new javax.swing.JMenu();
         miCuenta = new javax.swing.JMenuItem();
@@ -73,22 +97,37 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sistema JuBa 2018 - MI LicRed");
+        setUndecorated(true);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tfnombre.setEditable(false);
+        getContentPane().add(tfnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 210, 30));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Empresa:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
 
         tfruc.setEditable(false);
+        getContentPane().add(tfruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 210, 30));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("RUC:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, -1, -1));
 
         tfdireccion.setEditable(false);
+        getContentPane().add(tfdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 210, 30));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Dirección:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, -1, -1));
 
         tfdireccionplanta.setEditable(false);
+        getContentPane().add(tfdireccionplanta, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, 210, 50));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Dirección Planta:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, -1));
 
         tftelefono.setEditable(false);
         tftelefono.addActionListener(new java.awt.event.ActionListener() {
@@ -96,8 +135,11 @@ public class frmPrincipal extends javax.swing.JFrame {
                 tftelefonoActionPerformed(evt);
             }
         });
+        getContentPane().add(tftelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, 210, 30));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Teléfono:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, -1, -1));
 
         tfcorreo.setEditable(false);
         tfcorreo.addActionListener(new java.awt.event.ActionListener() {
@@ -105,14 +147,99 @@ public class frmPrincipal extends javax.swing.JFrame {
                 tfcorreoActionPerformed(evt);
             }
         });
+        getContentPane().add(tfcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 270, 210, 30));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setText("Correo:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, -1, -1));
+        getContentPane().add(lbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 114, 20));
 
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/dos.jpeg"))); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 300, 170));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel8.setText("PROCESO DE PRODUCCIÓN PARA LARVAS DE CAMARÓN");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 730, 50));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/tres.jpeg"))); // NOI18N
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 300, 170));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/siete.jpeg"))); // NOI18N
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, 170));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cuatro.jpeg"))); // NOI18N
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, 300, 170));
+
+        seis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/seis.jpeg"))); // NOI18N
+        getContentPane().add(seis, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 300, 170));
+
+        PanelMensaje.setBackground(new java.awt.Color(153, 204, 255));
+        PanelMensaje.setForeground(new java.awt.Color(255, 255, 255));
+        PanelMensaje.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel14.setText("    MENSAJERÍA INTERNA - CAMARONERA MARBETH");
+        PanelMensaje.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 40));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        PanelMensaje.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 90, -1));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        PanelMensaje.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 100, -1));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4", " " }));
+        PanelMensaje.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 90, -1));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel15.setText("PARA:");
+        PanelMensaje.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 50, 20));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel16.setText("Oficina");
+        PanelMensaje.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 60, 20));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setText("Administradores");
+        PanelMensaje.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 100, -1));
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel18.setText("Trabajadores");
+        PanelMensaje.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 90, -1));
+        PanelMensaje.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 390, 20));
+        PanelMensaje.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 390, 20));
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton1.setText("ENVIAR");
+        PanelMensaje.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 120, 30));
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton2.setText("SALIR");
+        PanelMensaje.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 510, 100, 30));
+        PanelMensaje.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 390, 20));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        PanelMensaje.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 350, 360));
+
+        getContentPane().add(PanelMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 40, 390, 570));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cinco.jpeg"))); // NOI18N
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 440, 300, 170));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/uno.jpeg"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 670));
+
+        mArchivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/esquina.jpg"))); // NOI18N
         mArchivo.setText("Archivo");
 
+        miCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user_small.png"))); // NOI18N
         miCuenta.setText("Cuenta");
         mArchivo.add(miCuenta);
 
+        miSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/salir.png"))); // NOI18N
         miSalir.setText("Salir");
         miSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,17 +250,22 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(mArchivo);
 
+        mMantenimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/mantenimiento.png"))); // NOI18N
         mMantenimiento.setText("Mantenimiento");
         jMenuBar1.add(mMantenimiento);
 
+        mProcesos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/procesos.png"))); // NOI18N
         mProcesos.setText("Procesos");
         jMenuBar1.add(mProcesos);
 
-        mTablero.setText("Tablero");
+        mTablero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/mensajeria.png"))); // NOI18N
+        mTablero.setText("Mensajería");
         jMenuBar1.add(mTablero);
 
+        mAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/consultar.jpg"))); // NOI18N
         mAyuda.setText("Ayuda");
 
+        miAcercaDe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/espol.png"))); // NOI18N
         miAcercaDe.setText("Acerca De...");
         miAcercaDe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,73 +277,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(mAyuda);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tfnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tfruc, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tfdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tfdireccionplanta, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tftelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tfcorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tfnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1))
-                    .addComponent(lbUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfruc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfdireccionplanta, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tftelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfcorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addContainerGap(80, Short.MAX_VALUE))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -246,16 +311,39 @@ public class frmPrincipal extends javax.swing.JFrame {
      */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanelMensaje;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lbUsuario;
     private javax.swing.JMenu mArchivo;
     private javax.swing.JMenu mAyuda;
@@ -265,6 +353,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem miAcercaDe;
     private javax.swing.JMenuItem miCuenta;
     private javax.swing.JMenuItem miSalir;
+    private javax.swing.JLabel seis;
     private javax.swing.JTextField tfcorreo;
     private javax.swing.JTextField tfdireccion;
     private javax.swing.JTextField tfdireccionplanta;
