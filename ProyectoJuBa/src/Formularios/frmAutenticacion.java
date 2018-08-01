@@ -25,12 +25,13 @@ public class frmAutenticacion extends javax.swing.JFrame {
      */
     public frmAutenticacion() {
         initComponents();
-        
+        //cargar imagen de candado
+        /*
         try{
             BufferedImage candado = ImageIO.read(new File("src/icons/candado_peq.png"));
             icono_candado.setIcon(new ImageIcon(candado));
         }catch (IOException e){}
- 
+        */
     }
 
     /**
@@ -52,8 +53,6 @@ public class frmAutenticacion extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -101,12 +100,6 @@ public class frmAutenticacion extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 204, 0));
         jLabel4.setText("AUTENTICACIÓN");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 120, 270, 30));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/usuario.png"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 180, 40, 40));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/candado_peq_1.png"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 240, 40, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/autenticacion.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 690));
@@ -167,8 +160,6 @@ public class frmAutenticacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPasswordField pfClave;

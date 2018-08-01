@@ -3,6 +3,7 @@ package Formularios;
 import Objetos.usuario;
 import javax.swing.JOptionPane;
 import bd.ConexionBD;
+import java.sql.Date;
 
 /**
  *
@@ -264,14 +265,19 @@ public class frmCuenta extends javax.swing.JFrame {
             String tipo           = (String)jtfTipo.getSelectedItem();
             String cargo          = jtfCargo.getText();
             String correo         = jtfCorreo.getText();
-            String fecha_inicio   = jtfFechaInicio.getText();
+            //correccion de tipo de dato fecha String a Date sql
+            Date fecha_inicio   = Date.valueOf(jtfFechaInicio.getText());
             String estado         = jtfEstado.getText();
             String cuenta        = jtfUsuario.getText();
             String clave          = jtfPassword.getText();
 
             try{
                 c.conectar();
-                usuario u = new usuario(id_usuario,nombres,apellidos,cedula,edad,direccion,telefono,celular,tipo,cargo,correo,fecha_inicio,estado,cuenta,clave);
+                
+                /*
+                error en constructor de ingreso de cuenta, el atributo fehca_inicio no es String, sino date sql
+                */
+                usuario u = new usuario(cuenta, clave, nombres, apellidos, cedula, edad, direccion, telefono, celular, correo, tipo, cargo, fecha_inicio, estado);
                 if(c.ingresarUsuario(u)){
                     JOptionPane.showMessageDialog(this,"Ingreso Exitoso a la base de datos","Validación",JOptionPane.INFORMATION_MESSAGE);
                     frmAutenticacion frm = new frmAutenticacion();

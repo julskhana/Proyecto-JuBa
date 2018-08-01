@@ -53,7 +53,7 @@ public class usuario implements Serializable{
     }
 
     //constructor para ingresar en base de datos
-    public usuario( String cuenta, String clave,String nombres, String apellidos, String cedula, int edad, String direccion, String telefono, String celular, String correo, String tipo, String cargo, Date fecha_inicio,String estado) {
+    public usuario(String cuenta, String clave,String nombres, String apellidos, String cedula, int edad, String direccion, String telefono, String celular, String correo, String tipo, String cargo, Date fecha_inicio,String estado) {
         this.cuenta=cuenta;
         this.clave=clave;
         this.nombres = nombres;
