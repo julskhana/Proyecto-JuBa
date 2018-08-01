@@ -1,9 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Formularios;
+
+import Objetos.usuario;
+import javax.swing.JOptionPane;
+import bd.ConexionBD;
 
 /**
  *
@@ -27,21 +26,275 @@ public class frmCuenta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel15 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jtfIDUsuario = new javax.swing.JFormattedTextField();
+        jtfNombres = new javax.swing.JFormattedTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jtfCedula = new javax.swing.JFormattedTextField();
+        jtfApellidos = new javax.swing.JFormattedTextField();
+        jtfEdad = new javax.swing.JFormattedTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jtfDireccion = new javax.swing.JFormattedTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jtfTelefCasa = new javax.swing.JFormattedTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jtfTelefMovil = new javax.swing.JFormattedTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jtfTipo = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        jtfCargo = new javax.swing.JFormattedTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jtfCorreo = new javax.swing.JFormattedTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jtfFechaInicio = new javax.swing.JFormattedTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jtfEstado = new javax.swing.JFormattedTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel16 = new javax.swing.JLabel();
+        jtfUsuario = new javax.swing.JFormattedTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jtfPassword = new javax.swing.JPasswordField();
+        jSeparator2 = new javax.swing.JSeparator();
+        cbLimpiar = new javax.swing.JButton();
+        cbGuardar = new javax.swing.JButton();
+        cbSalir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel15.setText("EDITAR USUARIO");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 340, 50));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 610, 30));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel2.setText("ID Usuario");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, 160, 50));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel3.setText("Nombres");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 200, 20));
+
+        jtfIDUsuario.setEditable(false);
+        getContentPane().add(jtfIDUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 140, 100, 30));
+        getContentPane().add(jtfNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 200, 30));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel4.setText("Apellidos");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, 200, 20));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel5.setText("Cedula");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 290, 200, 20));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel6.setText("Edad");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 340, 200, 20));
+        getContentPane().add(jtfCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 290, 200, 30));
+        getContentPane().add(jtfApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 240, 200, 30));
+        getContentPane().add(jtfEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 340, 110, 30));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel7.setText("Direccion");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 390, 200, 20));
+        getContentPane().add(jtfDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 390, 200, 30));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel8.setText("Telefono Casa");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 450, 200, -1));
+        getContentPane().add(jtfTelefCasa, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 450, 200, 30));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel9.setText("Telefono Movil");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 510, 200, 20));
+        getContentPane().add(jtfTelefMovil, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, 200, 30));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel12.setText("Sexo");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 190, 140, 30));
+
+        jtfTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F" }));
+        getContentPane().add(jtfTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 190, 100, 30));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel13.setText("Cargo");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 240, 180, 30));
+        getContentPane().add(jtfCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 240, 180, 30));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel10.setText("Correo");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 140, 180, 30));
+        getContentPane().add(jtfCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 140, 180, 30));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel14.setText("Fecha Inicio");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 290, 180, 30));
+
+        jtfFechaInicio.setEditable(false);
+        getContentPane().add(jtfFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 290, 100, 30));
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel18.setText("Estado");
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 340, 120, 30));
+
+        jtfEstado.setEditable(false);
+        getContentPane().add(jtfEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 340, 100, 30));
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 390, 330, 30));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel16.setText("Usuario");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 410, -1, -1));
+        getContentPane().add(jtfUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 410, 180, 30));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel17.setText("Password");
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 460, -1, -1));
+        getContentPane().add(jtfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 450, 180, 30));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 510, 330, 30));
+
+        cbLimpiar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cbLimpiar.setForeground(new java.awt.Color(255, 0, 0));
+        cbLimpiar.setText("LIMPIAR");
+        cbLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbLimpiarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 590, 150, 40));
+
+        cbGuardar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cbGuardar.setForeground(new java.awt.Color(255, 0, 0));
+        cbGuardar.setText("GUARDAR");
+        cbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbGuardarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 590, 150, 40));
+
+        cbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/salir.png"))); // NOI18N
+        cbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 0, 60, 60));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/autenticacion.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 690));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private boolean formularioValido(){
+        if(jtfNombres.getText().equals("") ||
+            jtfApellidos.getText().equals("") ||
+            jtfCedula.getText().equals("") ||    
+            jtfEdad.getText().equals("") ||
+            jtfDireccion.getText().equals("") || 
+            jtfTelefCasa.getText().equals("") ||
+            jtfTelefMovil.getText().equals("") ||
+            jtfTipo.getSelectedItem().equals("") ||
+            jtfCargo.getText().equals("") ||
+            jtfCorreo.getText().equals("") ||
+            jtfUsuario.getText().equals("") ||
+            jtfPassword.getText().equals("")){
+            
+           JOptionPane.showMessageDialog(this,"Formulario incompleto","Validación",JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+    
+    private void limpiarFormulario(){
+        jtfNombres.setText(null);
+        jtfApellidos.setText(null);
+        jtfCedula.setText(null);
+        jtfEdad.setText(null);
+        jtfDireccion.setText(null);
+        jtfTelefCasa.setText(null);
+        jtfTelefMovil.setText(null);
+        jtfTipo.setSelectedItem(null);
+        jtfCargo.setText(null);
+        jtfCorreo.setText(null);
+        jtfFechaInicio.setText(null);
+        jtfUsuario.setText(null);
+        jtfPassword.setText(null);
+    }
+    
+    private void cbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbLimpiarActionPerformed
+        limpiarFormulario();
+    }//GEN-LAST:event_cbLimpiarActionPerformed
+
+    private void cbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbGuardarActionPerformed
+        ConexionBD c = new ConexionBD();
+        if(formularioValido()){
+            int id_usuario        = Integer.parseInt(jtfIDUsuario.getText());
+            String nombres        = jtfNombres.getText();
+            String apellidos      = jtfApellidos.getText();
+            String cedula         = jtfCedula.getText();
+            int edad              = Integer.parseInt(jtfEdad.getText());
+            String direccion      = jtfDireccion.getText();
+            String telefono       = jtfTelefCasa.getText();
+            String celular        = jtfTelefMovil.getText();
+            String tipo           = (String)jtfTipo.getSelectedItem();
+            String cargo          = jtfCargo.getText();
+            String correo         = jtfCorreo.getText();
+            String fecha_inicio   = jtfFechaInicio.getText();
+            String estado         = jtfEstado.getText();
+            String cuenta        = jtfUsuario.getText();
+            String clave          = jtfPassword.getText();
+
+            try{
+                c.conectar();
+                usuario u = new usuario(id_usuario,nombres,apellidos,cedula,edad,direccion,telefono,celular,tipo,cargo,correo,fecha_inicio,estado,cuenta,clave);
+                if(c.ingresarUsuario(u)){
+                    JOptionPane.showMessageDialog(this,"Ingreso Exitoso a la base de datos","Validación",JOptionPane.INFORMATION_MESSAGE);
+                    frmAutenticacion frm = new frmAutenticacion();
+                    frm.setVisible(true);
+                    this.dispose();
+                }else
+                JOptionPane.showMessageDialog(this,"Ingreso Fallido","Validación",JOptionPane.ERROR_MESSAGE);
+
+                c.desconectar();
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(this,"Ocurrio un problema durante el ingreso","Validación",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_cbGuardarActionPerformed
+
+    private void cbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSalirActionPerformed
+        int opcion = JOptionPane.showConfirmDialog(this,"¿DESEA SALIR SIN REGISTRARSE?","ATENCION",JOptionPane.YES_NO_OPTION);
+        if(opcion==0){
+            frmAutenticacion frm = new frmAutenticacion();
+            frm.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_cbSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -49,5 +302,43 @@ public class frmCuenta extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cbGuardar;
+    private javax.swing.JButton cbLimpiar;
+    private javax.swing.JButton cbSalir;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JFormattedTextField jtfApellidos;
+    private javax.swing.JFormattedTextField jtfCargo;
+    private javax.swing.JFormattedTextField jtfCedula;
+    private javax.swing.JFormattedTextField jtfCorreo;
+    private javax.swing.JFormattedTextField jtfDireccion;
+    private javax.swing.JFormattedTextField jtfEdad;
+    private javax.swing.JFormattedTextField jtfEstado;
+    private javax.swing.JFormattedTextField jtfFechaInicio;
+    private javax.swing.JFormattedTextField jtfIDUsuario;
+    private javax.swing.JFormattedTextField jtfNombres;
+    private javax.swing.JPasswordField jtfPassword;
+    private javax.swing.JFormattedTextField jtfTelefCasa;
+    private javax.swing.JFormattedTextField jtfTelefMovil;
+    private javax.swing.JComboBox<String> jtfTipo;
+    private javax.swing.JFormattedTextField jtfUsuario;
     // End of variables declaration//GEN-END:variables
 }
