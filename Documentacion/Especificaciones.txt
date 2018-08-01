@@ -1,4 +1,12 @@
-Especificaciones PCs Desarrollo:
+Especificaciones
+
+importar librerias desde ProyectoJuBa/dependencias/:
+AbsoluteLayout.jar
+animation-1.2.0.jar
+mysql-connector-java-5.1.23.jar
+NefAnimacion_v2.jar
+
+PCs Desarrollo:
 
 PC 1 - Julian Bajaña
   Dell Inspiron 14R 3437
