@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Formularios;
 
 import Objetos.*;
@@ -58,69 +53,59 @@ public class frmSeleccionarEmpresas extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         cbempresas = new javax.swing.JComboBox<>();
         btSeleccionar = new javax.swing.JButton();
-        btRegresar = new javax.swing.JButton();
+        cbSalir = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel1.setText("Usuario:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, -1, -1));
+        getContentPane().add(tfusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 190, 30));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel2.setText("Empresa/s:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
 
+        cbempresas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Marbeth", "Pescasol", "Pescarasa", "SeaMar" }));
         cbempresas.setToolTipText("");
+        getContentPane().add(cbempresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 190, 30));
 
+        btSeleccionar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btSeleccionar.setForeground(new java.awt.Color(255, 0, 0));
         btSeleccionar.setText("Seleccionar");
         btSeleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btSeleccionarActionPerformed(evt);
             }
         });
+        getContentPane().add(btSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 140, 40));
 
-        btRegresar.setText("Salir");
-        btRegresar.addActionListener(new java.awt.event.ActionListener() {
+        cbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/salir.png"))); // NOI18N
+        cbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btRegresarActionPerformed(evt);
+                cbSalirActionPerformed(evt);
             }
         });
+        getContentPane().add(cbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 60, 60));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfusuario)
-                            .addComponent(cbempresas, 0, 172, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(btSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(60, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btRegresar))
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 490, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(btRegresar)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(tfusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(cbempresas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btSeleccionar)
-                .addContainerGap(46, Short.MAX_VALUE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 260, Short.MAX_VALUE)
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 260));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -141,7 +126,7 @@ public class frmSeleccionarEmpresas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btSeleccionarActionPerformed
 
-    private void btRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegresarActionPerformed
+    private void cbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSalirActionPerformed
         // TODO add your handling code here:
         int opcion = JOptionPane.showConfirmDialog(this,"¿Desea Salir?","ATENCION",JOptionPane.YES_NO_OPTION);
         if(opcion==0){
@@ -149,18 +134,19 @@ public class frmSeleccionarEmpresas extends javax.swing.JFrame {
             frm.setVisible(true);
             this.dispose();
         }
-    }//GEN-LAST:event_btRegresarActionPerformed
+    }//GEN-LAST:event_cbSalirActionPerformed
 
     /**
      * @param args the command line arguments
      */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btRegresar;
     private javax.swing.JButton btSeleccionar;
+    private javax.swing.JButton cbSalir;
     private javax.swing.JComboBox<String> cbempresas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField tfusuario;
     // End of variables declaration//GEN-END:variables
 }
