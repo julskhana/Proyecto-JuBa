@@ -64,22 +64,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         seis = new javax.swing.JLabel();
-        PanelMensaje = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jSeparator3 = new javax.swing.JSeparator();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -112,32 +96,36 @@ public class frmPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tfnombre.setEditable(false);
-        getContentPane().add(tfnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 210, 30));
+        getContentPane().add(tfnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, 210, 30));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setText("Empresa:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, -1, -1));
 
         tfruc.setEditable(false);
-        getContentPane().add(tfruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 210, 30));
+        getContentPane().add(tfruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 100, 210, 30));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 0));
         jLabel2.setText("RUC:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 100, -1, -1));
 
         tfdireccion.setEditable(false);
-        getContentPane().add(tfdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 210, 30));
+        getContentPane().add(tfdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 140, 210, 30));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
         jLabel3.setText("Dirección:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, -1, -1));
 
         tfdireccionplanta.setEditable(false);
-        getContentPane().add(tfdireccionplanta, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, 210, 50));
+        getContentPane().add(tfdireccionplanta, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 180, 210, 50));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 0));
         jLabel4.setText("Dirección Planta:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, -1, -1));
 
         tftelefono.setEditable(false);
         tftelefono.addActionListener(new java.awt.event.ActionListener() {
@@ -145,11 +133,12 @@ public class frmPrincipal extends javax.swing.JFrame {
                 tftelefonoActionPerformed(evt);
             }
         });
-        getContentPane().add(tftelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, 210, 30));
+        getContentPane().add(tftelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, 210, 30));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 0));
         jLabel5.setText("Teléfono:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, -1, -1));
 
         tfcorreo.setEditable(false);
         tfcorreo.addActionListener(new java.awt.event.ActionListener() {
@@ -157,15 +146,16 @@ public class frmPrincipal extends javax.swing.JFrame {
                 tfcorreoActionPerformed(evt);
             }
         });
-        getContentPane().add(tfcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 270, 210, 30));
+        getContentPane().add(tfcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 280, 210, 30));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 0));
         jLabel6.setText("Correo:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, -1, -1));
         getContentPane().add(lbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 114, 20));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/dos.jpeg"))); // NOI18N
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 300, 170));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 300, 170));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel8.setText("PROCESO DE PRODUCCIÓN PARA LARVAS DE CAMARÓN");
@@ -183,64 +173,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         seis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/seis.jpeg"))); // NOI18N
         getContentPane().add(seis, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 300, 170));
 
-        PanelMensaje.setBackground(new java.awt.Color(153, 204, 255));
-        PanelMensaje.setForeground(new java.awt.Color(255, 255, 255));
-        PanelMensaje.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel14.setText("    MENSAJERÍA INTERNA - CAMARONERA MARBETH");
-        PanelMensaje.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 40));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        PanelMensaje.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 90, -1));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        PanelMensaje.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 100, -1));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4", " " }));
-        PanelMensaje.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 90, -1));
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel15.setText("PARA:");
-        PanelMensaje.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 50, 20));
-
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel16.setText("Oficina");
-        PanelMensaje.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 60, 20));
-
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel17.setText("Administradores");
-        PanelMensaje.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 100, -1));
-
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel18.setText("Trabajadores");
-        PanelMensaje.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 90, -1));
-        PanelMensaje.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 390, 20));
-        PanelMensaje.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 390, 20));
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton1.setText("ENVIAR");
-        PanelMensaje.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 120, 30));
-
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton2.setText("SALIR");
-        PanelMensaje.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 510, 100, 30));
-        PanelMensaje.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 390, 20));
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        PanelMensaje.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 350, 360));
-
-        getContentPane().add(PanelMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 40, 390, 570));
-
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cinco.jpeg"))); // NOI18N
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 440, 300, 170));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/uno.jpeg"))); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 670));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 500));
 
         mArchivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/esquina.jpg"))); // NOI18N
         mArchivo.setText("Archivo");
@@ -363,22 +300,11 @@ public class frmPrincipal extends javax.swing.JFrame {
      */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel PanelMensaje;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -391,11 +317,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lbUsuario;
     private javax.swing.JMenuItem mAlimento;
     private javax.swing.JMenu mArchivo;
