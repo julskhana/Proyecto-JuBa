@@ -6,6 +6,7 @@
 package Formularios;
 
 import Objetos.*;
+import bd.ConexionBD;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,7 +21,9 @@ public class frmPrincipal extends javax.swing.JFrame {
      */
     public frmPrincipal(empresa empresa, usuario u) {
         initComponents();
-        lbUsuario.setText(u.getNombres()+" "+u.getApellidos());
+        
+        lbUsuario.setText(u.getCuenta());
+        System.out.println(lbUsuario.getText());
         
         tfnombre.setText(empresa.getNombre());
         tfruc.setText(empresa.getRuc());
@@ -29,7 +32,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         tftelefono.setText(empresa.getTelefono());
         tfcorreo.setText(empresa.getCorreo());
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,7 +87,14 @@ public class frmPrincipal extends javax.swing.JFrame {
         miCuenta = new javax.swing.JMenuItem();
         miSalir = new javax.swing.JMenuItem();
         mMantenimiento = new javax.swing.JMenu();
+        mUsuario = new javax.swing.JMenuItem();
+        mEmpresa = new javax.swing.JMenuItem();
+        mAlimento = new javax.swing.JMenuItem();
+        mPiscina = new javax.swing.JMenuItem();
+        mProducto = new javax.swing.JMenuItem();
+        mOperador = new javax.swing.JMenuItem();
         mProcesos = new javax.swing.JMenu();
+        mEvento = new javax.swing.JMenuItem();
         mTablero = new javax.swing.JMenu();
         mAyuda = new javax.swing.JMenu();
         miAcercaDe = new javax.swing.JMenuItem();
@@ -237,6 +247,11 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         miCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user_small.png"))); // NOI18N
         miCuenta.setText("Cuenta");
+        miCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCuentaActionPerformed(evt);
+            }
+        });
         mArchivo.add(miCuenta);
 
         miSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/salir.png"))); // NOI18N
@@ -252,10 +267,33 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         mMantenimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/mantenimiento.png"))); // NOI18N
         mMantenimiento.setText("Mantenimiento");
+
+        mUsuario.setText("Usuario");
+        mMantenimiento.add(mUsuario);
+
+        mEmpresa.setText("Empresa");
+        mMantenimiento.add(mEmpresa);
+
+        mAlimento.setText("Alimento");
+        mMantenimiento.add(mAlimento);
+
+        mPiscina.setText("Piscina");
+        mMantenimiento.add(mPiscina);
+
+        mProducto.setText("Producto");
+        mMantenimiento.add(mProducto);
+
+        mOperador.setText("Operadores");
+        mMantenimiento.add(mOperador);
+
         jMenuBar1.add(mMantenimiento);
 
         mProcesos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/procesos.png"))); // NOI18N
         mProcesos.setText("Procesos");
+
+        mEvento.setText("Evento");
+        mProcesos.add(mEvento);
+
         jMenuBar1.add(mProcesos);
 
         mTablero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/mensajeria.png"))); // NOI18N
@@ -306,6 +344,20 @@ public class frmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfcorreoActionPerformed
 
+    private void miCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCuentaActionPerformed
+        // TODO add your handling code here:
+        ConexionBD c = new ConexionBD();
+        try{
+            c.conectar();
+            usuario u = c.obtenerDatosUsuario(lbUsuario.getText());
+            frmCuenta cuenta = new frmCuenta(u);
+            cuenta.setVisible(true);
+        }catch(Exception e){
+            System.out.println("error al cargar usuario"+e);
+        }   
+        c.desconectar();
+    }//GEN-LAST:event_miCuentaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -345,11 +397,18 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lbUsuario;
+    private javax.swing.JMenuItem mAlimento;
     private javax.swing.JMenu mArchivo;
     private javax.swing.JMenu mAyuda;
+    private javax.swing.JMenuItem mEmpresa;
+    private javax.swing.JMenuItem mEvento;
     private javax.swing.JMenu mMantenimiento;
+    private javax.swing.JMenuItem mOperador;
+    private javax.swing.JMenuItem mPiscina;
     private javax.swing.JMenu mProcesos;
+    private javax.swing.JMenuItem mProducto;
     private javax.swing.JMenu mTablero;
+    private javax.swing.JMenuItem mUsuario;
     private javax.swing.JMenuItem miAcercaDe;
     private javax.swing.JMenuItem miCuenta;
     private javax.swing.JMenuItem miSalir;

@@ -122,7 +122,6 @@ public class frmSeleccionarEmpresas extends javax.swing.JFrame {
             c.desconectar();
             frmPrincipal p = new frmPrincipal(e, u);
             p.setVisible(true);
-            //this.dispose();
         }catch(Exception ex){
             System.out.println(ex);
         }
@@ -130,7 +129,7 @@ public class frmSeleccionarEmpresas extends javax.swing.JFrame {
 
     private void cbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSalirActionPerformed
         // TODO add your handling code here:
-        int opcion = JOptionPane.showConfirmDialog(this,"¿Desea Salir?","ATENCION",JOptionPane.YES_NO_OPTION);
+        int opcion = JOptionPane.showConfirmDialog(this,"¿Desea Salir?","Atención",JOptionPane.YES_NO_OPTION);
         if(opcion==0){
             frmAutenticacion aut = new frmAutenticacion();
             aut.setVisible(true);

@@ -26,6 +26,7 @@ public class usuario implements Serializable{
     private String telefono;
     private String celular;
     private String correo;
+    private String sexo;
     private String tipo;
     private String cargo;
     private Date fecha_inicio;
@@ -34,7 +35,7 @@ public class usuario implements Serializable{
     
     //constructor
 
-    public usuario(int id, String cuenta, String clave, String nombres, String apellidos, String cedula, int edad, String direccion, String telefono, String celular, String correo, String tipo, String cargo, Date fecha_inicio,String estado) {
+    public usuario(int id, String cuenta, String clave, String nombres, String apellidos, String cedula, int edad, String direccion, String telefono, String celular, String correo,String sexo, String tipo, String cargo, Date fecha_inicio,String estado) {
         this.id_usuario = id;
         this.cuenta=cuenta;
         this.clave=clave;
@@ -46,6 +47,7 @@ public class usuario implements Serializable{
         this.telefono = telefono;
         this.celular = celular;
         this.correo = correo;
+        this.sexo=sexo;
         this.tipo = tipo;
         this.cargo = cargo;
         this.fecha_inicio=fecha_inicio; //AAAA-MM-DD
@@ -53,7 +55,7 @@ public class usuario implements Serializable{
     }
 
     //constructor para ingresar en base de datos
-    public usuario(String cuenta, String clave,String nombres, String apellidos, String cedula, int edad, String direccion, String telefono, String celular, String correo, String tipo, String cargo, Date fecha_inicio,String estado) {
+    public usuario(String cuenta, String clave,String nombres, String apellidos, String cedula, int edad, String direccion, String telefono, String celular, String correo,String sexo, String tipo, String cargo, Date fecha_inicio,String estado) {
         this.cuenta=cuenta;
         this.clave=clave;
         this.nombres = nombres;
@@ -64,6 +66,7 @@ public class usuario implements Serializable{
         this.telefono = telefono;
         this.celular = celular;
         this.correo = correo;
+        this.sexo=sexo;
         this.tipo = tipo;
         this.cargo = cargo;
         this.fecha_inicio=fecha_inicio;
@@ -126,6 +129,10 @@ public class usuario implements Serializable{
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
     public void setTipo(String tipo) {
@@ -210,10 +217,15 @@ public class usuario implements Serializable{
     public String getEstado() {
         return estado;
     }
+
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
     
-    /*
-    public int getId_empresa() {
-        return id_empresa;
-    }*/
+    
     
 }

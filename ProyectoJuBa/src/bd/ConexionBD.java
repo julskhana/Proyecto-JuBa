@@ -99,7 +99,7 @@ public class ConexionBD {
     public boolean ingresarUsuario(usuario u){
         try{
             PreparedStatement st=null;
-            st = con.prepareStatement("INSERT INTO usuario (cuenta,clave,nombres,apellidos,cedula,edad,direccion,telefono,celular,correo,tipo,cargo,fecha_inicio,estado) VALUES(?,md5(?),?,?,?,?,?,?,?,?,?,?,?,?);");
+            st = con.prepareStatement("INSERT INTO usuario (cuenta,clave,nombres,apellidos,cedula,edad,direccion,telefono,celular,correo,sexo,tipo,cargo,fecha_inicio,estado) VALUES(?,md5(?),?,?,?,?,?,?,?,?,?,?,?,?,?);");
             st.setString(1,u.getCuenta());
             st.setString(2,u.getClave());
             st.setString(3,u.getNombres());
@@ -110,11 +110,11 @@ public class ConexionBD {
             st.setString(8,u.getTelefono());
             st.setString(9,u.getCelular());
             st.setString(10,u.getCorreo());
-            st.setString(11,u.getTipo());
-            st.setString(12,u.getCargo());
-            st.setString(13,u.getEstado());
-            st.setDate(14,u.getFecha_inicio()); //AAAA-MM-DD
-            //st.setInt(15,u.getId_empresa());
+            st.setString(11,u.getSexo());
+            st.setString(12,u.getTipo());
+            st.setString(13,u.getCargo());
+            st.setString(14,u.getEstado());
+            st.setDate(15,u.getFecha_inicio()); //AAAA-MM-DD
             
             st.executeUpdate();
             st.close();
@@ -161,12 +161,10 @@ public class ConexionBD {
         ResultSet rs = null;
         PreparedStatement st = null;
         try{
-            st = con.prepareStatement("SELECT nombre FROM empresa WHERE nombre = ?;");            
-            //st.setString(1,emp.getNombre());         
+            st = con.prepareStatement("SELECT nombre FROM empresa WHERE nombre = ?;");                
             st.setString(1,emp);
             rs = st.executeQuery();            
             if(rs.next()){
-                //emp.setNombre(rs.getString("nombre"));
                 resultado = true;
                 System.out.println("Empresa valida:"+emp);
             }else{
@@ -203,6 +201,7 @@ public class ConexionBD {
                 u.setTelefono(rs.getString("telefono"));
                 u.setCelular(rs.getString("celular"));
                 u.setCorreo(rs.getString("correo"));
+                u.setSexo(rs.getString("sexo"));
                 u.setTipo(rs.getString("tipo"));
                 u.setCargo(rs.getString("cargo"));
                 u.setEstado(rs.getString("estado"));
