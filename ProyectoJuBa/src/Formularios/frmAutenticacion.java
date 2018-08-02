@@ -65,12 +65,12 @@ public class frmAutenticacion extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 204, 0));
         jLabel2.setText("Usuario:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 190, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 204, 0));
         jLabel3.setText("Contraseña:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 250, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, -1, -1));
 
         btIngresar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btIngresar.setForeground(new java.awt.Color(255, 0, 0));
@@ -80,10 +80,10 @@ public class frmAutenticacion extends javax.swing.JFrame {
                 btIngresarActionPerformed(evt);
             }
         });
-        getContentPane().add(btIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 350, 160, 40));
+        getContentPane().add(btIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 150, 40));
         getContentPane().add(icono_candado, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 22, 72, 73));
-        getContentPane().add(tfUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 190, 190, 30));
-        getContentPane().add(pfClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 250, 190, 30));
+        getContentPane().add(tfUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, 190, 30));
+        getContentPane().add(pfClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 230, 190, 30));
 
         btLimpiar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btLimpiar.setForeground(new java.awt.Color(255, 0, 0));
@@ -93,14 +93,14 @@ public class frmAutenticacion extends javax.swing.JFrame {
                 btLimpiarActionPerformed(evt);
             }
         });
-        getContentPane().add(btLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 350, 150, 40));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 590, 20));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 420, 590, 20));
+        getContentPane().add(btLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 310, 150, 40));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 590, 20));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 590, 20));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 28)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 204, 0));
         jLabel4.setText("AUTENTICACIÓN");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 120, 270, 30));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 270, 30));
 
         cbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/salir.png"))); // NOI18N
         cbSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -108,11 +108,11 @@ public class frmAutenticacion extends javax.swing.JFrame {
                 cbSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(cbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 0, 60, 60));
+        getContentPane().add(cbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 60, 60));
 
         foto_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/autenticacion.png"))); // NOI18N
         foto_fondo.setMaximumSize(new java.awt.Dimension(1000, 480));
-        getContentPane().add(foto_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 690));
+        getContentPane().add(foto_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
