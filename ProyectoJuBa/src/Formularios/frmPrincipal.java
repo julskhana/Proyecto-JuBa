@@ -58,9 +58,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         tfcorreo = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         lbUsuario = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         seis = new javax.swing.JLabel();
@@ -154,27 +152,21 @@ public class frmPrincipal extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, -1, -1));
         getContentPane().add(lbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 114, 20));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/dos.jpeg"))); // NOI18N
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 300, 170));
-
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel8.setText("PROCESO DE PRODUCCIÓN PARA LARVAS DE CAMARÓN");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 730, 50));
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/tres.jpeg"))); // NOI18N
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 300, 170));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 730, 50));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/siete.jpeg"))); // NOI18N
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, 170));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, 170));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cuatro.jpeg"))); // NOI18N
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, 300, 170));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 300, 170));
 
         seis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/seis.jpeg"))); // NOI18N
-        getContentPane().add(seis, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 300, 170));
+        getContentPane().add(seis, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 300, 170));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cinco.jpeg"))); // NOI18N
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 440, 300, 170));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 300, 170));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/uno.jpeg"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 500));
@@ -235,6 +227,11 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         mTablero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/mensajeria.png"))); // NOI18N
         mTablero.setText("Mensajería");
+        mTablero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mTableroActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(mTablero);
 
         mAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/consultar.jpg"))); // NOI18N
@@ -295,13 +292,17 @@ public class frmPrincipal extends javax.swing.JFrame {
         c.desconectar();
     }//GEN-LAST:event_miCuentaActionPerformed
 
+    private void mTableroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mTableroActionPerformed
+        frmMensajeria acd = new frmMensajeria();
+        acd.setVisible(true);
+    }//GEN-LAST:event_mTableroActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -312,7 +313,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
