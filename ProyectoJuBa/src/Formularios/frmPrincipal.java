@@ -81,7 +81,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         mOperador = new javax.swing.JMenuItem();
         mProcesos = new javax.swing.JMenu();
         mEvento = new javax.swing.JMenuItem();
-        mTablero = new javax.swing.JMenu();
         mAyuda = new javax.swing.JMenu();
         miAcercaDe = new javax.swing.JMenuItem();
 
@@ -229,15 +228,6 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(mProcesos);
 
-        mTablero.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/mensajeria.png"))); // NOI18N
-        mTablero.setText("Mensajería");
-        mTablero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mTableroActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(mTablero);
-
         mAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/consultar.jpg"))); // NOI18N
         mAyuda.setText("Ayuda");
 
@@ -296,11 +286,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         c.desconectar();
     }//GEN-LAST:event_miCuentaActionPerformed
 
-    private void mTableroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mTableroActionPerformed
-        frmMensajeria acd = new frmMensajeria();
-        acd.setVisible(true);
-    }//GEN-LAST:event_mTableroActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -332,7 +317,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mPiscina;
     private javax.swing.JMenu mProcesos;
     private javax.swing.JMenuItem mProducto;
-    private javax.swing.JMenu mTablero;
     private javax.swing.JMenuItem mUsuario;
     private javax.swing.JMenuItem miAcercaDe;
     private javax.swing.JMenuItem miCuenta;
