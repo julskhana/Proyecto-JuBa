@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package Formularios;
 
 import java.awt.image.BufferedImage;
@@ -24,14 +18,6 @@ public class frmAcercaDe extends javax.swing.JFrame {
      */
     public frmAcercaDe() {
         initComponents();
-        
-        //Excepcion para cargar imagen
-        try{
-            BufferedImage espolicon = ImageIO.read(new File("src/icons/espol_icon.png"));
-            logoEspol.setIcon(new ImageIcon(espolicon));
-        }catch (Exception e){    
-        }
-        
         
     }
 
@@ -73,7 +59,7 @@ public class frmAcercaDe extends javax.swing.JFrame {
         jTextField1.setEditable(false);
         jTextField1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jTextField1.setText("Materia Integradora 2018 LicRed");
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 350, 40));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, 330, 40));
 
         btRegresar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btRegresar.setForeground(new java.awt.Color(255, 0, 0));
@@ -83,56 +69,56 @@ public class frmAcercaDe extends javax.swing.JFrame {
                 btRegresarActionPerformed(evt);
             }
         });
-        getContentPane().add(btRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 590, 150, 50));
+        getContentPane().add(btRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 440, 150, 40));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Tutora Materia Integradora");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 510, 250, 40));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, 230, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Profesor Materia Integradora");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 470, 250, 40));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 230, 30));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Ing. Robert Andrade");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 470, 250, 40));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 370, 230, 30));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Ing. María Angélica Santacruz");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 510, 240, 40));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 400, 220, 30));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 204, 0));
         jLabel5.setText("JUNQUÍ SUDARIO JERSON");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 390, 270, 40));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, 250, 30));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/jerson.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 180, 210, 210));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, 210, 200));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 204, 0));
         jLabel3.setText("BAJAÑA ARAUJO JULIÁN");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 380, 260, 50));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 240, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/julian.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 180, 200, 200));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 200, 200));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 204, 0));
         jLabel1.setText("Versión 0.1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 110, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, -1, -1));
 
         jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         jTextField2.setText("Sistema de Alimentacion Automatica para la Camaronera Marbeth S.A.");
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, 640, -1));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 620, -1));
 
         logoEspol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/espol_icon.png"))); // NOI18N
-        getContentPane().add(logoEspol, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 690));
+        getContentPane().add(logoEspol, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -151,7 +137,9 @@ public class frmAcercaDe extends javax.swing.JFrame {
     private void btRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegresarActionPerformed
         int opcion = JOptionPane.showConfirmDialog(this,"¿DESEA REGRESAR A LA VENTANA PRINCIPAL?","ATENCION",JOptionPane.YES_NO_OPTION);
         if(opcion==0){
-            System.exit(0);
+            frmPrincipal frm = new frmPrincipal();
+            frm.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_btRegresarActionPerformed
 
