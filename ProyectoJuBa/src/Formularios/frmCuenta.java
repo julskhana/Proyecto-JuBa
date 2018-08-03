@@ -333,10 +333,9 @@ public class frmCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_cbGuardarActionPerformed
 
     private void cbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSalirActionPerformed
-        
         int opcion = JOptionPane.showConfirmDialog(this,"¿DESEA SALIR?","ATENCION",JOptionPane.YES_NO_OPTION);
         if(opcion==0){
-            frmAutenticacion frm = new frmAutenticacion();
+            frmPrincipal frm = new frmPrincipal();
             frm.setVisible(true);
             this.dispose();
         }
