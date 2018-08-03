@@ -46,6 +46,8 @@ public class frmAcercaDe extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Información");
+        setUndecorated(true);
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -135,12 +137,9 @@ public class frmAcercaDe extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void btRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegresarActionPerformed
-        int opcion = JOptionPane.showConfirmDialog(this,"¿DESEA REGRESAR A LA VENTANA PRINCIPAL?","ATENCION",JOptionPane.YES_NO_OPTION);
-        if(opcion==0){
-            frmPrincipal frm = new frmPrincipal();
-            frm.setVisible(true);
-            this.dispose();
-        }
+        frmPrincipal frm = new frmPrincipal();
+        frm.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btRegresarActionPerformed
 
     /**
