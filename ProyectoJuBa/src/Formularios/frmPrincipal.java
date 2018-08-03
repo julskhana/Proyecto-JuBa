@@ -32,6 +32,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         tftelefono.setText(empresa.getTelefono());
         tfcorreo.setText(empresa.getCorreo());
     }
+
+    frmPrincipal() {
+        
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
