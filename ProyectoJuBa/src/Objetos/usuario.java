@@ -15,7 +15,7 @@ import java.sql.Date;
  */
 public class usuario implements Serializable{
     
-    private int id_usuario;
+    private int id;
     private String cuenta;
     private String clave;
     private String nombres;
@@ -36,7 +36,7 @@ public class usuario implements Serializable{
     //constructor
 
     public usuario(int id, String cuenta, String clave, String nombres, String apellidos, String cedula, int edad, String direccion, String telefono, String celular, String correo,String sexo, String tipo, String cargo, Date fecha_inicio,String estado) {
-        this.id_usuario = id;
+        this.id = id;
         this.cuenta=cuenta;
         this.clave=clave;
         this.nombres = nombres;
@@ -74,6 +74,21 @@ public class usuario implements Serializable{
         //this.id_empresa = id_empresa;
     }
     
+    //cosntructor para buscar usuarios en ingreso de empresas
+
+    public usuario(int id_usuario, String cuenta, String nombres, String apellidos, String cedula, String correo, String tipo, String cargo, String estado) {
+        this.id = id_usuario;
+        this.cuenta = cuenta;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.cedula = cedula;
+        this.correo = correo;
+        this.tipo = tipo;
+        this.cargo = cargo;
+        this.estado = estado;
+    }
+    
+    
     //constructor vacio
     public usuario() {
     }
@@ -96,7 +111,7 @@ public class usuario implements Serializable{
     
     //set
     public void setId(int id) {
-        this.id_usuario = id;
+        this.id = id;
     }
 
     public void setCuenta(String cuenta) {
@@ -167,7 +182,7 @@ public class usuario implements Serializable{
     //getters
 
     public int getId() {
-        return id_usuario;
+        return id;
     }
 
     public String getCuenta() {
@@ -224,10 +239,6 @@ public class usuario implements Serializable{
 
     public String getEstado() {
         return estado;
-    }
-
-    public int getId_usuario() {
-        return id_usuario;
     }
 
     public String getSexo() {
