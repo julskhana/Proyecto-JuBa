@@ -67,6 +67,8 @@ public class frmSeleccionarEmpresas extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel1.setText("Usuario:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, -1, -1));
+
+        tfusuario.setEditable(false);
         getContentPane().add(tfusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 190, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
