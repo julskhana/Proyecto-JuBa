@@ -55,9 +55,9 @@ public class frmSeleccionarEmpresas extends javax.swing.JFrame {
         tfusuario = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         cbempresas = new javax.swing.JComboBox<>();
-        btSeleccionar = new javax.swing.JButton();
-        cbSalir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        cbSalir = new javax.swing.JButton();
+        btSeleccionar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -78,6 +78,19 @@ public class frmSeleccionarEmpresas extends javax.swing.JFrame {
         cbempresas.setToolTipText("");
         getContentPane().add(cbempresas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 190, 30));
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cbSalir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cbSalir.setForeground(new java.awt.Color(255, 0, 0));
+        cbSalir.setText("Salir");
+        cbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSalirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 130, 40));
+
         btSeleccionar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btSeleccionar.setForeground(new java.awt.Color(255, 0, 0));
         btSeleccionar.setText("Seleccionar");
@@ -86,28 +99,7 @@ public class frmSeleccionarEmpresas extends javax.swing.JFrame {
                 btSeleccionarActionPerformed(evt);
             }
         });
-        getContentPane().add(btSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 140, 40));
-
-        cbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/salir.png"))); // NOI18N
-        cbSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbSalirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 60, 60));
-
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 260, Short.MAX_VALUE)
-        );
+        jPanel1.add(btSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 140, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 260));
 
