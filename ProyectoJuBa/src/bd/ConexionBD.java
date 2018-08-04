@@ -264,7 +264,35 @@ public class ConexionBD {
         return emp; 
     }
     
-    
+    public ArrayList<usuario> consultarUsuarios(String busqueda, String tipo){
+	ArrayList<usuario> registroU = new ArrayList<usuario>();
+	try{
+		Statement st = this.con.createStatement();
+		//ResultSet rs = st.executeQuery("SELECT * FROM usuario;");
+		ResultSet rs = null;
+		
+		if(tipo.equalsIgnoreCase("usuario")){
+			rs = st.executeQuery("SELECT * FROM usuario;");
+		}else{
+			rs = st.executeQuery("SELECT * FROM cliente WHERE "+tipo+" LIKE '%"+busqueda+"%';");
+		}
+		
+		while (rs.next()){
+			String nombres   = rs.getString("nombres");
+			String apellidos = rs.getString("apellidos");
+			String sexo      = rs.getString("sexo");
+			String tipoU      = rs.getString("tipo");
+			String cargo     = rs.getString("cargo");
+			
+			usuario usr = new usuario(nombres,apellidos,sexo,tipoU,cargo);
+			registroU.add(usr);
+		}
+		System.out.println("usuarios consultados.");
+	}catch (Exception e){
+		System.out.println("error en consulta de usuarios.");
+	}
+	return registroU;
+}
     
     /**
     //FUNCIONES DE PROYECTO RESTAURANTE

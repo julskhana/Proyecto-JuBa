@@ -99,7 +99,7 @@ public class frmSeleccionarEmpresas extends javax.swing.JFrame {
                 btSeleccionarActionPerformed(evt);
             }
         });
-        jPanel1.add(btSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 140, 40));
+        jPanel1.add(btSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 140, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 260));
 
