@@ -312,6 +312,7 @@ public class ConexionBD {
 		
 		while (rs.next()){
                     int id           = rs.getInt("id");
+                    String cuenta = rs.getString("cuenta");
                     String nombres   = rs.getString("nombres");
                     String apellidos = rs.getString("apellidos");
                     String cedula = rs.getString("cedula");
@@ -323,12 +324,10 @@ public class ConexionBD {
                     String sexo      = rs.getString("sexo");
                     String tipoU      = rs.getString("tipo");
                     String cargo     = rs.getString("cargo");
-                    String fecha_inicio = rs.getString("fecha_inicio");
+                    Date fecha_inicio = rs.getString("fecha_inicio");
                     String estado = rs.getString("estado");
-                    String cuenta = rs.getString("cuenta");
-                    String clave = rs.getString("clave");
-
-                    usuario usr = new usuario(nombres,apellidos,sexo,tipoU,cargo);
+                    
+                    usuario usr = new usuario(id, cuenta, nombres, apellidos, cedula, edad, direccion, telefono, celular, correo, sexo, tipo, cargo, fecha_inicio, estado);
                     registroU.add(usr);
 		}
 		System.out.println("usuarios consultados.");
