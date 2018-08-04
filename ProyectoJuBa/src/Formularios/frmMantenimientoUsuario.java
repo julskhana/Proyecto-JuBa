@@ -148,16 +148,100 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
         ingresoU.setVisible(true);
         */
     }//GEN-LAST:event_btNuevousuarioActionPerformed
+    private boolean formularioConsultaValidoA(){
+        String tipo = cbtipo.getSelectedItem().toString();
+        String descripcion = tfdescripcion.getText();
+        if(tipo.equals("Nombres") && descripcion.equals("")){
+            JOptionPane.showMessageDialog(this,"Debe ingresar el Nombre","Consulta",JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(tipo.equals("Apellidos") && descripcion.equals("")){
+            JOptionPane.showMessageDialog(this,"Debe ingresar el Apellido","Consulta",JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(tipo.equals("Sexo") && descripcion.equals("")){
+            JOptionPane.showMessageDialog(this,"Debe ingresar el Sexo","Consulta",JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(tipo.equals("Tipo") && descripcion.equals("")){
+            JOptionPane.showMessageDialog(this,"Debe ingresar el Tipo","Consulta",JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(tipo.equals("Cargo") && descripcion.equals("")){
+            JOptionPane.showMessageDialog(this,"Debe ingresar el Cargo","Consulta",JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+    
+    public void consultarRegistro(){
+        try{
+            String tipo = cbtipo.getSelectedItem().toString();
+            String descripcion = tfdescripcion.getText();        
+            
+            try{
+                ConexionBD c = new ConexionBD();
+                c.conectar();
+                
+                ArrayList<usuario> registro = c.consultarUsuarios("","usuario");
+                ArrayList<usuario> resultado = new ArrayList<usuario>();
+                
+                if (tipo.equals("Todos")){
+                        resultado = registro;
+                }else{
+                    for (usuario u1:registro){
+                        if(tipo.equals("Nombres")&&(descripcion.length()>0)){
+                            if(u1.getNombres().toUpperCase().contains(descripcion.toUpperCase())){
+                                resultado.add(u1);
+                            }
+                        }else if(tipo.equals("Apellidos")&&(descripcion.length()>0)){
+                            if(u1.getApellidos().toUpperCase().contains(descripcion.toUpperCase())){
+                                resultado.add(u1);
+                            }
+                        }else if(tipo.equals("Sexo")&&(descripcion.length()>0)){
+                            if(u1.getSexo().toUpperCase().contains(descripcion.toUpperCase())){
+                                resultado.add(u1);
+                            }
+                        }else if(tipo.equals("Tipo")&&(descripcion.length()>0)){
+                            if(u1.getTipo().toUpperCase().contains(descripcion.toUpperCase())){
+                                resultado.add(u1);
+                            }
+                        }else if(tipo.equals("Cargo")&&(descripcion.length()>0)){
+                            if(u1.getCargo().toUpperCase().contains(descripcion.toUpperCase())){
+                                resultado.add(u1);
+                            }else{
+                            JOptionPane.showMessageDialog(this,"Descripcion vacia.","Consulta Invalida",JOptionPane.ERROR_MESSAGE);
+                            break;
+                            }
+                        }
+                    }
 
-    private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
+                    DefaultTableModel dtm = (DefaultTableModel)tbusuario.getModel();
+                    dtm.setRowCount(0);
+
+                    //recorriendo base de datos
+                    for (usuario us:resultado){
+                        Object[] fila = new Object[5];
+                        fila[0] = us.getNombres();
+                        fila[1] = us.getApellidos();
+                        fila[2] = us.getSexo();
+                        fila[3] = us.getTipo();
+                        fila[4] = us.getCargo();
+                        dtm.addRow(fila);
+                    }
+                    c.desconectar();
+                }
+            }catch (Exception e){
+                System.out.println("error al consultar usuarios");
+            }
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(this,"Ocurrió un error al consultar los registros","Consulta",JOptionPane.ERROR_MESSAGE);
+        }
         
-        /*
+    }
+    
+    private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
         if (formularioConsultaValidoA()){
             consultarRegistro();
             btEliminar.enable(true);
             btEditar.enable(true);
         }
-        */
     }//GEN-LAST:event_btConsultarActionPerformed
 
     private void btEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarActionPerformed
@@ -187,89 +271,11 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btEliminarActionPerformed
 
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btEditarActionPerformed
     /*
-    public void consultarRegistro(){
-        String tipo = cbtipo.getSelectedItem().toString();
-        String descripcion = tfdescripcion.getText();        
-        //consultar
-        try{
-            //cunsolta a la base
-            try{
-                ConexionBD c = new ConexionBD();
-                c.conectar();
-                
-                ArrayList<usuario> registro = c.consultarUsuarios("","usuario");
-                ArrayList<usuario> resultado = new ArrayList<usuario>();
-                
-                //Consultar tipo y descripcion
-                if (tipo.equals("Todos")){
-                        resultado = registro;
-                }else{
-                    for (usuario u1:registro){
-                        if(tipo.equals("Cuenta")&&(descripcion.length()>0)){
-                            if(u1.getCuenta().toUpperCase().contains(descripcion.toUpperCase())){
-                                resultado.add(u1);
-                            }
-                        }else if(tipo.equals("Rol")){
-                            if(u1.getRol().toUpperCase().contains(descripcion.toUpperCase())){
-                                resultado.add(u1);
-                            }
-                        }else if(tipo.equals("Estado")){
-                            if(u1.getEstado().toUpperCase().contains(descripcion.toUpperCase())){
-                                resultado.add(u1);
-                            }
-                        }else if(tipo.equals("Fecha Registro")){
-                            if(u1.getFecha_registro().contains(descripcion.toUpperCase())){
-                                resultado.add(u1);
-                            }
-                        }else{
-                            JOptionPane.showMessageDialog(this,"Descripcion vacia.","Consulta Invalida",JOptionPane.ERROR_MESSAGE);
-                            break;
-                        }
-                    }
-                }
-
-                DefaultTableModel dtm = (DefaultTableModel)tbusuario.getModel();
-                dtm.setRowCount(0);
-                
-                //recorriendo base de datos
-                for (usuario us:resultado){
-                    Object[] fila = new Object[5];
-                    fila[0] = us.getId();
-                    fila[1] = us.getCuenta();
-                    fila[2] = us.getRol();
-                    fila[3] = us.getEstado();
-                    fila[4] = us.getFecha_registro();
-                    dtm.addRow(fila);
-                }
-            c.desconectar();
-            }catch (Exception e){
-                System.out.println("error al consultar usuarios");
-            }
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(this,"Ocurrió un error al consultar los registros","Consulta",JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    private boolean formularioConsultaValidoA(){
-        String tipo = cbtipo.getSelectedItem().toString();
-        String descripcion = tfdescripcion.getText();
-        if(tipo.equals("Cedula") && descripcion.equals("")){
-                JOptionPane.showMessageDialog(this,"Debe ingresar un número","Consulta",JOptionPane.ERROR_MESSAGE);
-                return false;
-        }else if(tipo.equals("Nombres") && descripcion.equals("")){
-                JOptionPane.showMessageDialog(this,"Debe ingresar un Nombre","Consulta",JOptionPane.ERROR_MESSAGE);
-                return false;
-        }else if(tipo.equals("Apellidos") && descripcion.equals("")){
-                JOptionPane.showMessageDialog(this,"Debe ingresar un Apellido","Consulta",JOptionPane.ERROR_MESSAGE);
-                return false;
-        }
-        
-        return true;
-    }
     
+
     private boolean seleccionEliminacionValida(){ 
         int n = tbusuario.getSelectedRowCount();
         if(n==0){
