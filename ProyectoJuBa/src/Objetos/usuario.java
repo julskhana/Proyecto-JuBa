@@ -100,12 +100,24 @@ public class usuario implements Serializable{
         this.clave = clave;
     }
 
-    public usuario(String nombres, String apellidos, String sexo, String tipoU, String cargo) {
+    //constructor para consultar usuarios
+
+    public usuario(int id, String cuenta, String nombres, String apellidos, String cedula, int edad, String direccion, String telefono, String celular, String correo, String sexo, String tipo, String cargo, Date fecha_inicio, String estado) {
+        this.id = id;
+        this.cuenta = cuenta;
         this.nombres = nombres;
         this.apellidos = apellidos;
+        this.cedula = cedula;
+        this.edad = edad;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.celular = celular;
+        this.correo = correo;
         this.sexo = sexo;
-        this.tipo = tipoU;
+        this.tipo = tipo;
         this.cargo = cargo;
+        this.fecha_inicio = fecha_inicio;
+        this.estado = estado;
     }
     
     

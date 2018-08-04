@@ -160,6 +160,8 @@ public class frmMantenimientoEmpresas extends javax.swing.JFrame {
         frmIngresoUsuario ingresoU = new frmIngresoUsuario();
         ingresoU.setVisible(true);
         */
+        frmIngresoEmpresa ine = new frmIngresoEmpresa();
+        ine.setVisible(true);
     }//GEN-LAST:event_btNuevousuarioActionPerformed
 
     private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed

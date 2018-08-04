@@ -300,18 +300,17 @@ public class ConexionBD {
     public ArrayList<usuario> consultarUsuarios(String busqueda, String tipo){
 	ArrayList<usuario> registroU = new ArrayList<usuario>();
 	try{
-		Statement st = this.con.createStatement();
-		//ResultSet rs = st.executeQuery("SELECT * FROM usuario;");
+		Statement st = this.con.createStatement();		
 		ResultSet rs = null;
 		
 		if(tipo.equalsIgnoreCase("usuario")){
 			rs = st.executeQuery("SELECT * FROM usuario;");
 		}else{
-			rs = st.executeQuery("SELECT * FROM cliente WHERE "+tipo+" LIKE '%"+busqueda+"%';");
+			rs = st.executeQuery("SELECT * FROM usuario WHERE "+tipo+" LIKE '%"+busqueda+"%';");
 		}
 		
 		while (rs.next()){
-                    int id           = rs.getInt("id");
+                    int id           = rs.getInt("id_usuario");
                     String cuenta = rs.getString("cuenta");
                     String nombres   = rs.getString("nombres");
                     String apellidos = rs.getString("apellidos");
@@ -327,12 +326,12 @@ public class ConexionBD {
                     String estado = rs.getString("estado");
                     Date fecha_inicio = rs.getDate("fecha_inicio");
                     
-                    usuario usr = new usuario(id, cuenta, nombres, apellidos, cedula, edad, direccion, telefono, celular, correo, sexo, tipo, cargo, estado, fecha_inicio);
+                    usuario usr = new usuario(id, cuenta, cargo, nombres, apellidos, cedula, edad, direccion, telefono, celular, correo, sexo, tipoU, cargo, fecha_inicio, estado);
                     registroU.add(usr);
 		}
 		System.out.println("usuarios consultados.");
-	}catch (Exception e){
-		System.out.println("error en consulta de usuarios.");
+	}catch (SQLException e){
+		System.out.println("error en consulta de usuarios."+e);
 	}
 	return registroU;
 }

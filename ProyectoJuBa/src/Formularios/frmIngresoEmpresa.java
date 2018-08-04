@@ -71,14 +71,17 @@ public class frmIngresoEmpresa extends javax.swing.JFrame {
         jLabel7.setText("Usuario:");
 
         btBuscarUsuario.setText("Buscar");
+        btBuscarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBuscarUsuarioActionPerformed(evt);
+            }
+        });
 
         tfnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfnombreActionPerformed(evt);
             }
         });
-
-        tf_id_usuario.setText("jTextField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -160,6 +163,12 @@ public class frmIngresoEmpresa extends javax.swing.JFrame {
     private void tfnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfnombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfnombreActionPerformed
+
+    private void btBuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarUsuarioActionPerformed
+        // TODO add your handling code here:
+        frmBuscarUsuarioEmpresas bu = new frmBuscarUsuarioEmpresas();
+        bu.setVisible(true);
+    }//GEN-LAST:event_btBuscarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments

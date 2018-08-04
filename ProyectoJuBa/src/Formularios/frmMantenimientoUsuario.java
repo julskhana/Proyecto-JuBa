@@ -55,17 +55,17 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
         tbusuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tbusuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Nombres", "Apellidos", "Cedula", "Edad", "Dirección", "Telefono", "Celular", "Correo", "Sexo", "Tipo", "Cargo", "Fecha Inicio", "Estado", "Usuario", "Password"
+                "Id", "Cuenta", "Nombres", "Apellidos", "Cedula", "Edad", "Dirección", "Telefono", "Celular", "Correo", "Sexo", "Tipo", "Cargo", "Estado", "Fecha Inicio"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -132,6 +132,11 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
 
         btSalir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btSalir.setText("Salir");
+        btSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalirActionPerformed(evt);
+            }
+        });
         getContentPane().add(btSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 420, 120, 40));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 930, 10));
 
@@ -171,16 +176,16 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
     }
     
     public void consultarRegistro(){
+        String tipo = cbtipo.getSelectedItem().toString();
+        String descripcion = tfdescripcion.getText();        
         try{
-            String tipo = cbtipo.getSelectedItem().toString();
-            String descripcion = tfdescripcion.getText();        
             
             try{
                 ConexionBD c = new ConexionBD();
                 c.conectar();
                 
                 ArrayList<usuario> registro = c.consultarUsuarios("","usuario");
-                ArrayList<usuario> resultado = new ArrayList<usuario>();
+                ArrayList<usuario> resultado = new ArrayList<>();
                 
                 if (tipo.equals("Todos")){
                         resultado = registro;
@@ -206,7 +211,7 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
                             if(u1.getCargo().toUpperCase().contains(descripcion.toUpperCase())){
                                 resultado.add(u1);
                             }else{
-                            JOptionPane.showMessageDialog(this,"Descripcion vacia.","Consulta Invalida",JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.showMessageDialog(this,"Descripcion vacia.","Consulta Invalida",JOptionPane.ERROR_MESSAGE);
                             break;
                             }
                         }
@@ -217,32 +222,32 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
 
                     //recorriendo base de datos
                     for (usuario us:resultado){
-                        Object[] fila = new Object[16];
+                        Object[] fila = new Object[15];
                         fila[0] = us.getId();
-                        fila[1] = us.getNombres();
-                        fila[2] = us.getApellidos();
-                        fila[3] = us.getCedula();
-                        fila[4] = us.getEdad();
-                        fila[5] = us.getDireccion();
-                        fila[6] = us.getTelefono();
-                        fila[7] = us.getCelular();
-                        fila[8] = us.getCorreo();
-                        fila[9] = us.getSexo();
-                        fila[10] = us.getTipo();
-                        fila[11] = us.getCargo();
-                        fila[12] = us.getFecha_inicio();
+                        fila[1] = us.getCuenta();
+                        fila[2] = us.getNombres();
+                        fila[3] = us.getApellidos();
+                        fila[4] = us.getCedula();
+                        fila[5] = us.getEdad();
+                        fila[6] = us.getDireccion();
+                        fila[7] = us.getTelefono();
+                        fila[8] = us.getCelular();
+                        fila[9] = us.getCorreo();
+                        fila[10] = us.getSexo();
+                        fila[11] = us.getTipo();
+                        fila[12] = us.getCargo();
                         fila[13] = us.getEstado();
-                        fila[14] = us.getCuenta();
-                        fila[15] = us.getClave();
+                        fila[14] = us.getFecha_inicio();
                         dtm.addRow(fila);
                     }
                     c.desconectar();
                 }
             }catch (Exception e){
-                System.out.println("error al consultar usuarios");
+                System.out.println("error al consultar usuarios"+e);
             }
         }catch (Exception e){
             JOptionPane.showMessageDialog(this,"Ocurrió un error al consultar los registros","Consulta",JOptionPane.ERROR_MESSAGE);
+            System.out.println(e);
         }
     }
     
@@ -283,6 +288,11 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
         
     }//GEN-LAST:event_btEditarActionPerformed
+
+    private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btSalirActionPerformed
     /*
     
 

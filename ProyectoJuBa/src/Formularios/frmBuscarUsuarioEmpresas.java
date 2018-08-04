@@ -134,7 +134,7 @@ public class frmBuscarUsuarioEmpresas extends javax.swing.JFrame {
     private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
         // TODO add your handling code here:
         if (formularioConsultaValido()){
-            //consultarRegistroU();
+            consultarRegistroU();
         }
     }//GEN-LAST:event_btConsultarActionPerformed
 
@@ -144,7 +144,7 @@ public class frmBuscarUsuarioEmpresas extends javax.swing.JFrame {
     
     //funciones
     
-    /*
+    
     public void consultarRegistroU(){
         String tipo = cbConsulta.getSelectedItem().toString();
         String descripcion = tfdescripcion.getText();
@@ -156,7 +156,7 @@ public class frmBuscarUsuarioEmpresas extends javax.swing.JFrame {
                 ConexionBD c = new ConexionBD();
                 c.conectar();
                 
-                ArrayList<usuario> registro = c.consultarEmpresas("","usuario");
+                ArrayList<usuario> registro = c.consultarUsuarios("","usuario");
                 ArrayList<usuario> resultado = new ArrayList<usuario>();
                 
                 //Consultar tipo y descripcion
@@ -233,7 +233,7 @@ public class frmBuscarUsuarioEmpresas extends javax.swing.JFrame {
             System.out.println(e);
         }
     }
-    */    
+    
 
     private boolean formularioConsultaValido(){
         String tipo = cbConsulta.getSelectedItem().toString();

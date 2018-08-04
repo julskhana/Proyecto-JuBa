@@ -162,6 +162,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Buscar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btBuscarUsuarioActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="tfnombre">
       <Events>
@@ -179,9 +182,6 @@
     <Component class="javax.swing.JTextField" name="tfcorreo">
     </Component>
     <Component class="javax.swing.JTextField" name="tf_id_usuario">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>
