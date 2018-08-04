@@ -1,4 +1,4 @@
-
+//jerson junqui
 package bd;
 
 //import entidades.Universidad;
