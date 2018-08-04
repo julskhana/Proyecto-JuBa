@@ -196,6 +196,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         mMantenimiento.setText("Mantenimiento");
 
         mUsuario.setText("Usuario");
+        mUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mUsuarioActionPerformed(evt);
+            }
+        });
         mMantenimiento.add(mUsuario);
 
         mEmpresa.setText("Empresa");
@@ -280,6 +285,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         }   
         c.desconectar();
     }//GEN-LAST:event_miCuentaActionPerformed
+
+    private void mUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mUsuarioActionPerformed
+        frmMantenimientoUsuario fau = new frmMantenimientoUsuario();
+        fau.setVisible(true);
+    }//GEN-LAST:event_mUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
