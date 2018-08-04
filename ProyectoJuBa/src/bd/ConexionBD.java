@@ -311,14 +311,25 @@ public class ConexionBD {
 		}
 		
 		while (rs.next()){
-			String nombres   = rs.getString("nombres");
-			String apellidos = rs.getString("apellidos");
-			String sexo      = rs.getString("sexo");
-			String tipoU      = rs.getString("tipo");
-			String cargo     = rs.getString("cargo");
-			
-			usuario usr = new usuario(nombres,apellidos,sexo,tipoU,cargo);
-			registroU.add(usr);
+                    int id           = rs.getInt("id");
+                    String nombres   = rs.getString("nombres");
+                    String apellidos = rs.getString("apellidos");
+                    String cedula = rs.getString("cedula");
+                    int edad      = rs.getInt("edad");
+                    String direccion = rs.getString("direccion");
+                    String telefono = rs.getString("telefono");
+                    String celular = rs.getString("celular");
+                    String correo = rs.getString("correo");
+                    String sexo      = rs.getString("sexo");
+                    String tipoU      = rs.getString("tipo");
+                    String cargo     = rs.getString("cargo");
+                    String fecha_inicio = rs.getString("fecha_inicio");
+                    String estado = rs.getString("estado");
+                    String cuenta = rs.getString("cuenta");
+                    String clave = rs.getString("clave");
+
+                    usuario usr = new usuario(nombres,apellidos,sexo,tipoU,cargo);
+                    registroU.add(usr);
 		}
 		System.out.println("usuarios consultados.");
 	}catch (Exception e){
