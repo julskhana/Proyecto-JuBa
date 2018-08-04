@@ -199,6 +199,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         mMantenimiento.add(mUsuario);
 
         mEmpresa.setText("Empresa");
+        mEmpresa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mEmpresaActionPerformed(evt);
+            }
+        });
         mMantenimiento.add(mEmpresa);
 
         mAlimento.setText("Alimento");
@@ -280,6 +285,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         }   
         c.desconectar();
     }//GEN-LAST:event_miCuentaActionPerformed
+
+    private void mEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mEmpresaActionPerformed
+        // TODO add your handling code here:
+        frmMantenimientoEmpresas me = new frmMantenimientoEmpresas();
+        me.setVisible(true);
+    }//GEN-LAST:event_mEmpresaActionPerformed
 
     /**
      * @param args the command line arguments

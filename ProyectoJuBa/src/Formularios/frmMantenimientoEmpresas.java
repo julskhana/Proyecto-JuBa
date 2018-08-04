@@ -6,6 +6,7 @@
  */
 package Formularios;
 
+import Objetos.empresa;
 import Objetos.usuario;
 import bd.ConexionBD;
 import java.util.ArrayList;
@@ -16,17 +17,16 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author julian
  */
-public class frmUsuarios extends javax.swing.JFrame {
+public class frmMantenimientoEmpresas extends javax.swing.JFrame {
 
     /**
      * Creates new form frmUsuarios
      */
-    public frmUsuarios() {
+    public frmMantenimientoEmpresas() {
         initComponents();
         
         btEliminar.enable(false);
         btEditar.enable(false);
-        
     }
 
     /**
@@ -39,58 +39,45 @@ public class frmUsuarios extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbusuario = new javax.swing.JTable();
+        tbempresa = new javax.swing.JTable();
         cbtipo = new javax.swing.JComboBox<>();
         tfdescripcion = new javax.swing.JTextField();
         btConsultar = new javax.swing.JButton();
-        btCClave = new javax.swing.JButton();
         btNuevousuario = new javax.swing.JButton();
         btEliminar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         btEditar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Mantenimiento Usuarios");
+        setTitle("Mantenimiento Empresas");
 
-        tbusuario.setModel(new javax.swing.table.DefaultTableModel(
+        tbempresa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Cuenta", "Rol", "Estado", "Fecha Registro"
+                "Id", "Nombre", "RUC", "Direccion", "Planta", "Telefono", "Correo", "Id Usuario"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tbusuario);
+        jScrollPane1.setViewportView(tbempresa);
 
-        cbtipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Cuenta", "Rol", "Estado", "Fecha Registro" }));
+        cbtipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Id", "Nombre", "Ruc", "Direccion", "Direccion Planta", "Telefono", "Correo", "Id Usuario" }));
 
         btConsultar.setText("Consultar");
         btConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btConsultarActionPerformed(evt);
-            }
-        });
-
-        btCClave.setText("Cambio de Clave");
-        btCClave.setMaximumSize(new java.awt.Dimension(80, 32));
-        btCClave.setMinimumSize(new java.awt.Dimension(80, 32));
-        btCClave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCClaveActionPerformed(evt);
             }
         });
 
@@ -112,12 +99,6 @@ public class frmUsuarios extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("VALORES");
-
-        jLabel2.setText("Rol: \"A\" Administrador, \"C\" Cajero.");
-
-        jLabel3.setText("Estado: \"A\" Activo, \"V\" Permiso, \"D\" Despedido.");
-
         btEditar.setText("Editar");
         btEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,9 +115,7 @@ public class frmUsuarios extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(cbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -144,24 +123,14 @@ public class frmUsuarios extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btConsultar)
-                        .addGap(35, 35, 35))
+                        .addComponent(btConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66)
-                        .addComponent(btEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btCClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addComponent(btNuevousuario, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(btEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(152, 152, 152)
+                        .addComponent(btNuevousuario, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,29 +145,14 @@ public class frmUsuarios extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btCClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btNuevousuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btEditar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addContainerGap())
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btCClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCClaveActionPerformed
-        // TODO add your handling code here:
-        /*
-        frmIngresoUsuarioCambioClave eclave = new frmIngresoUsuarioCambioClave();
-        eclave.setVisible(true);
-        */
-    }//GEN-LAST:event_btCClaveActionPerformed
 
     private void btNuevousuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNuevousuarioActionPerformed
         // TODO add your handling code here:
@@ -210,13 +164,11 @@ public class frmUsuarios extends javax.swing.JFrame {
 
     private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
         // TODO add your handling code here:
-        /*
-        if (formularioConsultaValidoA()){
+        if (formularioConsultaValido()){
             consultarRegistro();
             btEliminar.enable(true);
             btEditar.enable(true);
         }
-        */
     }//GEN-LAST:event_btConsultarActionPerformed
 
     private void btEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarActionPerformed
@@ -248,7 +200,7 @@ public class frmUsuarios extends javax.swing.JFrame {
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btEditarActionPerformed
-    /*
+    
     public void consultarRegistro(){
         String tipo = cbtipo.getSelectedItem().toString();
         String descripcion = tfdescripcion.getText();        
@@ -258,30 +210,41 @@ public class frmUsuarios extends javax.swing.JFrame {
             try{
                 ConexionBD c = new ConexionBD();
                 c.conectar();
-                
-                ArrayList<usuario> registro = c.consultarUsuarios("","usuario");
-                ArrayList<usuario> resultado = new ArrayList<usuario>();
-                
+                //creacion de array lists que contentran las empresas
+                ArrayList<empresa> registro = c.consultarEmpresas("","empresa");
+                ArrayList<empresa> resultado = new ArrayList<empresa>();
                 //Consultar tipo y descripcion
                 if (tipo.equals("Todos")){
                         resultado = registro;
                 }else{
-                    for (usuario u1:registro){
-                        if(tipo.equals("Cuenta")&&(descripcion.length()>0)){
-                            if(u1.getCuenta().toUpperCase().contains(descripcion.toUpperCase())){
-                                resultado.add(u1);
+                    for (empresa emp:registro){
+                        if(tipo.equals("Id")&&(descripcion.length()>0)){
+                            if(String.valueOf(emp.getId_empresa()).equals(descripcion) ){
+                                resultado.add(emp);
                             }
-                        }else if(tipo.equals("Rol")){
-                            if(u1.getRol().toUpperCase().contains(descripcion.toUpperCase())){
-                                resultado.add(u1);
+                        }else if(tipo.equals("Nombre")){
+                            if(emp.getNombre().toUpperCase().contains(descripcion.toUpperCase())){
+                                resultado.add(emp);
                             }
-                        }else if(tipo.equals("Estado")){
-                            if(u1.getEstado().toUpperCase().contains(descripcion.toUpperCase())){
-                                resultado.add(u1);
+                        }else if(tipo.equals("Ruc")){
+                            if(emp.getRuc().toUpperCase().contains(descripcion.toUpperCase())){
+                                resultado.add(emp);
                             }
-                        }else if(tipo.equals("Fecha Registro")){
-                            if(u1.getFecha_registro().contains(descripcion.toUpperCase())){
-                                resultado.add(u1);
+                        }else if(tipo.equals("Direccion")){
+                            if(emp.getDireccion().contains(descripcion.toUpperCase())){
+                                resultado.add(emp);
+                            }
+                        }else if(tipo.equals("Direccion Planta")){
+                            if(emp.getDireccion_planta().contains(descripcion.toUpperCase())){
+                                resultado.add(emp);
+                            }
+                        }else if(tipo.equals("Telefono")){
+                            if(emp.getTelefono().contains(descripcion.toUpperCase())){
+                                resultado.add(emp);
+                            }
+                        }else if(tipo.equals("Correo")){
+                            if(emp.getCorreo().contains(descripcion.toUpperCase())){
+                                resultado.add(emp);
                             }
                         }else{
                             JOptionPane.showMessageDialog(this,"Descripcion vacia.","Consulta Invalida",JOptionPane.ERROR_MESSAGE);
@@ -290,47 +253,62 @@ public class frmUsuarios extends javax.swing.JFrame {
                     }
                 }
 
-                DefaultTableModel dtm = (DefaultTableModel)tbusuario.getModel();
+                DefaultTableModel dtm = (DefaultTableModel)tbempresa.getModel();
                 dtm.setRowCount(0);
                 
                 //recorriendo base de datos
-                for (usuario us:resultado){
-                    Object[] fila = new Object[5];
-                    fila[0] = us.getId();
-                    fila[1] = us.getCuenta();
-                    fila[2] = us.getRol();
-                    fila[3] = us.getEstado();
-                    fila[4] = us.getFecha_registro();
+                for (empresa em:resultado){
+                    Object[] fila = new Object[8];
+                    fila[0] = em.getId_empresa();
+                    fila[1] = em.getNombre();
+                    fila[2] = em.getRuc();
+                    fila[3] = em.getDireccion();
+                    fila[4] = em.getDireccion_planta();
+                    fila[5] = em.getTelefono();
+                    fila[6] = em.getCorreo();
+                    fila[7] = em.getId_usuario();
                     dtm.addRow(fila);
                 }
             c.desconectar();
             }catch (Exception e){
-                System.out.println("error al consultar usuarios");
+                System.out.println("error al consultar empresas"+e);
             }
         }catch (Exception e){
             JOptionPane.showMessageDialog(this,"Ocurrió un error al consultar los registros","Consulta",JOptionPane.ERROR_MESSAGE);
+            System.out.println("consulta de registros empresa: "+e);
         }
     }
-
-    private boolean formularioConsultaValidoA(){
+    
+    private boolean formularioConsultaValido(){
         String tipo = cbtipo.getSelectedItem().toString();
         String descripcion = tfdescripcion.getText();
-        if(tipo.equals("Cedula") && descripcion.equals("")){
-                JOptionPane.showMessageDialog(this,"Debe ingresar un número","Consulta",JOptionPane.ERROR_MESSAGE);
+        if(tipo.equals("Nombre") && descripcion.equals("")){
+                JOptionPane.showMessageDialog(this,"Debe ingresar el nombre de la empresa.","Consulta",JOptionPane.ERROR_MESSAGE);
                 return false;
-        }else if(tipo.equals("Nombres") && descripcion.equals("")){
-                JOptionPane.showMessageDialog(this,"Debe ingresar un Nombre","Consulta",JOptionPane.ERROR_MESSAGE);
+        }else if(tipo.equals("RUC") && descripcion.equals("")){
+                JOptionPane.showMessageDialog(this,"Debe ingresar el RUC de la empresa.","Consulta",JOptionPane.ERROR_MESSAGE);
                 return false;
-        }else if(tipo.equals("Apellidos") && descripcion.equals("")){
-                JOptionPane.showMessageDialog(this,"Debe ingresar un Apellido","Consulta",JOptionPane.ERROR_MESSAGE);
+        }else if(tipo.equals("Direccion") && descripcion.equals("")){
+                JOptionPane.showMessageDialog(this,"Debe ingresar la direccion de la empresa.","Consulta",JOptionPane.ERROR_MESSAGE);
+                return false;
+        }else if(tipo.equals("Direccion Planta") && descripcion.equals("")){
+                JOptionPane.showMessageDialog(this,"Debe ingresar la direccion de la planta de la empresa.","Consulta",JOptionPane.ERROR_MESSAGE);
+                return false;
+        }else if(tipo.equals("Telefono") && descripcion.equals("")){
+                JOptionPane.showMessageDialog(this,"Debe ingresar el telefono de la empresa.","Consulta",JOptionPane.ERROR_MESSAGE);
+                return false;
+        }else if(tipo.equals("Correo") && descripcion.equals("")){
+                JOptionPane.showMessageDialog(this,"Debe ingresar el correo de la empresa.","Consulta",JOptionPane.ERROR_MESSAGE);
+                return false;
+        }else if(tipo.equals("Id Usuario") && descripcion.equals("")){
+                JOptionPane.showMessageDialog(this,"Debe ingresar el usuario de la empresa.","Consulta",JOptionPane.ERROR_MESSAGE);
                 return false;
         }
-        
         return true;
     }
     
     private boolean seleccionEliminacionValida(){ 
-        int n = tbusuario.getSelectedRowCount();
+        int n = tbempresa.getSelectedRowCount();
         if(n==0){
             JOptionPane.showMessageDialog(this,"Debe seleccionar mínimo un registro para eliminar","Eliminación",JOptionPane.ERROR_MESSAGE);
             return false;        
@@ -341,20 +319,16 @@ public class frmUsuarios extends javax.swing.JFrame {
         else
             return false;
     }
-    */
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btCClave;
     private javax.swing.JButton btConsultar;
     private javax.swing.JButton btEditar;
     private javax.swing.JButton btEliminar;
     private javax.swing.JButton btNuevousuario;
     private javax.swing.JComboBox<String> cbtipo;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tbusuario;
+    private javax.swing.JTable tbempresa;
     private javax.swing.JTextField tfdescripcion;
     // End of variables declaration//GEN-END:variables
 }

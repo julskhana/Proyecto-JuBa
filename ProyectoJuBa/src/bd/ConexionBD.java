@@ -264,6 +264,37 @@ public class ConexionBD {
         return emp; 
     }
     
+    public ArrayList<empresa> consultarEmpresas(String busqueda, String tipo){
+        ArrayList<empresa> registro = new ArrayList<empresa>();
+        try{
+            Statement st = this.con.createStatement();            
+            ResultSet rs = null;
+            
+            if(tipo.equalsIgnoreCase("empresa")){
+                rs = st.executeQuery("SELECT * FROM empresa;");
+            }else{
+                rs = st.executeQuery("SELECT * FROM empresa WHERE "+tipo+" LIKE '%"+busqueda+"%';");
+            }
+            
+            while (rs.next()){
+                int id = rs.getInt("id_empresa");
+                String nom = rs.getString("nombre");
+                String ruc = rs.getString("ruc");
+                String dir = rs.getString("direccion");
+                String dir_p = rs.getString("direccion_planta");
+                String tel = rs.getString("telefono");
+                String cor = rs.getString("correo");
+                int id_u = rs.getInt("id_usuario");
+                
+                empresa emp = new empresa(id, nom, ruc, dir, dir_p, tel, cor, id_u);
+                registro.add(emp);
+            }
+            System.out.println("empresas consultadas...");
+        }catch (SQLException e){
+            System.out.println("error en consulta de empresas."+e);
+        }
+        return registro;
+    }
     
     
     /**
