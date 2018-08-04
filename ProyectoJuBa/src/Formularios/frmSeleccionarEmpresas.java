@@ -122,8 +122,12 @@ public class frmSeleccionarEmpresas extends javax.swing.JFrame {
             usuario u = c.obtenerDatosUsuario(tfusuario.getText());
             empresa e = c.obtenerDatosEmpresa(cbempresas.getSelectedItem().toString());
             c.desconectar();
-            frmPrincipal p = new frmPrincipal(e, u);
-            p.setVisible(true);
+            if(u.getTipo().equals("administrador")){
+                frmPrincipal p = new frmPrincipal(e, u);
+                p.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(this,"El usuario no es Admnistrador","Atención",JOptionPane.ERROR_MESSAGE);
+            }
         }catch(Exception ex){
             System.out.println(ex);
         }
