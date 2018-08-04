@@ -84,6 +84,14 @@ public class usuario implements Serializable{
         this.cuenta = cuenta;
         this.clave = clave;
     }
+
+    public usuario(String nombres, String apellidos, String sexo, String tipoU, String cargo) {
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.sexo = sexo;
+        this.tipo = tipoU;
+        this.cargo = cargo;
+    }
     
     
     //set
