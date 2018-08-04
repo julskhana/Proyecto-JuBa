@@ -217,12 +217,23 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
 
                     //recorriendo base de datos
                     for (usuario us:resultado){
-                        Object[] fila = new Object[5];
-                        fila[0] = us.getNombres();
-                        fila[1] = us.getApellidos();
-                        fila[2] = us.getSexo();
-                        fila[3] = us.getTipo();
-                        fila[4] = us.getCargo();
+                        Object[] fila = new Object[16];
+                        fila[0] = us.getId();
+                        fila[1] = us.getNombres();
+                        fila[2] = us.getApellidos();
+                        fila[3] = us.getCedula();
+                        fila[4] = us.getEdad();
+                        fila[5] = us.getDireccion();
+                        fila[6] = us.getTelefono();
+                        fila[7] = us.getCelular();
+                        fila[8] = us.getCorreo();
+                        fila[9] = us.getSexo();
+                        fila[10] = us.getTipo();
+                        fila[11] = us.getCargo();
+                        fila[12] = us.getFecha_inicio();
+                        fila[13] = us.getEstado();
+                        fila[14] = us.getCuenta();
+                        fila[15] = us.getClave();
                         dtm.addRow(fila);
                     }
                     c.desconectar();
@@ -233,7 +244,6 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
         }catch (Exception e){
             JOptionPane.showMessageDialog(this,"Ocurrió un error al consultar los registros","Consulta",JOptionPane.ERROR_MESSAGE);
         }
-        
     }
     
     private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
