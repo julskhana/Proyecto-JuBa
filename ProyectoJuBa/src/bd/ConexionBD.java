@@ -324,10 +324,10 @@ public class ConexionBD {
                     String sexo      = rs.getString("sexo");
                     String tipoU      = rs.getString("tipo");
                     String cargo     = rs.getString("cargo");
-                    Date fecha_inicio = rs.getString("fecha_inicio");
                     String estado = rs.getString("estado");
+                    Date fecha_inicio = rs.getDate("fecha_inicio");
                     
-                    usuario usr = new usuario(id, cuenta, nombres, apellidos, cedula, edad, direccion, telefono, celular, correo, sexo, tipo, cargo, fecha_inicio, estado);
+                    usuario usr = new usuario(id, cuenta, nombres, apellidos, cedula, edad, direccion, telefono, celular, correo, sexo, tipo, cargo, estado, fecha_inicio);
                     registroU.add(usr);
 		}
 		System.out.println("usuarios consultados.");
