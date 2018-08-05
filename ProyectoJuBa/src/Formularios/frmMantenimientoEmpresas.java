@@ -1,9 +1,3 @@
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Formularios;
 
 import Objetos.empresa;
@@ -43,13 +37,18 @@ public class frmMantenimientoEmpresas extends javax.swing.JFrame {
         cbtipo = new javax.swing.JComboBox<>();
         tfdescripcion = new javax.swing.JTextField();
         btConsultar = new javax.swing.JButton();
-        btNuevousuario = new javax.swing.JButton();
+        btNuevaEmpresa = new javax.swing.JButton();
         btEliminar = new javax.swing.JButton();
         btEditar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        cbSalir = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Mantenimiento Empresas");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tbempresa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -72,24 +71,36 @@ public class frmMantenimientoEmpresas extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbempresa);
 
-        cbtipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Id", "Nombre", "Ruc", "Direccion", "Direccion Planta", "Telefono", "Correo", "Id Usuario" }));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 750, 200));
 
+        cbtipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Id", "Nombre", "Ruc", "Direccion", "Direccion Planta", "Telefono", "Correo", "Id Usuario" }));
+        getContentPane().add(cbtipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 160, 40));
+        getContentPane().add(tfdescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 300, 40));
+
+        btConsultar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btConsultar.setForeground(new java.awt.Color(255, 0, 0));
         btConsultar.setText("Consultar");
         btConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btConsultarActionPerformed(evt);
             }
         });
+        getContentPane().add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 120, 130, 40));
 
-        btNuevousuario.setText("Nuevo");
-        btNuevousuario.setMaximumSize(new java.awt.Dimension(80, 32));
-        btNuevousuario.setMinimumSize(new java.awt.Dimension(80, 32));
-        btNuevousuario.addActionListener(new java.awt.event.ActionListener() {
+        btNuevaEmpresa.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btNuevaEmpresa.setForeground(new java.awt.Color(255, 0, 0));
+        btNuevaEmpresa.setText("Nuevo");
+        btNuevaEmpresa.setMaximumSize(new java.awt.Dimension(80, 32));
+        btNuevaEmpresa.setMinimumSize(new java.awt.Dimension(80, 32));
+        btNuevaEmpresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btNuevousuarioActionPerformed(evt);
+                btNuevaEmpresaActionPerformed(evt);
             }
         });
+        getContentPane().add(btNuevaEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 413, 140, 40));
 
+        btEliminar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btEliminar.setForeground(new java.awt.Color(255, 0, 0));
         btEliminar.setText("Eliminar");
         btEliminar.setMaximumSize(new java.awt.Dimension(80, 32));
         btEliminar.setMinimumSize(new java.awt.Dimension(80, 32));
@@ -98,71 +109,49 @@ public class frmMantenimientoEmpresas extends javax.swing.JFrame {
                 btEliminarActionPerformed(evt);
             }
         });
+        getContentPane().add(btEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 120, 40));
 
+        btEditar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btEditar.setForeground(new java.awt.Color(255, 0, 0));
         btEditar.setText("Editar");
         btEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEditarActionPerformed(evt);
             }
         });
+        getContentPane().add(btEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, 130, 40));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 204, 0));
         jLabel4.setText("Descripcion:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 140, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(152, 152, 152)
-                        .addComponent(btNuevousuario, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbtipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btConsultar)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btNuevousuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btEditar))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
+        cbSalir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cbSalir.setForeground(new java.awt.Color(255, 0, 0));
+        cbSalir.setText("Salir");
+        cbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 410, 140, 40));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 610, 10));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel15.setText("MANTENIMIENTO EMPRESA");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 540, 50));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/autenticacion.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btNuevousuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNuevousuarioActionPerformed
-        // TODO add your handling code here:
-        /*
-        frmIngresoUsuario ingresoU = new frmIngresoUsuario();
-        ingresoU.setVisible(true);
-        */
-        frmIngresoEmpresa ine = new frmIngresoEmpresa();
+    private void btNuevaEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNuevaEmpresaActionPerformed
+        frmIngresoNuevaEmpresa ine = new frmIngresoNuevaEmpresa();
         ine.setVisible(true);
-    }//GEN-LAST:event_btNuevousuarioActionPerformed
+    }//GEN-LAST:event_btNuevaEmpresaActionPerformed
 
     private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
         // TODO add your handling code here:
@@ -202,6 +191,10 @@ public class frmMantenimientoEmpresas extends javax.swing.JFrame {
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btEditarActionPerformed
+
+    private void cbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_cbSalirActionPerformed
     
     public void consultarRegistro(){
         String tipo = cbtipo.getSelectedItem().toString();
@@ -326,10 +319,14 @@ public class frmMantenimientoEmpresas extends javax.swing.JFrame {
     private javax.swing.JButton btConsultar;
     private javax.swing.JButton btEditar;
     private javax.swing.JButton btEliminar;
-    private javax.swing.JButton btNuevousuario;
+    private javax.swing.JButton btNuevaEmpresa;
+    private javax.swing.JButton cbSalir;
     private javax.swing.JComboBox<String> cbtipo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable tbempresa;
     private javax.swing.JTextField tfdescripcion;
     // End of variables declaration//GEN-END:variables
