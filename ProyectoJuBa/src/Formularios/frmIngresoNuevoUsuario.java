@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Formularios;
 
 /**
@@ -29,6 +24,39 @@ public class frmIngresoNuevoUsuario extends javax.swing.JFrame {
 
         jSeparator1 = new javax.swing.JSeparator();
         jLabel15 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        tfNombres = new javax.swing.JFormattedTextField();
+        tfApellidos = new javax.swing.JFormattedTextField();
+        tfCedula = new javax.swing.JFormattedTextField();
+        tfEdad = new javax.swing.JFormattedTextField();
+        tfDireccion = new javax.swing.JFormattedTextField();
+        tfTelefono = new javax.swing.JFormattedTextField();
+        tfCelular = new javax.swing.JFormattedTextField();
+        tfCorreo = new javax.swing.JFormattedTextField();
+        cbSexo = new javax.swing.JComboBox<>();
+        cbTipo = new javax.swing.JComboBox<>();
+        cbCargo = new javax.swing.JComboBox<>();
+        cbEstado = new javax.swing.JComboBox<>();
+        tfUsuario = new javax.swing.JFormattedTextField();
+        tfPassword = new javax.swing.JPasswordField();
+        tfFechaInicio = new javax.swing.JFormattedTextField();
+        cbLimpiar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -40,50 +68,162 @@ public class frmIngresoNuevoUsuario extends javax.swing.JFrame {
         jLabel15.setText("INGRESO NUEVO USUARIO");
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 500, 50));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel3.setText("Nombres");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 140, 20));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel4.setText("Apellidos");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 140, 20));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel5.setText("Cedula");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 140, 20));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel6.setText("Edad");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 140, 20));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel7.setText("Direccion");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 140, 20));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel8.setText("Telefono Local");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, 160, 30));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel9.setText("Telefono Movil");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, 210, 20));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel10.setText("Correo");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 120, 30));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel12.setText("Sexo");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 100, 80, 30));
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel19.setText("Tipo");
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 80, 30));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel13.setText("Cargo");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 200, 80, 30));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 19)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel14.setText("Fecha Inicio");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 250, 120, 30));
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel18.setText("Estado");
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 300, 110, 30));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel16.setText("Usuario");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 90, 30));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel17.setText("Password");
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 110, 30));
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 0, 0));
+        jButton1.setText("GUARDAR");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 140, 40));
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 0, 0));
+        jButton2.setText("SALIR");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, 140, 40));
+        getContentPane().add(tfNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 160, 30));
+        getContentPane().add(tfApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 160, 30));
+        getContentPane().add(tfCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 160, 30));
+        getContentPane().add(tfEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 240, 100, 30));
+        getContentPane().add(tfDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, 160, 30));
+        getContentPane().add(tfTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 160, 30));
+        getContentPane().add(tfCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, 160, 30));
+        getContentPane().add(tfCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, 160, 30));
+
+        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
+        getContentPane().add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 100, 100, 30));
+
+        cbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "administrador" }));
+        getContentPane().add(cbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 150, 100, 30));
+
+        cbCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "tecnico", "licenciado", "ingeniero", "biologo", "economista" }));
+        getContentPane().add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 200, 100, 30));
+
+        cbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "I" }));
+        getContentPane().add(cbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 300, 100, 30));
+        getContentPane().add(tfUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 160, 30));
+        getContentPane().add(tfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 160, 30));
+        getContentPane().add(tfFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 250, 120, 30));
+
+        cbLimpiar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cbLimpiar.setForeground(new java.awt.Color(255, 0, 0));
+        cbLimpiar.setText("LIMPIAR");
+        getContentPane().add(cbLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 140, 40));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/autenticacion.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmIngresoNuevoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmIngresoNuevoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmIngresoNuevoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmIngresoNuevoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmIngresoNuevoUsuario().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbCargo;
+    private javax.swing.JComboBox<String> cbEstado;
+    private javax.swing.JButton cbLimpiar;
+    private javax.swing.JComboBox<String> cbSexo;
+    private javax.swing.JComboBox<String> cbTipo;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JFormattedTextField tfApellidos;
+    private javax.swing.JFormattedTextField tfCedula;
+    private javax.swing.JFormattedTextField tfCelular;
+    private javax.swing.JFormattedTextField tfCorreo;
+    private javax.swing.JFormattedTextField tfDireccion;
+    private javax.swing.JFormattedTextField tfEdad;
+    private javax.swing.JFormattedTextField tfFechaInicio;
+    private javax.swing.JFormattedTextField tfNombres;
+    private javax.swing.JPasswordField tfPassword;
+    private javax.swing.JFormattedTextField tfTelefono;
+    private javax.swing.JFormattedTextField tfUsuario;
     // End of variables declaration//GEN-END:variables
 }
