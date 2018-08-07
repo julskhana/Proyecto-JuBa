@@ -17,7 +17,7 @@ public class frmIngresoNuevaEmpresa extends javax.swing.JFrame {
      */
     
     //identificador para usuarios en busqueda
-    public static int id_usuario;
+    public static int ingresar_id_usuario;
     
     public frmIngresoNuevaEmpresa() {
         initComponents();
@@ -166,14 +166,14 @@ public class frmIngresoNuevaEmpresa extends javax.swing.JFrame {
             String direccion_planta  = tfdirplanta.getText();
             String telefono          = tftelefono.getText();
             String correo            = tfcorreo.getText();
-            int id_usuario           = Integer.parseInt(tf_id_usuario.getText());
+            int id_usuario           = ingresar_id_usuario;
             
             try{
                 c.conectar();
                 empresa e = new empresa(nombre,ruc,direccion,direccion_planta,telefono,correo,id_usuario);
                 if(c.ingresarEmpresa(e)){
                     JOptionPane.showMessageDialog(this,"Ingreso Exitoso a la base de datos","Validación",JOptionPane.INFORMATION_MESSAGE);
-                    frmAutenticacion frm = new frmAutenticacion();
+                    frmMantenimientoEmpresas frm = new frmMantenimientoEmpresas();
                     frm.setVisible(true);
                     this.dispose();
                 }else
