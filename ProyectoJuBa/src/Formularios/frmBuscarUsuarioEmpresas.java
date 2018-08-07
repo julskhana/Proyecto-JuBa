@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Formularios;
 
 import Objetos.usuario;
@@ -115,7 +110,7 @@ public class frmBuscarUsuarioEmpresas extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(seleccionValida()){
             int fila = tbusuarios.getSelectedRow();
-            frmIngresoNuevaEmpresa.id_usuario = Integer.parseInt(tbusuarios.getValueAt(fila,0).toString());
+            frmIngresoNuevaEmpresa.ingresar_id_usuario = Integer.parseInt(tbusuarios.getValueAt(fila,0).toString());
             this.dispose();
         }
     }//GEN-LAST:event_btSeleccionarActionPerformed
