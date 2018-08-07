@@ -27,22 +27,13 @@ public class frmCuenta extends javax.swing.JFrame {
         tftelefono.setText(u.getTelefono());
         tfcelular.setText(u.getCelular());
         tfcorreo.setText(u.getCorreo());
-        //seleccion de sexo
-        if(u.getSexo().equals("Masculino")){
-            cbsexo.setSelectedIndex(1);
-        }else{
-            cbsexo.setSelectedIndex(0);
-        }
-        tftipo.setText(u.getTipo());
-        tfcargo.setText(u.getCargo());
+        cbsexo.setSelectedItem(u.getSexo());
+        cbTipo.setSelectedItem(u.getTipo());
+        cbCargo.setSelectedItem(u.getCargo());
         tffechainicio.setText(u.getFecha_inicio().toString());
         tfcuenta.setText(u.getCuenta());
-        //seleccion de estado
-        if(u.getEstado().equals("A")){
-            tfestado.setText("Activo");
-        }else{
-            tfestado.setText("Inactivo");
-        }
+        cbEstado.setSelectedItem(u.getEstado());
+        tfClave.setText(u.getClave());
         System.out.println("Usuario Actual: "+u.getNombres()+" "+u.getApellidos());
     }
     /**
@@ -75,24 +66,23 @@ public class frmCuenta extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         cbsexo = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
-        tfcargo = new javax.swing.JFormattedTextField();
         jLabel10 = new javax.swing.JLabel();
         tfcorreo = new javax.swing.JFormattedTextField();
         jLabel14 = new javax.swing.JLabel();
         tffechainicio = new javax.swing.JFormattedTextField();
         jLabel18 = new javax.swing.JLabel();
-        tfestado = new javax.swing.JFormattedTextField();
-        jSeparator3 = new javax.swing.JSeparator();
         jLabel16 = new javax.swing.JLabel();
         tfcuenta = new javax.swing.JFormattedTextField();
         jLabel17 = new javax.swing.JLabel();
-        tfpass = new javax.swing.JPasswordField();
         jLabel19 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
         cbLimpiar = new javax.swing.JButton();
         cbGuardar = new javax.swing.JButton();
-        tftipo = new javax.swing.JFormattedTextField();
         cbSalir = new javax.swing.JButton();
+        cbTipo = new javax.swing.JComboBox<>();
+        cbCargo = new javax.swing.JComboBox<>();
+        cbEstado = new javax.swing.JComboBox<>();
+        cbCambiar = new javax.swing.JButton();
+        tfClave = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -109,111 +99,106 @@ public class frmCuenta extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 204, 0));
         jLabel2.setText("ID Usuario");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 170, 50));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 120, 50));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 204, 0));
         jLabel3.setText("Nombres");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 210, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 110, 20));
 
         tfid.setEditable(false);
-        getContentPane().add(tfid, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 100, 30));
-        getContentPane().add(tfnombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 170, 30));
+        getContentPane().add(tfid, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 80, 30));
+        getContentPane().add(tfnombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 170, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 204, 0));
         jLabel4.setText("Apellidos");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 210, 20));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 110, 20));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 204, 0));
         jLabel5.setText("Cedula");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 210, 20));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 110, 20));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 204, 0));
         jLabel6.setText("Edad");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 210, 20));
-        getContentPane().add(tfcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 170, 30));
-        getContentPane().add(tfapellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 170, 30));
-        getContentPane().add(tfedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 100, 30));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 110, 20));
+        getContentPane().add(tfcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, 170, 30));
+        getContentPane().add(tfapellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 170, 30));
+        getContentPane().add(tfedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 100, 30));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 204, 0));
         jLabel7.setText("Direccion");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 210, 20));
-        getContentPane().add(tfdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 170, 30));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 110, 20));
+        getContentPane().add(tfdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 300, 170, 30));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 204, 0));
         jLabel8.setText("Telefono Local");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 160, 30));
-        getContentPane().add(tftelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, 170, 30));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, 160, 30));
+        getContentPane().add(tftelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 400, 170, 30));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 204, 0));
         jLabel9.setText("Telefono Movil");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 210, 20));
-        getContentPane().add(tfcelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 170, 30));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 460, 170, 20));
+        getContentPane().add(tfcelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 450, 170, 30));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 204, 0));
         jLabel12.setText("Sexo");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 140, 80, 30));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 100, 80, 30));
 
         cbsexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
-        getContentPane().add(cbsexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 140, 120, 30));
+        getContentPane().add(cbsexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 100, 90, 30));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 204, 0));
         jLabel13.setText("Cargo");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 80, 30));
-        getContentPane().add(tfcargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 240, 170, 30));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 200, 80, 30));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 204, 0));
         jLabel10.setText("Correo");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, 120, 30));
-        getContentPane().add(tfcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 100, 170, 30));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, 80, 30));
+        getContentPane().add(tfcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, 170, 30));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 19)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 204, 0));
         jLabel14.setText("Fecha Inicio");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 290, 120, 30));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 250, 120, 30));
 
         tffechainicio.setEditable(false);
-        getContentPane().add(tffechainicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 290, 90, 30));
+        getContentPane().add(tffechainicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 250, 120, 30));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 204, 0));
         jLabel18.setText("Estado");
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 340, 110, 30));
-        getContentPane().add(tfestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 340, 90, 30));
-        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 380, 300, 10));
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 300, 110, 30));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 204, 0));
         jLabel16.setText("Usuario");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 390, 90, 30));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 90, 30));
 
         tfcuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfcuentaActionPerformed(evt);
             }
         });
-        getContentPane().add(tfcuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 390, 170, 30));
+        getContentPane().add(tfcuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 150, 30));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 204, 0));
         jLabel17.setText("Password");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 440, 110, 30));
-        getContentPane().add(tfpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 430, 170, 30));
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 110, 30));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 204, 0));
         jLabel19.setText("Tipo");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, 80, 30));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 480, 300, 30));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 80, 30));
 
         cbLimpiar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cbLimpiar.setForeground(new java.awt.Color(255, 0, 0));
@@ -223,7 +208,7 @@ public class frmCuenta extends javax.swing.JFrame {
                 cbLimpiarActionPerformed(evt);
             }
         });
-        getContentPane().add(cbLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 150, 40));
+        getContentPane().add(cbLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 130, 40));
 
         cbGuardar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cbGuardar.setForeground(new java.awt.Color(255, 0, 0));
@@ -233,16 +218,36 @@ public class frmCuenta extends javax.swing.JFrame {
                 cbGuardarActionPerformed(evt);
             }
         });
-        getContentPane().add(cbGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 150, 40));
-        getContentPane().add(tftipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 190, 170, 30));
+        getContentPane().add(cbGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 130, 40));
 
-        cbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/salir.png"))); // NOI18N
+        cbSalir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cbSalir.setForeground(new java.awt.Color(255, 0, 0));
+        cbSalir.setText("SALIR");
         cbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(cbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 60, 60));
+        getContentPane().add(cbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, 130, 40));
+
+        cbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador" }));
+        getContentPane().add(cbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 150, 90, 30));
+
+        cbCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "tecnico", "licenciado", "ingeniero", "biologo", "economista" }));
+        getContentPane().add(cbCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 190, 90, 30));
+
+        cbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "I" }));
+        getContentPane().add(cbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 300, 90, 30));
+
+        cbCambiar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cbCambiar.setText("NEW PASSWORD");
+        cbCambiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCambiarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, 140, 30));
+        getContentPane().add(tfClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 150, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/autenticacion.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -259,10 +264,12 @@ public class frmCuenta extends javax.swing.JFrame {
             tftelefono.getText().equals("") ||
             tfcelular.getText().equals("") ||
             cbsexo.getSelectedItem().equals("") ||
-            tfcargo.getText().equals("") ||
+            cbTipo.getSelectedItem().equals("") ||
+            cbCargo.getSelectedItem().equals("") ||
+            cbEstado.getSelectedItem().equals("") ||
             tfcorreo.getText().equals("") ||
             tfcuenta.getText().equals("") ||
-            tfpass.getText().equals("")){
+            tfClave.getText().equals("")){
             
            JOptionPane.showMessageDialog(this,"Formulario incompleto","Validación",JOptionPane.ERROR_MESSAGE);
             return false;
@@ -279,11 +286,12 @@ public class frmCuenta extends javax.swing.JFrame {
         tftelefono.setText(null);
         tfcelular.setText(null);
         cbsexo.setSelectedItem(null);
-        tfcargo.setText(null);
+        cbTipo.setSelectedItem(null);
+        cbCargo.setSelectedItem(null);
+        cbEstado.setSelectedItem(null);
         tfcorreo.setText(null);
         tffechainicio.setText(null);
         tfcuenta.setText(null);
-        tfpass.setText(null);
     }
     
     private void cbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbLimpiarActionPerformed
@@ -299,25 +307,20 @@ public class frmCuenta extends javax.swing.JFrame {
             String cedula         = tfcedula.getText();
             int edad              = Integer.parseInt(tfedad.getText());
             String direccion      = tfdireccion.getText();
+            String correo         = tfcorreo.getText();
             String telefono       = tftelefono.getText();
             String celular        = tfcelular.getText();
-            String tipo           = (String)cbsexo.getSelectedItem();
-            String cargo          = tfcargo.getText();
-            String correo         = tfcorreo.getText();
             String sexo           = cbsexo.getSelectedItem().toString();
-            //correccion de tipo de dato fecha String a Date sql
-            Date fecha_inicio   = Date.valueOf(tffechainicio.getText());
-            String estado         = tfestado.getText();
-            String cuenta        = tfcuenta.getText();
-            String clave          = tfpass.getText();
+            String tipo           = (String)cbsexo.getSelectedItem();
+            String cargo          = (String)cbCargo.getSelectedItem();
+            Date fecha_inicio     = Date.valueOf(tffechainicio.getText());
+            String estado         = (String)cbEstado.getSelectedItem();
+            String cuenta         = tfcuenta.getText();
+            String clave          = tfClave.getText();
 
             try{
                 c.conectar();
-                
-                /*
-                error en constructor de ingreso de cuenta, el atributo fehca_inicio no es String, sino date sql
-                */
-                usuario u = new usuario(cuenta, clave, nombres, apellidos, cedula, edad, direccion, telefono, celular, correo, tipo, sexo, cargo, fecha_inicio, estado);
+                usuario u = new usuario(cuenta, clave, nombres, apellidos, cedula, edad, direccion, telefono, celular, correo, tipo, sexo, cargo, estado, fecha_inicio);
                 if(c.ingresarUsuario(u)){
                     JOptionPane.showMessageDialog(this,"Ingreso Exitoso a la base de datos","Validación",JOptionPane.INFORMATION_MESSAGE);
                     frmAutenticacion frm = new frmAutenticacion();
@@ -345,15 +348,24 @@ public class frmCuenta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfcuentaActionPerformed
 
+    private void cbCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCambiarActionPerformed
+        frmNuevoPassword frm = new frmNuevoPassword();
+        frm.setVisible(true);
+    }//GEN-LAST:event_cbCambiarActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cbCambiar;
+    private javax.swing.JComboBox<String> cbCargo;
+    private javax.swing.JComboBox<String> cbEstado;
     private javax.swing.JButton cbGuardar;
     private javax.swing.JButton cbLimpiar;
     private javax.swing.JButton cbSalir;
+    private javax.swing.JComboBox<String> cbTipo;
     private javax.swing.JComboBox<String> cbsexo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -374,22 +386,17 @@ public class frmCuenta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTextField tfClave;
     private javax.swing.JFormattedTextField tfapellidos;
-    private javax.swing.JFormattedTextField tfcargo;
     private javax.swing.JFormattedTextField tfcedula;
     private javax.swing.JFormattedTextField tfcelular;
     private javax.swing.JFormattedTextField tfcorreo;
     private javax.swing.JFormattedTextField tfcuenta;
     private javax.swing.JFormattedTextField tfdireccion;
     private javax.swing.JFormattedTextField tfedad;
-    private javax.swing.JFormattedTextField tfestado;
     private javax.swing.JFormattedTextField tffechainicio;
     private javax.swing.JFormattedTextField tfid;
     private javax.swing.JFormattedTextField tfnombres;
-    private javax.swing.JPasswordField tfpass;
     private javax.swing.JFormattedTextField tftelefono;
-    private javax.swing.JFormattedTextField tftipo;
     // End of variables declaration//GEN-END:variables
 }
