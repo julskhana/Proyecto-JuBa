@@ -43,6 +43,7 @@ public class frmBuscarUsuarioEmpresas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Busqueda Usuarios - Ingreso Empresas");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tbusuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -66,7 +67,11 @@ public class frmBuscarUsuarioEmpresas extends javax.swing.JFrame {
         tbusuarios.setToolTipText("");
         jScrollPane1.setViewportView(tbusuarios);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 729, 141));
+
         cbConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Cuenta", "Nombres", "Apellidos", "Cedula", "Estado" }));
+        getContentPane().add(cbConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 7, 100, -1));
+        getContentPane().add(tfdescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 7, 480, -1));
 
         btConsultar.setText("Consultar");
         btConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +79,7 @@ public class frmBuscarUsuarioEmpresas extends javax.swing.JFrame {
                 btConsultarActionPerformed(evt);
             }
         });
+        getContentPane().add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(631, 6, -1, -1));
 
         btSeleccionar.setText("Seleccionar");
         btSeleccionar.setPreferredSize(new java.awt.Dimension(75, 30));
@@ -82,42 +88,7 @@ public class frmBuscarUsuarioEmpresas extends javax.swing.JFrame {
                 btSeleccionarActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(54, 328, Short.MAX_VALUE)
-                .addComponent(btSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(313, 313, 313))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(cbConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tfdescripcion)
-                .addGap(18, 18, 18)
-                .addComponent(btConsultar)
-                .addGap(39, 39, 39))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 729, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btConsultar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
-        );
+        getContentPane().add(btSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(336, 192, 100, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -126,7 +97,7 @@ public class frmBuscarUsuarioEmpresas extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(seleccionValida()){
             int fila = tbusuarios.getSelectedRow();
-            frmIngresoEmpresa.id_usuario = Integer.parseInt(tbusuarios.getValueAt(fila,0).toString());
+            frmIngresoNuevaEmpresa.id_usuario = Integer.parseInt(tbusuarios.getValueAt(fila,0).toString());
             this.dispose();
         }
     }//GEN-LAST:event_btSeleccionarActionPerformed
