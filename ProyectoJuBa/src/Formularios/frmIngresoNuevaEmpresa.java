@@ -104,20 +104,20 @@ public class frmIngresoNuevaEmpresa extends javax.swing.JFrame {
                 btBuscarUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btBuscarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 360, 80, 30));
+        getContentPane().add(btBuscarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 360, 90, 30));
 
         tfnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfnombreActionPerformed(evt);
             }
         });
-        getContentPane().add(tfnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, 171, 30));
-        getContentPane().add(tfruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, 171, 30));
-        getContentPane().add(tfdirreccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, 171, 30));
-        getContentPane().add(tfdirplanta, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, 171, 50));
-        getContentPane().add(tftelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 171, 30));
-        getContentPane().add(tfcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 310, 171, 30));
-        getContentPane().add(tf_id_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 360, 88, 30));
+        getContentPane().add(tfnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, 190, 30));
+        getContentPane().add(tfruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, 190, 30));
+        getContentPane().add(tfdirreccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, 190, 30));
+        getContentPane().add(tfdirplanta, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, 190, 50));
+        getContentPane().add(tftelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 190, 30));
+        getContentPane().add(tfcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 310, 190, 30));
+        getContentPane().add(tf_id_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 360, 100, 30));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 610, 10));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
