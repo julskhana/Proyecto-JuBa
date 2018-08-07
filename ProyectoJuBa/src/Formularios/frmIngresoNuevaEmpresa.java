@@ -1,5 +1,11 @@
 package Formularios;
 
+import Objetos.empresa;
+import Objetos.usuario;
+import bd.ConexionBD;
+import java.sql.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author julian
@@ -38,7 +44,7 @@ public class frmIngresoNuevaEmpresa extends javax.swing.JFrame {
         btBuscarUsuario = new javax.swing.JButton();
         tfnombre = new javax.swing.JTextField();
         tfruc = new javax.swing.JTextField();
-        tfdirreccion = new javax.swing.JTextField();
+        tfdireccion = new javax.swing.JTextField();
         tfdirplanta = new javax.swing.JTextField();
         tftelefono = new javax.swing.JTextField();
         tfcorreo = new javax.swing.JTextField();
@@ -59,6 +65,11 @@ public class frmIngresoNuevaEmpresa extends javax.swing.JFrame {
         btingresar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btingresar.setForeground(new java.awt.Color(255, 0, 51));
         btingresar.setText("Ingresar");
+        btingresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btingresarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, 120, 40));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
@@ -105,15 +116,9 @@ public class frmIngresoNuevaEmpresa extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btBuscarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 360, 90, 30));
-
-        tfnombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfnombreActionPerformed(evt);
-            }
-        });
         getContentPane().add(tfnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, 190, 30));
         getContentPane().add(tfruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, 190, 30));
-        getContentPane().add(tfdirreccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, 190, 30));
+        getContentPane().add(tfdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, 190, 30));
         getContentPane().add(tfdirplanta, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, 190, 50));
         getContentPane().add(tftelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 190, 30));
         getContentPane().add(tfcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 310, 190, 30));
@@ -131,15 +136,54 @@ public class frmIngresoNuevaEmpresa extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfnombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfnombreActionPerformed
-
     private void btBuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarUsuarioActionPerformed
         // TODO add your handling code here:
         frmBuscarUsuarioEmpresas bu = new frmBuscarUsuarioEmpresas();
         bu.setVisible(true);
     }//GEN-LAST:event_btBuscarUsuarioActionPerformed
+
+    private boolean formularioValido(){
+        if(tfnombre.getText().equals("") ||
+            tfruc.getText().equals("") ||
+            tfdireccion.getText().equals("") ||    
+            tfdirplanta.getText().equals("") ||
+            tftelefono.getText().equals("") ||
+            tfcorreo.getText().equals("") ||
+            tf_id_usuario.getText().equals("")){
+            
+           JOptionPane.showMessageDialog(this,"Formulario incompleto","Validación",JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+    
+    private void btingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btingresarActionPerformed
+        ConexionBD c = new ConexionBD();
+        if(formularioValido()){
+            String nombre            = tfnombre.getText();
+            String ruc               = tfruc.getText();
+            String direccion         = tfdireccion.getText();
+            String direccion_planta  = tfdirplanta.getText();
+            String telefono          = tftelefono.getText();
+            String correo            = tfcorreo.getText();
+            int id_usuario           = Integer.parseInt(tf_id_usuario.getText());
+            
+            try{
+                c.conectar();
+                empresa e = new empresa(nombre,ruc,direccion,direccion_planta,telefono,correo,id_usuario);
+                if(c.ingresarEmpresa(e)){
+                    JOptionPane.showMessageDialog(this,"Ingreso Exitoso a la base de datos","Validación",JOptionPane.INFORMATION_MESSAGE);
+                    frmAutenticacion frm = new frmAutenticacion();
+                    frm.setVisible(true);
+                    this.dispose();
+                }else
+                JOptionPane.showMessageDialog(this,"Ingreso Fallido","Validación",JOptionPane.ERROR_MESSAGE);
+                c.desconectar();
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(this,"Ocurrio un problema durante el ingreso","Validación",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btingresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,7 +191,7 @@ public class frmIngresoNuevaEmpresa extends javax.swing.JFrame {
     private void limpiar(){
         tfnombre.setText("");
         tfruc.setText("");
-        tfdirreccion.setText("");
+        tfdireccion.setText("");
         tfdirplanta.setText("");
         tftelefono.setText("");
         tfcorreo.setText("");
@@ -170,8 +214,8 @@ public class frmIngresoNuevaEmpresa extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField tf_id_usuario;
     private javax.swing.JTextField tfcorreo;
+    private javax.swing.JTextField tfdireccion;
     private javax.swing.JTextField tfdirplanta;
-    private javax.swing.JTextField tfdirreccion;
     private javax.swing.JTextField tfnombre;
     private javax.swing.JTextField tfruc;
     private javax.swing.JTextField tftelefono;
