@@ -40,9 +40,14 @@ public class frmBuscarUsuarioEmpresas extends javax.swing.JFrame {
         tfdescripcion = new javax.swing.JTextField();
         btConsultar = new javax.swing.JButton();
         btSeleccionar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Busqueda Usuarios - Ingreso Empresas");
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tbusuarios.setModel(new javax.swing.table.DefaultTableModel(
@@ -67,20 +72,24 @@ public class frmBuscarUsuarioEmpresas extends javax.swing.JFrame {
         tbusuarios.setToolTipText("");
         jScrollPane1.setViewportView(tbusuarios);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 729, 141));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 800, 190));
 
         cbConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Cuenta", "Nombres", "Apellidos", "Cedula", "Estado" }));
-        getContentPane().add(cbConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 7, 100, -1));
-        getContentPane().add(tfdescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 7, 480, -1));
+        getContentPane().add(cbConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 140, 40));
+        getContentPane().add(tfdescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 480, 40));
 
+        btConsultar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btConsultar.setForeground(new java.awt.Color(255, 0, 51));
         btConsultar.setText("Consultar");
         btConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btConsultarActionPerformed(evt);
             }
         });
-        getContentPane().add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(631, 6, -1, -1));
+        getContentPane().add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 110, 140, 40));
 
+        btSeleccionar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btSeleccionar.setForeground(new java.awt.Color(255, 0, 51));
         btSeleccionar.setText("Seleccionar");
         btSeleccionar.setPreferredSize(new java.awt.Dimension(75, 30));
         btSeleccionar.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +97,16 @@ public class frmBuscarUsuarioEmpresas extends javax.swing.JFrame {
                 btSeleccionarActionPerformed(evt);
             }
         });
-        getContentPane().add(btSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(336, 192, 100, -1));
+        getContentPane().add(btSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, 150, 50));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel2.setText("BUSCAR USUARIOS DE EMPRESA");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 410, 30));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 590, 20));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/autenticacion.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -247,7 +265,10 @@ public class frmBuscarUsuarioEmpresas extends javax.swing.JFrame {
     private javax.swing.JButton btConsultar;
     private javax.swing.JButton btSeleccionar;
     private javax.swing.JComboBox<String> cbConsulta;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     public static javax.swing.JTable tbusuarios;
     private javax.swing.JTextField tfdescripcion;
     // End of variables declaration//GEN-END:variables
