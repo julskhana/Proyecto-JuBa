@@ -1,5 +1,5 @@
 1. Instalar Xammp Server V 5.6.36-0
-2. En lampp/etc/httpd.conf
+2. En lampp/etc/httpd.conf y cambiar host en /etc/hosts
 
 #Configuracion Proyecto JuBa - nostromo xampp server
 Listen 192.168.1.20:80
