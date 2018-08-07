@@ -101,7 +101,7 @@ public class ConexionBD {
     public boolean ingresarUsuario(usuario u){
         try{
             PreparedStatement st=null;
-            st = con.prepareStatement("INSERT INTO usuario (cuenta,clave,nombres,apellidos,cedula,edad,direccion,telefono,celular,correo,sexo,tipo,cargo,fecha_inicio,estado) VALUES(?,md5(?),?,?,?,?,?,?,?,?,?,?,?,?,?);");
+            st = con.prepareStatement("INSERT INTO usuario (cuenta,clave,nombres,apellidos,cedula,edad,direccion,telefono,celular,correo,sexo,tipo,cargo,estado,fecha_inicio) VALUES(?,md5(?),?,?,?,?,?,?,?,?,?,?,?,?,?);");
             st.setString(1,u.getCuenta());
             st.setString(2,u.getClave());
             st.setString(3,u.getNombres());
