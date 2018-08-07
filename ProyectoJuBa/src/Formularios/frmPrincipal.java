@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Formularios;
 
 import Objetos.*;
@@ -22,8 +17,8 @@ public class frmPrincipal extends javax.swing.JFrame {
     public frmPrincipal(empresa empresa, usuario u) {
         initComponents();
         
-        lbUsuario.setText(u.getCuenta());
-        System.out.println(lbUsuario.getText());
+        IbUsuario.setText(u.getCuenta());
+        System.out.println(IbUsuario.getText());
         
         tfnombre.setText(empresa.getNombre());
         tfruc.setText(empresa.getRuc());
@@ -61,12 +56,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         tfcorreo = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        lbUsuario = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        seis = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        IbUsuario = new javax.swing.JFormattedTextField();
         jLabel7 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mArchivo = new javax.swing.JMenu();
@@ -97,76 +92,89 @@ public class frmPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tfnombre.setEditable(false);
-        getContentPane().add(tfnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 210, 30));
+        tfnombre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        getContentPane().add(tfnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 100, 210, 30));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 204, 0));
         jLabel1.setText("Empresa:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, -1, -1));
 
         tfruc.setEditable(false);
-        getContentPane().add(tfruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 210, 30));
+        tfruc.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        getContentPane().add(tfruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 140, 210, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 204, 0));
         jLabel2.setText("RUC:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, -1, -1));
 
         tfdireccion.setEditable(false);
-        getContentPane().add(tfdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 210, 30));
+        tfdireccion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        getContentPane().add(tfdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 180, 210, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 204, 0));
         jLabel3.setText("Dirección:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, -1, -1));
 
         tfdireccionplanta.setEditable(false);
-        getContentPane().add(tfdireccionplanta, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 210, 50));
+        tfdireccionplanta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        getContentPane().add(tfdireccionplanta, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 230, 210, 50));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel4.setForeground(new java.awt.Color(255, 204, 0));
         jLabel4.setText("Dirección Planta:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, -1, -1));
 
         tftelefono.setEditable(false);
+        tftelefono.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tftelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tftelefonoActionPerformed(evt);
             }
         });
-        getContentPane().add(tftelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 210, 30));
+        getContentPane().add(tftelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 290, 210, 30));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 204, 0));
         jLabel5.setText("Teléfono:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 290, -1, -1));
 
         tfcorreo.setEditable(false);
+        tfcorreo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tfcorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfcorreoActionPerformed(evt);
             }
         });
-        getContentPane().add(tfcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 210, 30));
+        getContentPane().add(tfcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 330, 210, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 204, 0));
         jLabel6.setText("Correo:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, -1, -1));
-        getContentPane().add(lbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 114, 20));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 204, 0));
         jLabel8.setText("PROCESO DE PRODUCCIÓN PARA LARVAS DE CAMARÓN");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 730, 50));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 730, 50));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/siete.jpeg"))); // NOI18N
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, -1, 170));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, -1, 170));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cuatro.jpeg"))); // NOI18N
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 300, 170));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 300, 170));
 
-        seis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/seis.jpeg"))); // NOI18N
-        getContentPane().add(seis, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, 300, 170));
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setText("BIENVENIDO: ");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 120, 20));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 610, 30));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cinco.jpeg"))); // NOI18N
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 300, 170));
+        IbUsuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        getContentPane().add(IbUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 130, 30));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/uno.jpeg"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/autenticacion.png"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 500));
 
         mArchivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/esquina.jpg"))); // NOI18N
@@ -282,7 +290,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         ConexionBD c = new ConexionBD();
         try{
             c.conectar();
-            usuario u = c.obtenerDatosUsuario(lbUsuario.getText());
+            usuario u = c.obtenerDatosUsuario(IbUsuario.getText());
             frmCuenta cuenta = new frmCuenta(u);
             cuenta.setVisible(true);
         }catch(Exception e){
@@ -308,10 +316,10 @@ public class frmPrincipal extends javax.swing.JFrame {
      */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFormattedTextField IbUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -319,11 +327,12 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JLabel lbUsuario;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JMenuItem mAlimento;
     private javax.swing.JMenu mArchivo;
     private javax.swing.JMenu mAyuda;
@@ -338,7 +347,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem miAcercaDe;
     private javax.swing.JMenuItem miCuenta;
     private javax.swing.JMenuItem miSalir;
-    private javax.swing.JLabel seis;
     private javax.swing.JTextField tfcorreo;
     private javax.swing.JTextField tfdireccion;
     private javax.swing.JTextField tfdireccionplanta;
