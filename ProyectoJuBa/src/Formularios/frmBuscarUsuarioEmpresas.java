@@ -1,5 +1,6 @@
 package Formularios;
 
+import static Formularios.frmIngresoNuevaEmpresa.ingresar_id_usuario;
 import Objetos.usuario;
 import bd.ConexionBD;
 import java.util.ArrayList;
@@ -107,12 +108,18 @@ public class frmBuscarUsuarioEmpresas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSeleccionarActionPerformed
-        // TODO add your handling code here:
         if(seleccionValida()){
-            int fila = tbusuarios.getSelectedRow();
-            frmIngresoNuevaEmpresa.ingresar_id_usuario = Integer.parseInt(tbusuarios.getValueAt(fila,0).toString());
-            this.dispose();
-        }
+            int[] filas = tbusuarios.getSelectedRows();
+            int col = 0;
+            try{
+                for(int i=0;i<filas.length;i++){                        
+                    frmIngresoNuevaEmpresa.ingresar_id_usuario = (int) tbusuarios.getValueAt(filas[i],col);
+                    System.out.println(ingresar_id_usuario); 
+                }this.dispose();
+            }catch(Exception e){
+                    JOptionPane.showMessageDialog(this,"Ocurrió un error en la selección del id usuario!","Eliminación",JOptionPane.ERROR_MESSAGE);                        
+            }
+        } 
     }//GEN-LAST:event_btSeleccionarActionPerformed
 
     private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
