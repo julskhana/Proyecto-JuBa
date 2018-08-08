@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Formularios;
 
 /**
@@ -81,7 +76,7 @@ public class frmMantenimientoOperador extends javax.swing.JFrame {
         cbBuscar.setText("BUSCAR");
         getContentPane().add(cbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 130, 110, 30));
 
-        lista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        lista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Tipo" }));
         getContentPane().add(lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 130, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -92,11 +87,21 @@ public class frmMantenimientoOperador extends javax.swing.JFrame {
         cbSalir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cbSalir.setForeground(new java.awt.Color(255, 0, 0));
         cbSalir.setText("SALIR");
+        cbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSalirActionPerformed(evt);
+            }
+        });
         getContentPane().add(cbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 410, 130, 40));
 
         cbNuevo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cbNuevo.setForeground(new java.awt.Color(255, 0, 0));
         cbNuevo.setText("NUEVO");
+        cbNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbNuevoActionPerformed(evt);
+            }
+        });
         getContentPane().add(cbNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 410, 130, 40));
 
         cbEliminar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -115,40 +120,15 @@ public class frmMantenimientoOperador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmMantenimientoOperador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmMantenimientoOperador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmMantenimientoOperador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmMantenimientoOperador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void cbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSalirActionPerformed
+        frmPrincipal ino = new frmPrincipal();
+        ino.setVisible(true);
+    }//GEN-LAST:event_cbSalirActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmMantenimientoOperador().setVisible(true);
-            }
-        });
-    }
+    private void cbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNuevoActionPerformed
+        frmIngresoNuevoOperador ino = new frmIngresoNuevoOperador();
+        ino.setVisible(true);
+    }//GEN-LAST:event_cbNuevoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cbBuscar;
