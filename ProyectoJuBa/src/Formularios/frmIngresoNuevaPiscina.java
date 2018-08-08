@@ -134,7 +134,7 @@ public class frmIngresoNuevaPiscina extends javax.swing.JFrame {
         getContentPane().add(jFormattedTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 90, 40));
         getContentPane().add(jFormattedTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, 110, 40));
         getContentPane().add(jFormattedTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, 110, 40));
-        getContentPane().add(jFormattedTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 300, 110, 40));
+        getContentPane().add(jFormattedTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 300, 110, 40));
         getContentPane().add(jFormattedTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 180, 40));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
