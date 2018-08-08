@@ -1,14 +1,7 @@
-//julian cambio
-//jerson junqui
 package bd;
 
-//import entidades.Universidad;
-//import entidades.Usuario;
 import Objetos.*;
-import funciones.conversiones;
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class ConexionBD {
@@ -55,37 +48,39 @@ public class ConexionBD {
             return(false);
         }    
     }
-    
-    //FUNCIONES PARA PORYECTO CAMARONERA
-    
-    //coversion de fecha a date sql
-    public class DatesConversion {
 
-    /*
-    public void main(String[] args) {
-        java.util.Date uDate = new java.util.Date();
-        System.out.println("Time in java.util.Date is : " + uDate);
-        java.sql.Date sDate = convertUtilToSql(uDate);
-        System.out.println("Time in java.sql.Date is : " + sDate);
-        DateFormat df = new SimpleDateFormat("dd/MM/YYYY - hh:mm:ss");
-        System.out.println("Using a dateFormat date is : " + df.format(uDate));
-    }
-    */
+    public boolean ingresarOperador(operador o) {
+        try{
+            PreparedStatement st=null;
+            st = con.prepareStatement("INSERT into operador (nombre,cedula,telefono,tipo) VALUES(?,?,?,?);");
+            st.setString(1,o.getNombre());
+            st.setString(2,o.getCedula());
+            st.setString(3,o.getTelefono());
+            st.setString(4,o.getTipo());
+            
+            st.executeUpdate();
+            st.close();
+            
+            System.out.println("Se ingreso el operador exitosamente...");
+            return true;
+        }catch (SQLException ee){
+            System.out.println("Error al ingresar el operador\n"+ee);
+            return false;
+        }
         
-        
     }
-
     
     public boolean ingresarEmpresa(empresa e){
         try{
             PreparedStatement st=null;
-            st = con.prepareStatement("INSERT into empresa (nombre,ruc,direccion,direccion_planta,telefono,correo) VALUES(?,?,?,?,?,?);");
+            st = con.prepareStatement("INSERT into empresa (nombre,ruc,direccion,direccion_planta,telefono,correo,id_usuario) VALUES(?,?,?,?,?,?);");
             st.setString(1,e.getNombre());
             st.setString(2,e.getRuc());
             st.setString(3,e.getDireccion());
             st.setString(4,e.getDireccion_planta());
             st.setString(5,e.getTelefono());
             st.setString(6,e.getCorreo());
+            st.setInt(7,e.getId_usuario());
             
             st.executeUpdate();
             st.close();
@@ -94,6 +89,19 @@ public class ConexionBD {
             return true;
         }catch (SQLException ee){
             System.out.println("Error al ingresar la empresa\n"+ee);
+            return false;
+        }
+    }
+    
+    public boolean ingresarNuevaClave(usuario u){
+        try{
+            PreparedStatement st=null;
+            st = con.prepareStatement("INSERT INTO usuario (clave) VALUES(md5(?));");
+            st.setString(1,u.getClave());
+            st.executeUpdate();
+            st.close();
+            return true;
+        }catch(SQLException e){
             return false;
         }
     }
@@ -336,6 +344,35 @@ public class ConexionBD {
 	}
 	return registroU;
 }
+
+    public ArrayList<operador> consultarOperadores(String busqueda, String lista) {
+        ArrayList<operador> registro = new ArrayList<operador>();
+        try{
+            Statement st = this.con.createStatement();            
+            ResultSet rs = null;
+            
+            if(lista.equalsIgnoreCase("operador")){
+                rs = st.executeQuery("SELECT * FROM operador;");
+            }else{
+                rs = st.executeQuery("SELECT * FROM operador WHERE "+lista+" LIKE '%"+busqueda+"%';");
+            }
+            
+            while (rs.next()){
+                int id_operador  = rs.getInt("id_operador");
+                String nombre    = rs.getString("nombre");
+                String cedula    = rs.getString("cedula");
+                String telefono  = rs.getString("telefono");
+                String tipo      = rs.getString("tipo");
+                
+                operador emp = new operador(id_operador,nombre,cedula,telefono,tipo);
+                registro.add(emp);
+            }
+            System.out.println("operadores consultados...");
+        }catch (SQLException e){
+            System.out.println("error en consulta de operadores"+e);
+        }
+        return registro;
+    }
     
     /**
     //FUNCIONES DE PROYECTO RESTAURANTE
