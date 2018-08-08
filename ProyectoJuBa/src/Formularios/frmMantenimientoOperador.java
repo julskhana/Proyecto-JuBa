@@ -29,6 +29,16 @@ public class frmMantenimientoOperador extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbResultado = new javax.swing.JTable();
+        tfDescripcion = new javax.swing.JFormattedTextField();
+        cbBuscar = new javax.swing.JButton();
+        lista = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        cbSalir = new javax.swing.JButton();
+        cbNuevo = new javax.swing.JButton();
+        cbEliminar = new javax.swing.JButton();
+        cbEditar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -41,6 +51,63 @@ public class frmMantenimientoOperador extends javax.swing.JFrame {
         jLabel2.setText("MANTENIMIENTO OPERADOR");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 430, 30));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 590, 20));
+
+        tbResultado.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Id", "Nombre", "Cedula", "Telefono", "Tipo"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tbResultado);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 170, 600, 220));
+        getContentPane().add(tfDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, 210, 30));
+
+        cbBuscar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cbBuscar.setForeground(new java.awt.Color(255, 0, 0));
+        cbBuscar.setText("BUSCAR");
+        getContentPane().add(cbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 130, 110, 30));
+
+        lista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 130, 30));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel3.setText("DESCRIPCIÓN");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 140, 30));
+
+        cbSalir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cbSalir.setForeground(new java.awt.Color(255, 0, 0));
+        cbSalir.setText("SALIR");
+        getContentPane().add(cbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 410, 130, 40));
+
+        cbNuevo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cbNuevo.setForeground(new java.awt.Color(255, 0, 0));
+        cbNuevo.setText("NUEVO");
+        getContentPane().add(cbNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 410, 130, 40));
+
+        cbEliminar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cbEliminar.setForeground(new java.awt.Color(255, 0, 0));
+        cbEliminar.setText("ELIMINAR");
+        getContentPane().add(cbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 410, 130, 40));
+
+        cbEditar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cbEditar.setForeground(new java.awt.Color(255, 0, 0));
+        cbEditar.setText("EDITAR");
+        getContentPane().add(cbEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, 130, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/autenticacion.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 500));
@@ -84,8 +151,18 @@ public class frmMantenimientoOperador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cbBuscar;
+    private javax.swing.JButton cbEditar;
+    private javax.swing.JButton cbEliminar;
+    private javax.swing.JButton cbNuevo;
+    private javax.swing.JButton cbSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JComboBox<String> lista;
+    private javax.swing.JTable tbResultado;
+    private javax.swing.JFormattedTextField tfDescripcion;
     // End of variables declaration//GEN-END:variables
 }
