@@ -1,5 +1,11 @@
 package Formularios;
 
+import Objetos.operador;
+import bd.ConexionBD;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Jerson Junqui
@@ -68,21 +74,26 @@ public class frmMantenimientoOperador extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbResultado);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 170, 600, 220));
-        getContentPane().add(tfDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, 210, 30));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 170, 800, 220));
+        getContentPane().add(tfDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 280, 30));
 
         cbBuscar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cbBuscar.setForeground(new java.awt.Color(255, 0, 0));
         cbBuscar.setText("BUSCAR");
-        getContentPane().add(cbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 130, 110, 30));
+        cbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbBuscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 120, 120, 30));
 
-        lista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Tipo" }));
-        getContentPane().add(lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 130, 30));
+        lista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Nombre", "Tipo" }));
+        getContentPane().add(lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 160, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 204, 0));
         jLabel3.setText("DESCRIPCIÓN");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 140, 30));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 140, 30));
 
         cbSalir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cbSalir.setForeground(new java.awt.Color(255, 0, 0));
@@ -107,12 +118,22 @@ public class frmMantenimientoOperador extends javax.swing.JFrame {
         cbEliminar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cbEliminar.setForeground(new java.awt.Color(255, 0, 0));
         cbEliminar.setText("ELIMINAR");
-        getContentPane().add(cbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 410, 130, 40));
+        cbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbEliminarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 130, 40));
 
         cbEditar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cbEditar.setForeground(new java.awt.Color(255, 0, 0));
         cbEditar.setText("EDITAR");
-        getContentPane().add(cbEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, 130, 40));
+        cbEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbEditarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 130, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/autenticacion.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 500));
@@ -129,6 +150,154 @@ public class frmMantenimientoOperador extends javax.swing.JFrame {
         frmIngresoNuevoOperador ino = new frmIngresoNuevoOperador();
         ino.setVisible(true);
     }//GEN-LAST:event_cbNuevoActionPerformed
+
+    private boolean formularioValido(){
+        String tipo = lista.getSelectedItem().toString();
+        String descripcion = tfDescripcion.getText();
+        if(tipo.equals("Nombre") && descripcion.equals("")){
+                JOptionPane.showMessageDialog(this,"Debe ingresar el nombre.","Consulta",JOptionPane.ERROR_MESSAGE);
+                return false;
+        }else if(tipo.equals("Cedula") && descripcion.equals("")){
+                JOptionPane.showMessageDialog(this,"Debe ingresar la cedula.","Consulta",JOptionPane.ERROR_MESSAGE);
+                return false;
+        }else if(tipo.equals("Telefono") && descripcion.equals("")){
+                JOptionPane.showMessageDialog(this,"Debe ingresar el telefono","Consulta",JOptionPane.ERROR_MESSAGE);
+                return false;
+        }else if(tipo.equals("Tipo") && descripcion.equals("")){
+                JOptionPane.showMessageDialog(this,"Debe ingresar el tipo","Consulta",JOptionPane.ERROR_MESSAGE);
+                return false;
+        }
+        return true;
+    }
+    
+    public void consultarRegistro(){
+        String tipo = lista.getSelectedItem().toString();
+        String descripcion = tfDescripcion.getText();        
+        //consultar
+        try{
+            //cunsolta a la base
+            try{
+                ConexionBD c = new ConexionBD();
+                c.conectar();
+                ArrayList<operador> registro = c.consultarOperadores("","operador");
+                ArrayList<operador> resultado = new ArrayList<operador>();
+                //Consultar tipo y descripcion
+                if (tipo.equals("Todos")){
+                        resultado = registro;
+                }else{
+                    for (operador emp:registro){
+                        if(tipo.equals("Id")&&(descripcion.length()>0)){
+                            if(String.valueOf(emp.getId()).equals(descripcion) ){
+                                resultado.add(emp);
+                            }
+                        }else if(tipo.equals("Nombre")){
+                            if(emp.getNombre().toUpperCase().contains(descripcion.toUpperCase())){
+                                resultado.add(emp);
+                            }
+                        }else if(tipo.equals("Cedula")){
+                            if(emp.getCedula().toUpperCase().contains(descripcion.toUpperCase())){
+                                resultado.add(emp);
+                            }
+                        }else if(tipo.equals("Telefono")){
+                            if(emp.getTelefono().contains(descripcion.toUpperCase())){
+                                resultado.add(emp);
+                            }
+                        }else if(tipo.equals("Tipo")){
+                            if(emp.getTipo().contains(descripcion.toUpperCase())){
+                                resultado.add(emp);
+                            }
+                        }else{
+                            JOptionPane.showMessageDialog(this,"Descripcion vacia.","Consulta Invalida",JOptionPane.ERROR_MESSAGE);
+                            break;
+                        }
+                    }
+                }
+
+                DefaultTableModel dtm = (DefaultTableModel)tbResultado.getModel();
+                dtm.setRowCount(0);
+                
+                //recorriendo base de datos
+                for (operador em:resultado){
+                    Object[] fila = new Object[5];
+                    fila[0] = em.getId();
+                    fila[1] = em.getNombre();
+                    fila[2] = em.getCedula();
+                    fila[3] = em.getTelefono();
+                    fila[4] = em.getTipo();
+                    dtm.addRow(fila);
+                }
+            c.desconectar();
+            }catch (Exception e){
+                System.out.println("error al consultar operadores"+e);
+            }
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(this,"Ocurrió un error al consultar los operadores","Consulta",JOptionPane.ERROR_MESSAGE);
+            System.out.println("consulta de registros operadores: "+e);
+        }
+    }
+    
+    private void cbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbBuscarActionPerformed
+        if (formularioValido()){
+            consultarRegistro();
+        }
+    }//GEN-LAST:event_cbBuscarActionPerformed
+
+    private boolean seleccionEliminacionValidaOperador(){
+        int n = this.tbResultado.getSelectedRowCount();
+        if(n==0){
+            JOptionPane.showMessageDialog(this,"Debe seleccionar mínimo un registro para eliminar","Eliminación",JOptionPane.ERROR_MESSAGE);            
+            return false;
+        }
+        int opcion=JOptionPane.showConfirmDialog(this, "Seguro que desea eliminar el/los registros?", "Confirmación", JOptionPane.YES_NO_OPTION);
+        if(JOptionPane.OK_OPTION==opcion){
+            return true;
+        }else{
+            return false;
+        }             
+    }
+    
+    private void cbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEliminarActionPerformed
+        ConexionBD c = new ConexionBD();
+        if(seleccionEliminacionValidaOperador()){
+            int col = 0;
+            int fila = tbResultado.getSelectedRow();
+            String identificacion = String.valueOf(tbResultado.getValueAt(fila,col));
+            
+            int id=Integer.valueOf(identificacion);
+            System.out.println(id);
+            try{
+                c.conectar();
+                if(c.eliminarOperador(id)){
+                    JOptionPane.showMessageDialog(this,"Eliminacion Exitosa","Validación",JOptionPane.INFORMATION_MESSAGE);
+                    consultarRegistro();
+                }else{
+                    JOptionPane.showMessageDialog(this,"Eliminacion Fallida","Validación",JOptionPane.ERROR_MESSAGE);
+                }
+                c.desconectar();
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(this,"Ocurrio un problema durante la eliminacion","Validación",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_cbEliminarActionPerformed
+
+    private boolean seleccionEdicionValidaOperador(){
+        int n = tbResultado.getSelectedRowCount();
+        if(n==0){
+            JOptionPane.showMessageDialog(rootPane,"Debe seleccionar un registro para editar","Edición",JOptionPane.ERROR_MESSAGE);            
+            return false;
+        }else if(n>1){
+            JOptionPane.showMessageDialog(this,"Debe seleccionar sólo un registro para editar","Edición",JOptionPane.ERROR_MESSAGE);                    
+            return false;    
+        }
+        return true;
+    }
+    
+    private void cbEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEditarActionPerformed
+        if(seleccionEdicionValidaOperador()){
+            //frmEdicionOperador eo = new frmEdicionOperador();
+            //eo.setVisible(true);
+        }
+    }//GEN-LAST:event_cbEditarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cbBuscar;
