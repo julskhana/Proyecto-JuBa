@@ -1,9 +1,7 @@
 package Formularios;
 
 import Objetos.empresa;
-import Objetos.usuario;
 import bd.ConexionBD;
-import java.sql.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -212,7 +210,7 @@ public class frmIngresoNuevaEmpresa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField tf_id_usuario;
+    public static javax.swing.JTextField tf_id_usuario;
     private javax.swing.JTextField tfcorreo;
     private javax.swing.JTextField tfdireccion;
     private javax.swing.JTextField tfdirplanta;
