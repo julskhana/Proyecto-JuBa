@@ -1,6 +1,8 @@
 package Formularios;
 
 import static Formularios.frmBuscarUsuarioEmpresas.tbusuarios;
+import static Formularios.frmIngresoNuevaPiscina.ingresar_id_empresa;
+import Objetos.empresa;
 import Objetos.usuario;
 import bd.ConexionBD;
 import java.util.ArrayList;
@@ -83,6 +85,11 @@ public class frmBuscarIdEmpresa extends javax.swing.JFrame {
         cbSeleccionar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cbSeleccionar.setForeground(new java.awt.Color(255, 0, 0));
         cbSeleccionar.setText("SELECCIONAR");
+        cbSeleccionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSeleccionarActionPerformed(evt);
+            }
+        });
         getContentPane().add(cbSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -120,80 +127,42 @@ public class frmBuscarIdEmpresa extends javax.swing.JFrame {
                 ConexionBD c = new ConexionBD();
                 c.conectar();
                 
-                ArrayList<usuario> registro = c.consultarUsuarios("","usuario");
-                ArrayList<usuario> resultado = new ArrayList<usuario>();
+                ArrayList<empresa> registro = c.consultarEmpresas("","empresa");
+                ArrayList<empresa> resultado = new ArrayList<empresa>();
                 
                 //Consultar tipo y descripcion
-                if (tipo.equals("Todos")){
-                        resultado = registro;
-                }else{
-                    for (usuario us:registro){
-                        if(tipo.equals("Cedula")&&(descripcion.length()>0)){
-                            if(us.getCedula().toUpperCase().contains(descripcion.toUpperCase())){
+                for (empresa us:registro){
+                    if(tipo.equals("ID")){
+                        String Id_empresa = String.valueOf(us.getId_empresa());
+                            if(tfDescripcion.equals(Id_empresa)){
                                 resultado.add(us);
                             }
-                        }else if(tipo.equals("Nombres")&&(descripcion.length()>0)){
-                            if(us.getNombres().toUpperCase().contains(descripcion.toUpperCase())){
-                                resultado.add(us);
-                            }
-                        }else if(tipo.equals("Apellidos")&&(descripcion.length()>0)){
-                            if(us.getApellidos().toUpperCase().contains(descripcion.toUpperCase())){
-                                resultado.add(us);
-                            }
-                        }else if(tipo.equals("Cuenta")&&(descripcion.length()>0)){
-                            if(us.getCuenta().toUpperCase().contains(descripcion.toUpperCase())){
-                                resultado.add(us);
-                            }
-                        }else if(tipo.equals("Correo")&&(descripcion.length()>0)){
-                            if(us.getCorreo().toUpperCase().contains(descripcion.toUpperCase())){
-                                resultado.add(us);
-                            }
-                        }else if(tipo.equals("Id")&&(descripcion.length()>0)){
-                            if(String.valueOf(us.getId()).equals(descripcion)){
-                                resultado.add(us);
-                            }
-                        }else if(tipo.equals("Tipo")&&(descripcion.length()>0)){
-                            if(us.getTipo().toUpperCase().contains(descripcion.toUpperCase())){
-                                resultado.add(us);
-                            }
-                        }else if(tipo.equals("Cargo")&&(descripcion.length()>0)){
-                            if(us.getCorreo().toUpperCase().contains(descripcion.toUpperCase())){
-                                resultado.add(us);
-                            }
-                        }else if(tipo.equals("Estado")&&(descripcion.length()>0)){
-                            if(us.getEstado().toUpperCase().contains(descripcion.toUpperCase())){
-                                resultado.add(us);
-                            }
-                        }else{
-                            JOptionPane.showMessageDialog(this,"Descripcion vacia.","Consulta Invalida",JOptionPane.ERROR_MESSAGE);
-                            break;
+                    }else if(tipo.equals("Nombre")&&(descripcion.length()>0)){
+                        if(us.getNombre().toUpperCase().contains(descripcion.toUpperCase())){
+                            resultado.add(us);
                         }
+                    }else{
+                        JOptionPane.showMessageDialog(this,"Descripcion vacia.","Consulta Invalida",JOptionPane.ERROR_MESSAGE);
+                        break;
                     }
                 }
                 
-                DefaultTableModel dtm = (DefaultTableModel)tbusuarios.getModel();
+                DefaultTableModel dtm = (DefaultTableModel)tbId.getModel();
                 dtm.setRowCount(0);
                 
                 //recorriendo base de datos for
-                for (usuario u:resultado){
-                    Object[] fila = new Object[9];
-                    fila[0] = u.getId();
-                    fila[1] = u.getCuenta();
-                    fila[2] = u.getCedula();
-                    fila[3] = u.getNombres();
-                    fila[4] = u.getApellidos();
-                    fila[5] = u.getCorreo();
-                    fila[6] = u.getTipo();
-                    fila[7] = u.getCargo();
-                    fila[8] = u.getEstado();
+                for (empresa e:resultado){
+                    Object[] fila = new Object[2];
+                    fila[0] = e.getId_empresa();
+                    fila[1] = e.getNombre();
                     dtm.addRow(fila);
                 }
             c.desconectar();
             }catch (Exception e){
-                System.out.println("error al consultar usuarios"+e);
+                System.out.println("error al consultar empresas"+e);
             }
         }catch (Exception e){
-            JOptionPane.showMessageDialog(this,"Ocurrió un error al consultar los registros","Consulta",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this,"Ocurrió un error al consultar las empresas","Consulta",JOptionPane.ERROR_MESSAGE);
             System.out.println(e);
         }
     }
@@ -203,6 +172,32 @@ public class frmBuscarIdEmpresa extends javax.swing.JFrame {
             consultarRegistroE();
         }
     }//GEN-LAST:event_cbConsultarActionPerformed
+
+    //funcion para establecer seleccion valida
+    private boolean seleccionValida(){ 
+        int n = tbId.getSelectedRowCount();
+        if(n==0){
+            JOptionPane.showMessageDialog(this,"Debe seleccionar mínimo un registro","Clientes",JOptionPane.ERROR_MESSAGE);
+            return false;        
+        }
+        return true;
+    }
+    
+    private void cbSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSeleccionarActionPerformed
+        if(seleccionValida()){
+            int[] filas = tbId.getSelectedRows();
+            int col = 0;
+            try{
+                for(int i=0;i<filas.length;i++){                        
+                    frmIngresoNuevaPiscina.ingresar_id_empresa = (int) tbId.getValueAt(filas[i],col);
+                    frmIngresoNuevaPiscina.tfId_empresa.setText(String.valueOf(ingresar_id_empresa));
+                    System.out.println(ingresar_id_empresa); 
+                }this.dispose();
+            }catch(Exception e){
+                    JOptionPane.showMessageDialog(this,"Ocurrió un error en la selección del id empresa!","Eliminación",JOptionPane.ERROR_MESSAGE);                        
+            }
+        }
+    }//GEN-LAST:event_cbSeleccionarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Lista;
