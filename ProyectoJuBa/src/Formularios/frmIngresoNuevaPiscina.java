@@ -48,12 +48,14 @@ public class frmIngresoNuevaPiscina extends javax.swing.JFrame {
         jFormattedTextField5 = new javax.swing.JFormattedTextField();
         jFormattedTextField6 = new javax.swing.JFormattedTextField();
         jFormattedTextField7 = new javax.swing.JFormattedTextField();
-        jFormattedTextField8 = new javax.swing.JFormattedTextField();
-        jFormattedTextField9 = new javax.swing.JFormattedTextField();
         jFormattedTextField10 = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        cbGuardar = new javax.swing.JButton();
+        cbLimpiar = new javax.swing.JButton();
+        cbSalir = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -70,42 +72,42 @@ public class frmIngresoNuevaPiscina extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 204, 0));
         jLabel3.setText("Descripción");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 204, 0));
         jLabel4.setText("Ubicación");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 204, 0));
         jLabel5.setText("Longitud Ancho");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 204, 0));
         jLabel6.setText("Longitud Largo");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 204, 0));
         jLabel7.setText("Área");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 204, 0));
         jLabel8.setText("Tipo");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 204, 0));
         jLabel9.setText("Forma");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 310, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 350, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 204, 0));
         jLabel10.setText("Población");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 204, 0));
@@ -116,41 +118,55 @@ public class frmIngresoNuevaPiscina extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 204, 0));
         jLabel12.setText("ID Producto");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
-        getContentPane().add(jFormattedTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 330, 40));
-        getContentPane().add(jFormattedTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 330, 40));
-        getContentPane().add(jFormattedTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 200, 140, 40));
-        getContentPane().add(jFormattedTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 140, 40));
+        getContentPane().add(jFormattedTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 330, 40));
+        getContentPane().add(jFormattedTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 330, 40));
+        getContentPane().add(jFormattedTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 110, 40));
+        getContentPane().add(jFormattedTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 110, 40));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 204, 0));
-        jLabel13.setText("metros");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 250, 90, 30));
+        jLabel13.setText("camarones");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 110, 30));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 204, 0));
         jLabel14.setText("metros");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 200, 90, 30));
-        getContentPane().add(jFormattedTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 90, 40));
-        getContentPane().add(jFormattedTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 90, 40));
-        getContentPane().add(jFormattedTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, 110, 40));
-        getContentPane().add(jFormattedTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, 110, 40));
-        getContentPane().add(jFormattedTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 300, 110, 40));
-        getContentPane().add(jFormattedTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 180, 40));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, 90, 30));
+        getContentPane().add(jFormattedTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 60, 40));
+        getContentPane().add(jFormattedTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 60, 40));
+        getContentPane().add(jFormattedTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 290, 110, 40));
+        getContentPane().add(jFormattedTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 90, 40));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 0, 0));
-        jButton1.setText("GUARDAR");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 140, 40));
+        cbGuardar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cbGuardar.setForeground(new java.awt.Color(255, 0, 0));
+        cbGuardar.setText("GUARDAR");
+        getContentPane().add(cbGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 140, 40));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 0, 0));
-        jButton2.setText("LIMPIAR");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 430, 130, 40));
+        cbLimpiar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cbLimpiar.setForeground(new java.awt.Color(255, 0, 0));
+        cbLimpiar.setText("LIMPIAR");
+        getContentPane().add(cbLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 430, 130, 40));
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 0, 0));
-        jButton3.setText("SALIR");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, 140, 40));
+        cbSalir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cbSalir.setForeground(new java.awt.Color(255, 0, 0));
+        cbSalir.setText("SALIR");
+        getContentPane().add(cbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, 140, 40));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel15.setText("metros");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, 90, 30));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Piscina de Larvas", "Piscinas de Langostinos" }));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, 150, 40));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rectangular", "Circular", "Cuadrada" }));
+        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 340, 130, 40));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel16.setText("metros cuadrados");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 300, 170, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/autenticacion.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 500));
@@ -194,9 +210,11 @@ public class frmIngresoNuevaPiscina extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton cbGuardar;
+    private javax.swing.JButton cbLimpiar;
+    private javax.swing.JButton cbSalir;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField10;
     private javax.swing.JFormattedTextField jFormattedTextField2;
@@ -205,14 +223,14 @@ public class frmIngresoNuevaPiscina extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFormattedTextField5;
     private javax.swing.JFormattedTextField jFormattedTextField6;
     private javax.swing.JFormattedTextField jFormattedTextField7;
-    private javax.swing.JFormattedTextField jFormattedTextField8;
-    private javax.swing.JFormattedTextField jFormattedTextField9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
