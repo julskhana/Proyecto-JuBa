@@ -190,7 +190,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="30" y="240" width="-1" height="-1"/>
+          <AbsoluteConstraints x="30" y="250" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -210,31 +210,24 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
+    <Component class="javax.swing.JFormattedTextField" name="tfDescripcion">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="580" y="90" width="330" height="40"/>
+          <AbsoluteConstraints x="580" y="100" width="330" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField2">
+    <Component class="javax.swing.JFormattedTextField" name="tfLongitud_ancho">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="580" y="140" width="330" height="40"/>
+          <AbsoluteConstraints x="580" y="200" width="110" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField3">
+    <Component class="javax.swing.JFormattedTextField" name="tfLongitud_largo">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="580" y="190" width="110" height="40"/>
-        </Constraint>
-      </Constraints>
-    </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField4">
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="580" y="240" width="110" height="40"/>
+          <AbsoluteConstraints x="580" y="250" width="110" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -270,31 +263,34 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField5">
+    <Component class="javax.swing.JFormattedTextField" name="tfId_empresa">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="180" y="240" width="60" height="40"/>
+          <AbsoluteConstraints x="180" y="250" width="60" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField6">
+    <Component class="javax.swing.JFormattedTextField" name="tfId_producto">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="180" y="290" width="60" height="40"/>
+          <AbsoluteConstraints x="180" y="300" width="60" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField7">
+    <Component class="javax.swing.JFormattedTextField" name="tfArea">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="580" y="290" width="110" height="40"/>
+          <AbsoluteConstraints x="580" y="300" width="110" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField10">
+    <Component class="javax.swing.JFormattedTextField" name="tfPoblacion">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="180" y="340" width="90" height="40"/>
+          <AbsoluteConstraints x="180" y="350" width="90" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -308,6 +304,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="GUARDAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbGuardarActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="210" y="430" width="140" height="40"/>
@@ -324,6 +323,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="LIMPIAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbLimpiarActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="420" y="430" width="130" height="40"/>
@@ -340,6 +342,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="SALIR"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbSalirActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="630" y="430" width="140" height="40"/>
@@ -362,7 +367,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="cbTipo">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="2">
@@ -376,11 +381,11 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="510" y="340" width="150" height="40"/>
+          <AbsoluteConstraints x="510" y="350" width="150" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox2">
+    <Component class="javax.swing.JComboBox" name="cbForma">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
@@ -395,7 +400,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="770" y="340" width="130" height="40"/>
+          <AbsoluteConstraints x="770" y="350" width="130" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -412,6 +417,53 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="700" y="300" width="170" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbUbicacion">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="5">
+            <StringItem index="0" value="Base 1"/>
+            <StringItem index="1" value="Base 2"/>
+            <StringItem index="2" value="Base 3"/>
+            <StringItem index="3" value="Base 4"/>
+            <StringItem index="4" value="Marbeth Dur&#xe1;n"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="580" y="150" width="110" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JButton" name="cbBuscar_empresa">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="BUSCAR"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbBuscar_empresaActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="240" y="250" width="80" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JButton" name="cbBuscar_producto">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="BUSCAR"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbBuscar_productoActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="240" y="300" width="80" height="30"/>
         </Constraint>
       </Constraints>
     </Component>

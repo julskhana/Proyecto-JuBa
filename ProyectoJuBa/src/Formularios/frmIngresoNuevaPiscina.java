@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Formularios;
 
 /**
@@ -11,6 +6,9 @@ package Formularios;
  */
 public class frmIngresoNuevaPiscina extends javax.swing.JFrame {
 
+    //identificador para empresa en busqueda
+    public static int ingresar_id_empresa;
+    
     /**
      * Creates new form frmIngresoNuevaPiscina
      */
@@ -39,23 +37,25 @@ public class frmIngresoNuevaPiscina extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
-        jFormattedTextField4 = new javax.swing.JFormattedTextField();
+        tfDescripcion = new javax.swing.JFormattedTextField();
+        tfLongitud_ancho = new javax.swing.JFormattedTextField();
+        tfLongitud_largo = new javax.swing.JFormattedTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jFormattedTextField5 = new javax.swing.JFormattedTextField();
-        jFormattedTextField6 = new javax.swing.JFormattedTextField();
-        jFormattedTextField7 = new javax.swing.JFormattedTextField();
-        jFormattedTextField10 = new javax.swing.JFormattedTextField();
+        tfId_empresa = new javax.swing.JFormattedTextField();
+        tfId_producto = new javax.swing.JFormattedTextField();
+        tfArea = new javax.swing.JFormattedTextField();
+        tfPoblacion = new javax.swing.JFormattedTextField();
         cbGuardar = new javax.swing.JButton();
         cbLimpiar = new javax.swing.JButton();
         cbSalir = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cbTipo = new javax.swing.JComboBox<>();
+        cbForma = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
+        cbUbicacion = new javax.swing.JComboBox<>();
+        cbBuscar_empresa = new javax.swing.JButton();
+        cbBuscar_producto = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -112,16 +112,15 @@ public class frmIngresoNuevaPiscina extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 204, 0));
         jLabel11.setText("ID Empresa");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 204, 0));
         jLabel12.setText("ID Producto");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
-        getContentPane().add(jFormattedTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 330, 40));
-        getContentPane().add(jFormattedTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 330, 40));
-        getContentPane().add(jFormattedTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 110, 40));
-        getContentPane().add(jFormattedTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 110, 40));
+        getContentPane().add(tfDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 330, 30));
+        getContentPane().add(tfLongitud_ancho, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 200, 110, 30));
+        getContentPane().add(tfLongitud_largo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 110, 30));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 204, 0));
@@ -132,24 +131,39 @@ public class frmIngresoNuevaPiscina extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(255, 204, 0));
         jLabel14.setText("metros");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, 90, 30));
-        getContentPane().add(jFormattedTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 60, 40));
-        getContentPane().add(jFormattedTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 60, 40));
-        getContentPane().add(jFormattedTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 290, 110, 40));
-        getContentPane().add(jFormattedTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 90, 40));
+        getContentPane().add(tfId_empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 60, 30));
+        getContentPane().add(tfId_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 60, 30));
+        getContentPane().add(tfArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 110, 30));
+        getContentPane().add(tfPoblacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 90, 30));
 
         cbGuardar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cbGuardar.setForeground(new java.awt.Color(255, 0, 0));
         cbGuardar.setText("GUARDAR");
+        cbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbGuardarActionPerformed(evt);
+            }
+        });
         getContentPane().add(cbGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 140, 40));
 
         cbLimpiar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cbLimpiar.setForeground(new java.awt.Color(255, 0, 0));
         cbLimpiar.setText("LIMPIAR");
+        cbLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbLimpiarActionPerformed(evt);
+            }
+        });
         getContentPane().add(cbLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 430, 130, 40));
 
         cbSalir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cbSalir.setForeground(new java.awt.Color(255, 0, 0));
         cbSalir.setText("SALIR");
+        cbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSalirActionPerformed(evt);
+            }
+        });
         getContentPane().add(cbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 430, 140, 40));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -157,16 +171,35 @@ public class frmIngresoNuevaPiscina extends javax.swing.JFrame {
         jLabel15.setText("metros");
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, 90, 30));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Piscina de Larvas", "Piscinas de Langostinos" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, 150, 40));
+        cbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Piscina de Larvas", "Piscinas de Langostinos" }));
+        getContentPane().add(cbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, 150, 30));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rectangular", "Circular", "Cuadrada" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 340, 130, 40));
+        cbForma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rectangular", "Circular", "Cuadrada" }));
+        getContentPane().add(cbForma, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 350, 130, 30));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 204, 0));
         jLabel16.setText("metros cuadrados");
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 300, 170, 30));
+
+        cbUbicacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Base 1", "Base 2", "Base 3", "Base 4", "Marbeth Durán" }));
+        getContentPane().add(cbUbicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 110, 30));
+
+        cbBuscar_empresa.setText("BUSCAR");
+        cbBuscar_empresa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbBuscar_empresaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbBuscar_empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 80, 30));
+
+        cbBuscar_producto.setText("BUSCAR");
+        cbBuscar_producto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbBuscar_productoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbBuscar_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 80, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/autenticacion.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 500));
@@ -175,54 +208,52 @@ public class frmIngresoNuevaPiscina extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * @param args the command line arguments
+     * Método utilizado para limpiar los campos del formulario.
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmIngresoNuevaPiscina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmIngresoNuevaPiscina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmIngresoNuevaPiscina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmIngresoNuevaPiscina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmIngresoNuevaPiscina().setVisible(true);
-            }
-        });
+    private void LimpiarFormulario(){
+        tfDescripcion.setText(null);
+        cbUbicacion.setSelectedItem(null);
+        tfLongitud_ancho.setText(null);
+        tfLongitud_largo.setText(null);
+        tfArea.setText(null);
+        cbTipo.setSelectedItem(null);
+        cbForma.setSelectedItem(null);
+        tfPoblacion.setText(null);
+        tfId_empresa.setText(null);
+        tfId_producto.setText(null);
     }
+    
+    private void cbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbLimpiarActionPerformed
+        LimpiarFormulario();
+    }//GEN-LAST:event_cbLimpiarActionPerformed
+
+    private void cbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSalirActionPerformed
+        frmMantenimientoPiscina mo = new frmMantenimientoPiscina();
+        mo.setVisible(true);
+    }//GEN-LAST:event_cbSalirActionPerformed
+
+    private void cbBuscar_empresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbBuscar_empresaActionPerformed
+        frmBuscarIdEmpresa bie = new frmBuscarIdEmpresa();
+        bie.setVisible(true);
+    }//GEN-LAST:event_cbBuscar_empresaActionPerformed
+
+    private void cbBuscar_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbBuscar_productoActionPerformed
+        
+    }//GEN-LAST:event_cbBuscar_productoActionPerformed
+
+    private void cbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbGuardarActionPerformed
+        
+    }//GEN-LAST:event_cbGuardarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cbBuscar_empresa;
+    private javax.swing.JButton cbBuscar_producto;
+    private javax.swing.JComboBox<String> cbForma;
     private javax.swing.JButton cbGuardar;
     private javax.swing.JButton cbLimpiar;
     private javax.swing.JButton cbSalir;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField10;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
-    private javax.swing.JFormattedTextField jFormattedTextField4;
-    private javax.swing.JFormattedTextField jFormattedTextField5;
-    private javax.swing.JFormattedTextField jFormattedTextField6;
-    private javax.swing.JFormattedTextField jFormattedTextField7;
+    private javax.swing.JComboBox<String> cbTipo;
+    private javax.swing.JComboBox<String> cbUbicacion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -240,5 +271,12 @@ public class frmIngresoNuevaPiscina extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JFormattedTextField tfArea;
+    private javax.swing.JFormattedTextField tfDescripcion;
+    public static javax.swing.JFormattedTextField tfId_empresa;
+    private javax.swing.JFormattedTextField tfId_producto;
+    private javax.swing.JFormattedTextField tfLongitud_ancho;
+    private javax.swing.JFormattedTextField tfLongitud_largo;
+    private javax.swing.JFormattedTextField tfPoblacion;
     // End of variables declaration//GEN-END:variables
 }
