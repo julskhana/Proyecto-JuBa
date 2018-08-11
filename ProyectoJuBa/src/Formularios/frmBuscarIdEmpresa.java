@@ -37,6 +37,7 @@ public class frmBuscarIdEmpresa extends javax.swing.JFrame {
         btConsultar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbempresa = new javax.swing.JTable();
+        cbSeleccionar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -92,6 +93,16 @@ public class frmBuscarIdEmpresa extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 750, 200));
 
+        cbSeleccionar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cbSeleccionar.setForeground(new java.awt.Color(255, 0, 0));
+        cbSeleccionar.setText("SELECCIONAR");
+        cbSeleccionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSeleccionarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 190, 40));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/autenticacion.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
 
@@ -104,6 +115,31 @@ public class frmBuscarIdEmpresa extends javax.swing.JFrame {
             consultarRegistro();
         }
     }//GEN-LAST:event_btConsultarActionPerformed
+
+    private boolean seleccionValida(){ 
+        int n = tbempresa.getSelectedRowCount();
+        if(n==0){
+            JOptionPane.showMessageDialog(this,"Debe seleccionar mínimo un registro","Clientes",JOptionPane.ERROR_MESSAGE);
+            return false;        
+        }
+        return true;
+    }
+    
+    private void cbSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSeleccionarActionPerformed
+        if(seleccionValida()){
+            int[] filas = tbempresa.getSelectedRows();
+            int col = 0;
+            try{
+                for(int i=0;i<filas.length;i++){                        
+                    frmIngresoNuevaPiscina.ingresar_id_empresa = (int) tbempresa.getValueAt(filas[i],col);
+                    frmIngresoNuevaPiscina.tf_Id_empresa.setText(String.valueOf(ingresar_id_empresa));
+                    System.out.println(ingresar_id_empresa); 
+                }this.dispose();
+            }catch(Exception e){
+                    JOptionPane.showMessageDialog(this,"Ocurrió un error en la selección del id usuario!","Eliminación",JOptionPane.ERROR_MESSAGE);                        
+            }
+        }
+    }//GEN-LAST:event_cbSeleccionarActionPerformed
 
     public void consultarRegistro(){
         String tipo = cbtipo.getSelectedItem().toString();
@@ -213,6 +249,7 @@ public class frmBuscarIdEmpresa extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btConsultar;
+    private javax.swing.JButton cbSeleccionar;
     private javax.swing.JComboBox<String> cbtipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
