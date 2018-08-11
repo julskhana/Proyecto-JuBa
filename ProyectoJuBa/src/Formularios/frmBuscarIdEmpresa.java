@@ -1,9 +1,7 @@
 package Formularios;
 
-import static Formularios.frmBuscarUsuarioEmpresas.tbusuarios;
 import static Formularios.frmIngresoNuevaPiscina.ingresar_id_empresa;
 import Objetos.empresa;
-import Objetos.usuario;
 import bd.ConexionBD;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
