@@ -2,7 +2,7 @@ package Formularios;
 
 import Objetos.operador;
 import bd.ConexionBD;
-import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -10,17 +10,14 @@ import java.util.ArrayList;
  */
 public class frmEdicionOperador extends javax.swing.JFrame {
 
+    public frmMantenimientoOperador frm;
     /**
      * Creates new form frmEdicionOperador
      */
-    public frmEdicionOperador() {
+    public frmEdicionOperador(String id, frmMantenimientoOperador frm) {
+        this.frm = frm;
         initComponents();
-        /**
-        tfNombre.setText(p.getNombre());
-        tfCedula.setText(p.getCedula());
-        tfTelefono.setText(p.getTelefono());
-        cbTipo.setSelectedItem(p.getTipo());
-             **/   
+            
     }
 
     /**
@@ -46,6 +43,7 @@ public class frmEdicionOperador extends javax.swing.JFrame {
         cbTipo = new javax.swing.JComboBox<>();
         cbGuardar = new javax.swing.JButton();
         cbLimpiar = new javax.swing.JButton();
+        cbSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -101,7 +99,7 @@ public class frmEdicionOperador extends javax.swing.JFrame {
                 cbGuardarActionPerformed(evt);
             }
         });
-        getContentPane().add(cbGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, 140, 40));
+        getContentPane().add(cbGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 400, 140, 40));
 
         cbLimpiar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cbLimpiar.setForeground(new java.awt.Color(255, 0, 0));
@@ -111,7 +109,17 @@ public class frmEdicionOperador extends javax.swing.JFrame {
                 cbLimpiarActionPerformed(evt);
             }
         });
-        getContentPane().add(cbLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 400, 140, 40));
+        getContentPane().add(cbLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 400, 140, 40));
+
+        cbSalir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cbSalir.setForeground(new java.awt.Color(255, 0, 0));
+        cbSalir.setText("SALIR");
+        cbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 400, 130, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/autenticacion.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 500));
@@ -119,17 +127,63 @@ public class frmEdicionOperador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private boolean formularioValido(){
+        if(tfNombre.getText().equals("") ||
+            tfCedula.getText().equals("") ||
+            tfTelefono.getText().equals("") ||    
+            cbTipo.getSelectedItem().equals("")){
+            
+           JOptionPane.showMessageDialog(this,"Formulario incompleto","Validación",JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+    
     private void cbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbGuardarActionPerformed
-        
+        ConexionBD c = new ConexionBD();
+        if(formularioValido()){
+            int id_operador       = Integer.parseInt(tfId.getText());
+            String nombre         = tfNombre.getText();
+            String cedula         = tfCedula.getText();
+            String telefono       = tfTelefono.getText();
+            String tipo           = (String)cbTipo.getSelectedItem();
+            
+            try{
+                c.conectar();
+                operador o = new operador(id_operador,nombre,cedula,telefono,tipo);
+                if(c.editarOperador(o)){
+                    JOptionPane.showMessageDialog(this,"Ingreso Exitoso","Validación",JOptionPane.INFORMATION_MESSAGE);
+                
+                }else
+                    JOptionPane.showMessageDialog(this,"Ingreso Fallido","Validación",JOptionPane.ERROR_MESSAGE);
+                
+                c.desconectar();
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(this,"Ocurrio un problema durante el ingreso","Validación",JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_cbGuardarActionPerformed
 
+    private void LimpiarFormulario(){
+        tfNombre.setText(null);
+        tfCedula.setText(null);
+        tfTelefono.setText(null);
+        cbTipo.setSelectedItem(null);
+    }
+    
     private void cbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbLimpiarActionPerformed
-        
+        LimpiarFormulario();
     }//GEN-LAST:event_cbLimpiarActionPerformed
+
+    private void cbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSalirActionPerformed
+        frmMantenimientoOperador mo = new frmMantenimientoOperador();
+        mo.setVisible(true);
+    }//GEN-LAST:event_cbSalirActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cbGuardar;
     private javax.swing.JButton cbLimpiar;
+    private javax.swing.JButton cbSalir;
     private javax.swing.JComboBox<String> cbTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
