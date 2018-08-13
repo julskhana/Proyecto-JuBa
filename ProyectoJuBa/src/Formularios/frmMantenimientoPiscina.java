@@ -1,20 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Formularios;
+
+import Objetos.operador;
+import Objetos.piscina;
+import bd.ConexionBD;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Jerson Junqui
  */
-public class frmPiscina extends javax.swing.JFrame {
+public class frmMantenimientoPiscina extends javax.swing.JFrame {
 
     /**
      * Creates new form frmPiscina
      */
-    public frmPiscina() {
+    public frmMantenimientoPiscina() {
         initComponents();
     }
 
@@ -29,16 +31,16 @@ public class frmPiscina extends javax.swing.JFrame {
 
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
-        cbtipo = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        tfdescripcion = new javax.swing.JTextField();
-        btConsultar = new javax.swing.JButton();
+        cbTipo = new javax.swing.JComboBox<>();
         btSalir = new javax.swing.JButton();
-        btNuevousuario = new javax.swing.JButton();
-        btEditar = new javax.swing.JButton();
-        btEliminar = new javax.swing.JButton();
+        btNuevaPiscina = new javax.swing.JButton();
+        btEditarPiscina = new javax.swing.JButton();
+        btEliminarPiscina = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbResultado = new javax.swing.JTable();
+        cbConsultar = new javax.swing.JButton();
+        tfDescripcion = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,26 +54,17 @@ public class frmPiscina extends javax.swing.JFrame {
         jLabel2.setText("MANTENIMIENTO PISCINAS");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 360, 30));
 
-        cbtipo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        cbtipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Nombres", "Apellidos", "Sexo", "Tipo", "Cargo" }));
-        getContentPane().add(cbtipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 170, 30));
-
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 204, 0));
-        jLabel4.setText("Descripcion:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 130, 30));
-        getContentPane().add(tfdescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 340, 30));
+        jLabel4.setText("UBICACIÓN:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 130, 30));
 
-        btConsultar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btConsultar.setText("Consultar");
-        btConsultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btConsultarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 90, 140, 40));
+        cbTipo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Id piscina", "Ubicacion" }));
+        getContentPane().add(cbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 170, 30));
 
         btSalir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btSalir.setForeground(new java.awt.Color(255, 0, 0));
         btSalir.setText("Salir");
         btSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,80 +73,95 @@ public class frmPiscina extends javax.swing.JFrame {
         });
         getContentPane().add(btSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 420, 120, 40));
 
-        btNuevousuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btNuevousuario.setText("Nuevo");
-        btNuevousuario.setMaximumSize(new java.awt.Dimension(80, 32));
-        btNuevousuario.setMinimumSize(new java.awt.Dimension(80, 32));
-        btNuevousuario.addActionListener(new java.awt.event.ActionListener() {
+        btNuevaPiscina.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btNuevaPiscina.setForeground(new java.awt.Color(255, 0, 0));
+        btNuevaPiscina.setText("Nuevo");
+        btNuevaPiscina.setMaximumSize(new java.awt.Dimension(80, 32));
+        btNuevaPiscina.setMinimumSize(new java.awt.Dimension(80, 32));
+        btNuevaPiscina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btNuevousuarioActionPerformed(evt);
+                btNuevaPiscinaActionPerformed(evt);
             }
         });
-        getContentPane().add(btNuevousuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, 120, 40));
+        getContentPane().add(btNuevaPiscina, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, 120, 40));
 
-        btEditar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btEditar.setText("Editar");
-        btEditar.addActionListener(new java.awt.event.ActionListener() {
+        btEditarPiscina.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btEditarPiscina.setForeground(new java.awt.Color(255, 0, 0));
+        btEditarPiscina.setText("Editar");
+        btEditarPiscina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEditarActionPerformed(evt);
+                btEditarPiscinaActionPerformed(evt);
             }
         });
-        getContentPane().add(btEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 130, 40));
+        getContentPane().add(btEditarPiscina, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 130, 40));
 
-        btEliminar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btEliminar.setText("Eliminar");
-        btEliminar.setMaximumSize(new java.awt.Dimension(80, 32));
-        btEliminar.setMinimumSize(new java.awt.Dimension(80, 32));
-        btEliminar.addActionListener(new java.awt.event.ActionListener() {
+        btEliminarPiscina.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btEliminarPiscina.setForeground(new java.awt.Color(255, 0, 0));
+        btEliminarPiscina.setText("Eliminar");
+        btEliminarPiscina.setMaximumSize(new java.awt.Dimension(80, 32));
+        btEliminarPiscina.setMinimumSize(new java.awt.Dimension(80, 32));
+        btEliminarPiscina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEliminarActionPerformed(evt);
+                btEliminarPiscinaActionPerformed(evt);
             }
         });
-        getContentPane().add(btEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, 120, 40));
+        getContentPane().add(btEliminarPiscina, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, 120, 40));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbResultado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "id_piscina", "descripcion", "ubicacion", "logitud_ancho", "longitud_largo", "area", "tipo", "forma", "poblacion", "id_empresa", "id_producto"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 840, 230));
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tbResultado);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 890, 230));
+
+        cbConsultar.setText("CONSULTAR");
+        cbConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbConsultarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 110, 130, 30));
+        getContentPane().add(tfDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 280, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/autenticacion.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
-        /**if (formularioConsultaValido()){
-            consultarRegistro();
-            btEliminar.enable(true);
-            btEditar.enable(true);
-        }**/
-    }//GEN-LAST:event_btConsultarActionPerformed
-
+    
+    
+    
     private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
-        this.dispose();
+        frmPrincipal frm = new frmPrincipal();
+        frm.setVisible(true);
     }//GEN-LAST:event_btSalirActionPerformed
 
-    private void btNuevousuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNuevousuarioActionPerformed
-        frmIngresoNuevoUsuario inu = new frmIngresoNuevoUsuario();
+    private void btNuevaPiscinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNuevaPiscinaActionPerformed
+        frmIngresoNuevaPiscina inu = new frmIngresoNuevaPiscina();
         inu.setVisible(true);
-    }//GEN-LAST:event_btNuevousuarioActionPerformed
+    }//GEN-LAST:event_btNuevaPiscinaActionPerformed
 
-    private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
+    private void btEditarPiscinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarPiscinaActionPerformed
 
-    }//GEN-LAST:event_btEditarActionPerformed
+    }//GEN-LAST:event_btEditarPiscinaActionPerformed
 
-    private void btEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarActionPerformed
+    private void btEliminarPiscinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarPiscinaActionPerformed
         // TODO add your handling code here:
 
         /*if (seleccionEliminacionValida()){
@@ -177,56 +185,92 @@ public class frmPiscina extends javax.swing.JFrame {
         if(formularioConsultaValidoA()){
             consultarRegistro();}
         */
-    }//GEN-LAST:event_btEliminarActionPerformed
+    }//GEN-LAST:event_btEliminarPiscinaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+    public void consultarRegistro(){
+        String tipo = cbTipo.getSelectedItem().toString();
+        String descripcion = tfDescripcion.getText();        
+        //consultar
+        try{
+            //cunsolta a la base
+            try{
+                ConexionBD c = new ConexionBD();
+                c.conectar();
+                //creacion de array lists que contentran las piscinas
+                ArrayList<piscina> registro = c.consultarPiscinas("","piscina");
+                ArrayList<piscina> resultado = new ArrayList<piscina>();
+                //Consultar tipo y descripcion
+                if (tipo.equals("Todos")){
+                        resultado = registro;
+                }else{
+                    for (piscina emp:registro){
+                        if(tipo.equals("Id piscina")&&(descripcion.length()>0)){
+                            if(String.valueOf(emp.getId_piscina()).equals(descripcion) ){
+                                resultado.add(emp);
+                            }
+                        }else if(tipo.equals("Ubicacion")){
+                            if(emp.getUbicacion().toUpperCase().contains(descripcion.toUpperCase())){
+                                resultado.add(emp);
+                            }
+                        }else{
+                            JOptionPane.showMessageDialog(this,"Descripcion vacia.","Consulta Invalida",JOptionPane.ERROR_MESSAGE);
+                            break;
+                        }
+                    }
                 }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmPiscina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmPiscina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmPiscina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmPiscina.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmPiscina().setVisible(true);
+                DefaultTableModel dtm = (DefaultTableModel)tbResultado.getModel();
+                dtm.setRowCount(0);
+                
+                //recorriendo base de datos
+                for (piscina em:resultado){
+                    Object[] fila = new Object[2];
+                    fila[0] = em.getId_piscina();
+                    fila[1] = em.getUbicacion();
+                    dtm.addRow(fila);
+                }
+            c.desconectar();
+            }catch (Exception e){
+                System.out.println("error al consultar piscinas"+e);
             }
-        });
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(this,"Ocurrió un error al consultar las piscinas","Consulta",JOptionPane.ERROR_MESSAGE);
+            System.out.println("consulta de registros piscinas: "+e);
+        }
     }
+    
+    private boolean formularioConsultaValido(){
+        String tipo = cbTipo.getSelectedItem().toString();
+        String descripcion = tfDescripcion.getText();
+        if(tipo.equals("Id piscina") && descripcion.equals("")){
+                JOptionPane.showMessageDialog(this,"Debe ingresar el ID de la empresa.","Consulta",JOptionPane.ERROR_MESSAGE);
+                return false;
+        }else if(tipo.equals("Ubicacion") && descripcion.equals("")){
+                JOptionPane.showMessageDialog(this,"Debe ingresar la Ubiación de la piscina.","Consulta",JOptionPane.ERROR_MESSAGE);
+                return false;
+        }
+        return true;
+    }
+    
+    private void cbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbConsultarActionPerformed
+        if (formularioConsultaValido()){
+            consultarRegistro();
+        }
+    }//GEN-LAST:event_cbConsultarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btConsultar;
-    private javax.swing.JButton btEditar;
-    private javax.swing.JButton btEliminar;
-    private javax.swing.JButton btNuevousuario;
+    private javax.swing.JButton btEditarPiscina;
+    private javax.swing.JButton btEliminarPiscina;
+    private javax.swing.JButton btNuevaPiscina;
     private javax.swing.JButton btSalir;
-    private javax.swing.JComboBox<String> cbtipo;
+    private javax.swing.JButton cbConsultar;
+    private javax.swing.JComboBox<String> cbTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField tfdescripcion;
+    private javax.swing.JTable tbResultado;
+    private javax.swing.JTextField tfDescripcion;
     // End of variables declaration//GEN-END:variables
 }
