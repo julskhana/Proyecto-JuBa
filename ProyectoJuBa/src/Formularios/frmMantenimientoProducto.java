@@ -245,8 +245,26 @@ public class frmMantenimientoProducto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbEliminarActionPerformed
 
+    private boolean seleccionEdicionValidaProducto(){
+        int n = tbResultado.getSelectedRowCount();
+        if(n==0){
+            JOptionPane.showMessageDialog(rootPane,"Debe seleccionar un registro para editar","Edición",JOptionPane.ERROR_MESSAGE);            
+            return false;
+        }else if(n>1){
+            JOptionPane.showMessageDialog(this,"Debe seleccionar sólo un registro para editar","Edición",JOptionPane.ERROR_MESSAGE);                    
+            return false;    
+        }
+        return true;
+    }
+    
     private void cbEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEditarActionPerformed
-        
+        if(seleccionEdicionValidaProducto()){
+            int fila = tbResultado.getSelectedRow();
+            int col = 0;
+            String id = String.valueOf(tbResultado.getValueAt(fila, col));
+            frmEdicionProducto frm = new frmEdicionProducto(id,this);
+            frm.setVisible(true);
+        }
     }//GEN-LAST:event_cbEditarActionPerformed
 
     private void cbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNuevoActionPerformed
