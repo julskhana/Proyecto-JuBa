@@ -18,9 +18,6 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
     public frmMantenimientoUsuario() {
         initComponents();
         
-        btEliminar.enable(false);
-        btEditar.enable(false);
-        
     }
 
     /**
@@ -74,7 +71,7 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbusuario);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 920, 260));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 910, 260));
 
         cbtipo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cbtipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Nombres", "Apellidos", "Sexo", "Tipo", "Cargo" }));
@@ -82,15 +79,17 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
         getContentPane().add(tfdescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 340, 30));
 
         btConsultar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btConsultar.setForeground(new java.awt.Color(255, 0, 0));
         btConsultar.setText("Consultar");
         btConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btConsultarActionPerformed(evt);
             }
         });
-        getContentPane().add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 90, 120, 40));
+        getContentPane().add(btConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 90, 140, 40));
 
         btNuevousuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btNuevousuario.setForeground(new java.awt.Color(255, 0, 0));
         btNuevousuario.setText("Nuevo");
         btNuevousuario.setMaximumSize(new java.awt.Dimension(80, 32));
         btNuevousuario.setMinimumSize(new java.awt.Dimension(80, 32));
@@ -102,6 +101,7 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
         getContentPane().add(btNuevousuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, 120, 40));
 
         btEliminar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btEliminar.setForeground(new java.awt.Color(255, 0, 0));
         btEliminar.setText("Eliminar");
         btEliminar.setMaximumSize(new java.awt.Dimension(80, 32));
         btEliminar.setMinimumSize(new java.awt.Dimension(80, 32));
@@ -112,12 +112,13 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(btEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, 120, 40));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 204, 0));
         jLabel3.setText("MANTENIMIENTO USUARIO");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 350, 30));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 540, 40));
 
         btEditar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btEditar.setForeground(new java.awt.Color(255, 0, 0));
         btEditar.setText("Editar");
         btEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,6 +132,7 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 130, 30));
 
         btSalir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btSalir.setForeground(new java.awt.Color(255, 0, 0));
         btSalir.setText("Salir");
         btSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,29 +140,48 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 420, 120, 40));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 930, 10));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 610, 10));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/autenticacion.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 500));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btNuevousuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNuevousuarioActionPerformed
-        // TODO add your handling code here:
-        /*
-        frmIngresoUsuario ingresoU = new frmIngresoUsuario();
-        ingresoU.setVisible(true);
-        */
+        frmIngresoNuevoUsuario inu = new frmIngresoNuevoUsuario();
+        inu.setVisible(true);
     }//GEN-LAST:event_btNuevousuarioActionPerformed
-    private boolean formularioConsultaValidoA(){
+    
+    private boolean formularioConsultaValido(){
         String tipo = cbtipo.getSelectedItem().toString();
         String descripcion = tfdescripcion.getText();
-        if(tipo.equals("Nombres") && descripcion.equals("")){
+        if(tipo.equals("Cuenta") && descripcion.equals("")){
+            JOptionPane.showMessageDialog(this,"Debe ingresar la Cuenta","Consulta",JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(tipo.equals("Nombres") && descripcion.equals("")){
             JOptionPane.showMessageDialog(this,"Debe ingresar el Nombre","Consulta",JOptionPane.ERROR_MESSAGE);
             return false;
         }else if(tipo.equals("Apellidos") && descripcion.equals("")){
             JOptionPane.showMessageDialog(this,"Debe ingresar el Apellido","Consulta",JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(tipo.equals("Cedula") && descripcion.equals("")){
+            JOptionPane.showMessageDialog(this,"Debe ingresar la Cedula","Consulta",JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(tipo.equals("Edad") && descripcion.equals("")){
+            JOptionPane.showMessageDialog(this,"Debe ingresar la Edad","Consulta",JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(tipo.equals("Direccion") && descripcion.equals("")){
+            JOptionPane.showMessageDialog(this,"Debe ingresar la Direccion","Consulta",JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(tipo.equals("Telefono") && descripcion.equals("")){
+            JOptionPane.showMessageDialog(this,"Debe ingresar el Telefono","Consulta",JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(tipo.equals("Celular") && descripcion.equals("")){
+            JOptionPane.showMessageDialog(this,"Debe ingresar el Celular","Consulta",JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(tipo.equals("Correo") && descripcion.equals("")){
+            JOptionPane.showMessageDialog(this,"Debe ingresar el Correo","Consulta",JOptionPane.ERROR_MESSAGE);
             return false;
         }else if(tipo.equals("Sexo") && descripcion.equals("")){
             JOptionPane.showMessageDialog(this,"Debe ingresar el Sexo","Consulta",JOptionPane.ERROR_MESSAGE);
@@ -170,6 +191,12 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
             return false;
         }else if(tipo.equals("Cargo") && descripcion.equals("")){
             JOptionPane.showMessageDialog(this,"Debe ingresar el Cargo","Consulta",JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(tipo.equals("Estado") && descripcion.equals("")){
+            JOptionPane.showMessageDialog(this,"Debe ingresar el Estado","Consulta",JOptionPane.ERROR_MESSAGE);
+            return false;
+        }else if(tipo.equals("Fecha Inicio") && descripcion.equals("")){
+            JOptionPane.showMessageDialog(this,"Debe ingresar la Fecha de Inicio","Consulta",JOptionPane.ERROR_MESSAGE);
             return false;
         }
         return true;
@@ -185,18 +212,26 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
                 c.conectar();
                 
                 ArrayList<usuario> registro = c.consultarUsuarios("","usuario");
-                ArrayList<usuario> resultado = new ArrayList<>();
+                ArrayList<usuario> resultado = new ArrayList<usuario>();
                 
                 if (tipo.equals("Todos")){
-                        resultado = registro;
+                    resultado = registro;
                 }else{
                     for (usuario u1:registro){
-                        if(tipo.equals("Nombres")&&(descripcion.length()>0)){
+                        if(tipo.equals("Cuenta")&&(descripcion.length()>0)){
+                            if(u1.getCuenta().toUpperCase().contains(descripcion.toUpperCase())){
+                                resultado.add(u1);
+                            }
+                        }else if(tipo.equals("Nombres")&&(descripcion.length()>0)){
                             if(u1.getNombres().toUpperCase().contains(descripcion.toUpperCase())){
                                 resultado.add(u1);
                             }
                         }else if(tipo.equals("Apellidos")&&(descripcion.length()>0)){
                             if(u1.getApellidos().toUpperCase().contains(descripcion.toUpperCase())){
+                                resultado.add(u1);
+                            }
+                        }else if(tipo.equals("Cedula")&&(descripcion.length()>0)){
+                            if(u1.getCedula().toUpperCase().contains(descripcion.toUpperCase())){
                                 resultado.add(u1);
                             }
                         }else if(tipo.equals("Sexo")&&(descripcion.length()>0)){
@@ -252,10 +287,8 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
     }
     
     private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
-        if (formularioConsultaValidoA()){
+        if (formularioConsultaValido()){
             consultarRegistro();
-            btEliminar.enable(true);
-            btEditar.enable(true);
         }
     }//GEN-LAST:event_btConsultarActionPerformed
 
@@ -290,7 +323,6 @@ public class frmMantenimientoUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btEditarActionPerformed
 
     private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btSalirActionPerformed
     /*
